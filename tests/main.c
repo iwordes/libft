@@ -662,20 +662,39 @@ int		test_strncpy(void)
 		"A string of characters.", "A string of characters.",
 		"A string of characters.", "A string.",
 		"A string.", "A string of characters.",
-		"", "", 
+		"A string of characters.", "A string.",
+		"A string.", "A string of characters.",
+		"", "",
 		"", "",
 		{-1}
 	};
 	size_t	bytecounts[] =
 	{
-
+		strlen(inputs[0]),
+		strlen(inputs[2]),
+		strlen(inputs[4]),
+		strlen(inputs[7]),
+		strlen(inputs[9]),
+		1,
+		0
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strdup(inputs[i]);
+		ft = strdup(inputs[i]);
+		strncpy(std, inputs[i + 1], bytecounts[i / 2]);
+		ft_strncpy(ft, inputs[i + 1], bytecounts[i / 2]);
+		if (strcmp(std, ft) == 0)
+			pass(i / 2);
+		else
+		{
+			fail(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }
@@ -686,14 +705,46 @@ int		test_strnstr(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A needle in a haystack.", "needle",
+		"An asteroid belt, with many motes of dust.", "mote",
+		"A sentence, but one with many, many, commas.", ",",
+		"A report on the local economy under a stack of books.", "meal schedule",
+		"stack", "A stack of books above that stack of books from before.",
+		".", "A sentence.",
+		"Nothing.", "",
+		"", "Nothing.",
+		"", "",
+		"", "",
 		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+		strlen(inputs[0]),
+		16,
+		strlen(inputs[4]),
+		strlen(inputs[6]),
+		8,
+		1,
+		9,
+		72,
+		1,
+		0
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strnstr(inputs[i], inputs[i + 1], bytecounts[i / 2]);
+		ft = ft_strnstr(inputs[i], inputs[i + 1], bytecounts[i / 2]);
+		if (std == ft)
+			pass(i / 2);
+		else
+		{
+			fails(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }

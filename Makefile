@@ -2,7 +2,7 @@ NAME    := libft
 AUTHOR  := iwordes
 VERSION := 0.1.0
 
-SOURCES :=
+SOURCES := src/
 OBJECTS := $(subst .c,.o,$(SOURCES))
 
 GCC := gcc -Wall -Wextra -Werror
