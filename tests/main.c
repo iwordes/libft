@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <limits.h>
 
 void			pass(int test)
 {
@@ -18,6 +19,14 @@ void			faili(int test, int expected, int got)
 	printf("test #%d: " RED "FAIL\n" NML "Expected \"%d\", got \"%d\"\n",
 			test, expected, got);
 }
+void			failp(int test, void *expected, void *got)
+{
+
+}
+void			fails(int test, char *expected, char *got)
+{
+
+}
 
 /*
 ** Tests (Alphabetical)
@@ -25,37 +34,32 @@ void			faili(int test, int expected, int got)
 
 int		test_atoi(void)
 {
-	char	*std;
-	char	*ft;
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-		"",
 		"42",
 		"-42",
-		"         4    2    ",
-		"	 15 7",
-		"  			- 3  ",
+		"     4  2",
+		"15     7",
+		"   -   3",
 		"43-1",
-		"\0"
+		{-1}
 	};
-	int		i;
-	int		outcome;
+	int		std;
+	int		ft;
 
-	i = 0;
-	outcome = 1;
-	while (inputs[i][0] != 0)
+	while (inputs[i][0] != -1)
 	{
 		std = atoi(inputs[i]);
 		ft = ft_atoi(inputs[i]);
-		if (strcmp(std, ft) == 0)
+		if (std == ft)
 			pass(i);
 		else
 		{
-			fail(i, std, ft);
+			faili(i, std, ft);
 			outcome = 0;
 		}
-		free(std);
-		free(ft);
 		i++;
 	}
 	return (outcome);
@@ -63,24 +67,37 @@ int		test_atoi(void)
 
 int		test_bzero(void)
 {
+	int		i = 0;
+	int		outcome = 1;
+	long	inputs[] =
+	{
+		0x00000000,
+		0xEF00FF00,
+		0x00FF00FF,
+		0x0F0F0F0F,
+		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+		0,
+		4,
+		2,
+
+	};
 	long	std;
 	long	ft;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
-	while (i <= 4)
+	while (inputs[i] != -1)
 	{
-		std = 0xFFFFFFFF;
-		ft = std;
-		bzero((void*)&std, i);
-		ft_bzero((void*)&ft, i);
+		std = inputs[i];
+		ft = inputs[i];
+		bzero((void*)&std, bytecounts[i]);
+		ft_bzero((void*)&ft, bytecounts[i]);
 		if (std == ft)
 			pass(i);
 		else
 		{
-			faili(i, (int)std, (int)ft);
+			faili(i, std, ft);
 			outcome = 0;
 		}
 		i++;
@@ -88,45 +105,48 @@ int		test_bzero(void)
 	return (outcome);
 }
 
-// int		test_dtoa(void)
-// {
-//
-// }
-
 int		test_itoa(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	int		inputs[] =
 	{
 		0,
 		42,
 		-42,
-		255
+		INT_MIN,
+		INT_MAX
 	};
 	char	*outputs[] =
 	{
 		"0",
 		"42",
 		"-42",
-		"255",
-		"\0"
+		#if INT_MAX == 9223372036854775807
+		"-9223372036854775808",
+		"9223372036854775807",
+		#elif INT_MAX == 2147483647
+		"-2147483648",
+		"2147483647",
+		#elif INT_MAX == 32767
+		"-32768",
+		"32767",
+		#endif
+		{-1}
 	};
-	char	*string;
-	int		outcome;
-	int		i;
+	char	*std;
+	char	*ft;
 
-	outcome = 1;
-	i = 0;
-	while (outputs[i][0] != 0)
+	while (inputs[i][0] != -1)
 	{
-		string = ft_itoa(inputs[i]);
-		if (strcmp(string, outputs[i]) == 0)
+		output = ft_itoa(inputs[i]);
+		if (strcmp(output, outputs[i]) == 0)
 			pass(i);
 		else
 		{
-			fail(i, outputs[i], string);
+			faili(i, outputs[i], output);
 			outcome = 0;
 		}
-		free(string);
 		i++;
 	}
 	return (outcome);
@@ -139,75 +159,90 @@ int		test_memalloc(void)
 
 int		test_memccpy(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-		"Merry Christmas!", "t",
-		"\"Unfathomable,\" he swore,", ",",
-		"This is it; there's nothing else here.", "?",
-		"", "a",
-		"\0"
+		"A string of characters.", " ",
+		"A string of characters, missing the proper character.", "?",
+		"", "An empty string, of which A is not in.",
+		"", "",
+		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+		strlen(inputs[0]),
+		strlen(inputs[1]) + 1,
+		1,
+		0
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
+	char	*strd;
+	char	*ftr;
 
-	i = 0;
-	outcome = 1;
-	while (inputs[i][0] != 0)
+	while (inputs[i][0] != -1)
 	{
-		stdr = memccpy((void*)std, (void*)inputs[i], (int)inputs[i + 1][0]));
-		ftr = ft_memccpy((void*)ft, (void*)inputs[i], (int)inputs[i + 1][0]);
-		if (std == ft && stdr == ftr)
+		std = (char*)malloc(strlen( inputs[i] ));
+		ft = (char*)malloc(strlen( inputs[i] ));
+
+		stdr = (char*)memccpy( (void*)std, (void*)(inputs[i]),
+				inputs[i + 1][0], bytecounts[i / 2] );
+		ftr = (char*)ft_memccpy( (void*)ft, (void*)(inputs[i]),
+				inputs[i + 1][0], bytecounts[i / 2] );
+
+		std[bytecounts[ i / 2 ]] = 0;
+		ft[bytecounts[ i / 2 ]] = 0;
+
+		if (stdr - std == ftr - ft && strcmp(std, ft) == 0)
 			pass(i / 2);
 		else
 		{
-			if (std != ft)
-				fail(i / 2, std, ft);
-			else if (stdr != ftr)
-				fail(i / 2, (char*)stdr, (char*)ftr);
+			fails(i / 2, std, ft);
 			outcome = 0;
 		}
+
 		free(std);
 		free(ft);
-		i += 2;
+
+		i++;
 	}
 	return (outcome);
 }
 
 int		test_memchr(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
 		"Frozen icicle", "e",
 		"mixed bag", "h",
-		"", { 1 },
-		"An obscenely long block of text that no sane person would generally"
-		"try to input to a function, but nonetheless will be put there for no"
-		"reason other than to try to mess it up. Generally speaking, the koala"
-		"is well known for its jumping capability. Wait, no, I think that was"
-		"the other one. Steve, turn off the camera, I'm making me look stupid!",
-		";",
-		"\0"
+		"", "",
+		{ -128, 0 }, { 127 },
+		{ 127, 0 }, { -128 },
+		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+		strlen(inputs[i]),
+		4,
+		1,
+		2,
+		0
 	};
 	char	*std;
 	char	*ft;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 0;
-	while (inputs[i][0] != 0)
+	while (inputs[i][0] != -1)
 	{
-		std = (char*)memchr((void*)inputs[i], (int)inputs[i + 1][0]);
-		ft = (char*)ft_memchr((void*)inputs[i], (int)inputs[i + 1][0]);
-		if (strcmp(std, ft) == 0)
-			pass(i);
+		std = (char*)memchr((void*)(inputs + i), inputs[i + 1][0], bytecounts[i / 2]);
+		ft = (char*)ft_memchr((void*)(inputs + i), inputs[i + 1][0], bytecounts[i / 2]);
+		if (std == ft)
+			pass(i / 2);
 		else
 		{
-			faili(i, std, ft);
+			failp(i / 2, std, ft);
 			outcome = 0;
 		}
 		i += 2;
@@ -217,25 +252,74 @@ int		test_memchr(void)
 
 int		test_memcmp(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"Some real text", "Some real text",
 		"Some real text", "Some fake text",
-		"AbbCccDdddEeeee", "Abbcccddddeeeee",
-		"what", { -1, 50, 14, 11, 116 },
-		"\0"
+		"Some fake text", "Some real text",
+		"Some real text", "Some real text, or perhaps fake text?",
+		"Some real text, and a real suffix", "Some real text",
+		"Some real text, and some stuff that gets ignored.", "Some real text",
+		"", "",
+		"", " ",
+		",", "",
+		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+		strlen(inputs[0]),
+		strlen(inputs[2]),
+		strlen(inputs[4]),
+		strlen(inputs[7]),
+		strlen(inputs[8]),
+		strlen(inputs[11]),
+		1,
+		1,
+		0
+	};
+	int		std;
+	int		ft;
+
+	while (inputs[i][0] != -1)
+	{
+		std = memcmp(inputs[i], inputs[i + 1], bytecounts[i / 2]);
+		ft = ft_memcmp(inputs[i], inputs[i + 1], bytecounts[i / 2]);
+		if (std == ft)
+			pass(i / 2);
+		else
+		{
+			faili(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
+	}
+	return (outcome);
+}
+
+int		test_memcpy(void)
+{
+	int		i = 0;
+	int		outcome = 1;
+	char	*inputs[] =
+	{
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	int		i;
-	int		outcome;
+	size_t	length;
 
-	i = 0;
-	outcome = 1;
-	while (inputs[i][0] != 0)
+	while (inputs[i][0] != -1)
 	{
-		std = memcmp(inputs[i], inputs[i + 1]);
-		ft = ft_memcmp(inputes[i], inputes[i + 1]);
-		if (std == ft)
+		length = GREATER( strlen(inputs[i]), strlen(inputs[i + 1]) );
+		std = malloc(length + 1);
+		ft = malloc(length + 1);
+		memcpy((void*)std, (void*)inputs[i + 1], bytecounts[i / 2]);
+		ft_memcpy((void*)ft, (void*)inputs[i + 1], bytecounts[i / 2]);
+		std[length] = 0;
+		ft[length] = 0;
+		if (strcmp(std, ft) == 0)
 			pass(i / 2);
 		else
 		{
@@ -247,563 +331,662 @@ int		test_memcmp(void)
 	return (outcome);
 }
 
-int		test_memcpy(void)
-{
-	char	*inputs[] =
-	{
-		"Some text, ",
-		"A larger block of text.",
-		"A particularly large block of text, made to test how ft_memcpy deals"
-		"with fairly big inputs.",
-		"Some text that doesn't matter",
-		"what is this I don't even",
-		"\0"
-	};
-	int		bytecounts[] =
-	{
-		6,
-		15,
-		42,
-		0,
-		-1
-	};
-	char	*std;
-	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
-
-	i = 0;
-	outcome = 1;
-
-}
-
 int		test_memdel(void)
 {
-	char	*inputs[] =
+	void	*input;
+
+	input = malloc(16);
+	ft_memdel((void**)&input);
+	if (input == NULL)
 	{
-
-	};
-	char	*std;
-	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
-
-	i = 0;
-	outcome = 1;
+		pass(0);
+		return (1);
+	}
+	else
+	{
+		fail(0, "nullified pointer", "input pointer back");
+		return (0);
+	}
 }
 
 int		test_memmove(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		"Some text / to move.",
+		"Some more / text / to move.",
+		"What you see is what you get.",
+		{-1}
+	};
+	size_t	doffsets[] =
+	{
+		0,
+		10,
+		9
+	},
+	size_t	soffsets[] =
+	{
+		10,
+		17,
+		25
+	};
+	size_t	bytecounts[] =
+	{
+		12,
+		12,
+		3
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+		std = strdup(inputs[i]);
+		ft = strdup(inputs[i]);
+		memmove(std + doffsets[i], std + soffsets[i], bytecounts[i]);
+		ft_memmove(ft + doffsets[i], ft + soffsets[i], bytecounts[i]);
+		if (strcmp(std, ft) == 0)
+			pass(i);
+		else
+		{
+			fails(i, std, ft);
+			outcome = 0;
+		}
+		free(std);
+		free(ft);
+		i++;
+	}
+	return (outcome);
 }
 
 int		test_memset(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		"This is a string of characters.",
+		"Another string of characters.",
+		"FFFFFF",
+		{-1}
+	};
+	int		sets[] =
+	{
+		'*',
+		42,
+		'0'
+	};
+	size_t	bytecounts[] =
+	{
+		19,
+		21,
+		4
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+		std = strdup(inputs[i]);
+		ft = strdup(inputs[i]);
+		memset(std, sets[i], bytecounts[i]);
+		ft_memset(ft, sets[i], bytecounts[i]);
+		if (strcmp(std, ft) == 0)
+			pass(i);
+		else
+		{
+			fail(i, std, ft);
+			outcome = 0;
+		}
+		i++;
+	}
+	return (outcome);
 }
 
 int		test_strcat(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		"A string", " of characters.",
+		"Wimbly ", "Wode",
+		"I think", " this might be a string?",
+		"", "A string.",
+		"A string.", "",
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+		std = (char*)malloc( strlen(inputs[i]) + strlen(inputs[i + 1]) + 1 );
+		ft = (char*)malloc( strlen(inputs[i]) + strlen(inputs[i + 1]) + 1 );
+		strcpy(std, inputs[i]);
+		strcpy(ft, inputs[i]);
+		strcat(std, inputs[i + 1]);
+		ft_strcat(ft, inputs[i + 1]);
+		if (strcmp(std, ft) == 0)
+			pass(i / 2);
+		else
+		{
+			fails(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
+	}
+	return (outcome);
 }
 
 int		test_strchr(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		"A string of characters.",
+		"A string of characters, which of course does not have the letter",
+		"A string of characters, which ends in a terminator.",
+		"",
+		"",
+		{-1}
+	};
+	char	characters[] =
+	{
+		'A',
+		'B',
+		0,
+		42,
+		0,
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+		std = strchr(inputs[i], characters[i]);
+		ft = ft_strchr(inputs[i], characters[i]);
+		if (std == ft)
+			pass(i);
+		else
+		{
+			failp(i, (void*)std, (void*)ft);
+			outcome = 0;
+		}
+		i++;
+	}
+	return (outcome);
 }
 
 int		test_strclr(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strcmp(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strcpy(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strctrim(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strdel(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strdup(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strequ(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_striter(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_striteri(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strjoin(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strlcat(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strlen(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strmap(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strmapi(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strncmp(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strncpy(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strnequ(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strnew(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strnstr(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strsplit(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strstr(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strsub(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_strtrim(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_struntil(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_tolower(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 int		test_toupper(void)
 {
+	int		i = 0;
+	int		outcome = 1;
 	char	*inputs[] =
 	{
-
+		{-1}
 	};
 	char	*std;
 	char	*ft;
-	void	*stdr;
-	void	*ftr;
-	int		i;
-	int		outcome;
 
-	i = 0;
-	outcome = 1;
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
 }
 
 

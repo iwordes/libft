@@ -4,7 +4,8 @@
 /*
 ** Definitions
 */
-
+# define GREATER(X, Y) ((X) > (Y) ? (X) : (Y))
+# define LESSER(X, Y) ((X) < (Y) ? (X) : (Y))
 
 /*
 ** Inclusions
@@ -48,8 +49,8 @@ int						ft_islower(int character);
 int						ft_isalpha(int character);
 int						ft_isdigit(int character);
 int						ft_isalnum(int character);
-int						ft_issymbol(int character);
-int						ft_iswspace(int character);
+int						ft_ispunct(int character);
+int						ft_isspace(int character);
 int						ft_isprint(int character);
 int						ft_isascii(int character);
 
@@ -62,7 +63,8 @@ int						ft_toupper(int character);
 /*
 ** String Manipulation
 */
-int						ft_atoi(char *string_to_parse);
+int						ft_atoi(const char *string_to_parse);
+void					ft_strrev(char *string_to_reverse);
 
 /*
 ** Number Manipulation
