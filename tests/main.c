@@ -626,20 +626,19 @@ int		test_strcpy(void)
 
 int		test_strdel(void)
 {
-	int		i = 0;
-	int		outcome = 1;
-	char	*inputs[] =
-	{
-		{-1}
-	};
-	char	*std;
-	char	*ft;
+	char	*string = strdup("A string of characters.");
 
-	while (inputs[i][0] != -1)
+	ft_strdel(&string);
+	if (string == NULL)
 	{
-
+		pass(0);
+		return (1);
 	}
-	return (outcome);
+	else
+	{
+		fail(0, "null pointer", "non-null pointer");
+		return (0);
+	}
 }
 
 int		test_strdup(void)
@@ -648,6 +647,9 @@ int		test_strdup(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.",
+		"A string of characters\0, terminated early.",
+		"",
 		{-1}
 	};
 	char	*std;
@@ -655,7 +657,16 @@ int		test_strdup(void)
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strdup(inputs[i]);
+		ft = ft_strdup(inputs[i]);
+		if (strcmp(std, ft) == 0)
+			pass(i);
+		else
+		{
+			fail(i, std, ft);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }
@@ -666,32 +677,88 @@ int		test_strequ(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.", "A string of characters.",
+		"A string", "A string of characters.",
+		"A string of characters.", "A string",
+		"A string of characters.", "No such luck, I'm afraid.",
+		"", "",
 		{-1}
+	};
+	int		outputs[] =
+	{
+		1,
+		0,
+		0,
+		0,
+		1
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = ft_strequ(inputs[i], inputs[i + 1]);
+		if (ft == outputs[i / 2])
+			pass(i / 2);
+		else
+		{
+			faili(i / 2, outputs[i / 2], ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
+}
+
+void	func_striter(char *character)
+{
+	static unsigned int i = 0;
+
+	if (i % 8 == 0)
+		*character += 1;
+	i++;
+}
+
+void	func_striteri(unsigned int index, char *character)
+{
+	static unsigned int i = 0;
+
+	if (i % 8 == 0)
+		*character += 1;
+	i++;
 }
 
 int		test_striter(void)
 {
 	int		i = 0;
+	int		j = 0;
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.",
+		"",
 		{-1}
 	};
-	char	*std;
+	char	*outputs =
+	{
+		"B string!of charbcters.",
+		""
+	};
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = strdup(inputs[i]);
+		ft_striter(ft, func_striter);
+		if (strcmp(outputs[i], ft) == 0)
+			pass(i);
+		else
+		{
+			fail(i, outputs[i], ft);
+			outcome = 0;
+		}
+		free(ft);
+		i++;
 	}
 	return (outcome);
 }
@@ -702,14 +769,28 @@ int		test_striteri(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.",
 		{-1}
+	};
+	char	*outputs[] =
+	{
+		"B string!of charbcters."
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = strdup(inputs[i]);
+		ft_striteri(ft, func_striteri);
+		if (strcmp(outputs[i], ft) == 0)
+			pass(i);
+		else
+		{
+			fails(i, outputs[i], ft);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }
