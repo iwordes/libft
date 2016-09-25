@@ -1121,6 +1121,27 @@ int		test_strjoin(void)
 	return (outcome);
 }
 
+char	func_strmap(char character)
+{
+	return (character + 1);
+}
+
+char	func_strmapi(unsigned int index, char character)
+{
+	static size_t	counter = 0;
+
+	if (character != -1)
+	{
+		if (index == counter)
+			counter++;
+		else
+			counter = -1;
+		return (character + 1 + (index - index));
+	}
+	else
+		return (counter != -1);
+}
+
 int		test_strmap(void)
 {
 	int		i = 0;
@@ -1128,6 +1149,10 @@ int		test_strmap(void)
 	char	*inputs[] =
 	{
 		{-1}
+	};
+	char	*outputs[] =
+	{
+
 	};
 	char	*std;
 	char	*ft;
@@ -1152,7 +1177,8 @@ int		test_strmapi(void)
 
 	while (inputs[i][0] != -1)
 	{
-
+		if (func_strmapi(0, -1) == 0)
+			fail(i, "proper indexes passed to function", "invalid indexes");
 	}
 	return (outcome);
 }
@@ -1337,7 +1363,35 @@ struct
 /*
 ** Tests for bonus functions.
 */
+int		test_lstadd(void)
+{
 
+}
+
+int		test_lstdel(void)
+{
+
+}
+
+int		test_lstdelone(void)
+{
+
+}
+
+int		test_lstiter(void)
+{
+
+}
+
+int		test_lstmap(void)
+{
+
+}
+
+int		test_lstnew(void)
+{
+	
+}
 
 struct
 {
