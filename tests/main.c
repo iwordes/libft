@@ -706,7 +706,7 @@ int		test_strnstr(void)
 	char	*inputs[] =
 	{
 		"A needle in a haystack.", "needle",
-		"An asteroid belt, with many motes of dust.", "mote",
+		"An asteroid belt, containing many motes of dust.", "mote",
 		"A sentence, but one with many, many, commas.", ",",
 		"A report on the local economy under a stack of books.", "meal schedule",
 		"stack", "A stack of books above that stack of books from before.",
@@ -730,8 +730,8 @@ int		test_strnstr(void)
 		1,
 		0
 	};
-	char	*std;
-	char	*ft;
+	int		std;
+	int		ft;
 
 	while (inputs[i][0] != -1)
 	{
@@ -755,14 +755,32 @@ int		test_strstr(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A needle in a haystack.", "needle",
+		"An asteroid belt, containing many motes of dust.", "mote",
+		"A sentence, but one with many, many, commas.", ",",
+		"A report on the local economy under a stack of books.", "meal schedule",
+		"stack", "A stack of books above that stack of books from before.",
+		".", "A sentence.",
+		"Nothing.", "",
+		"", "Nothing.",
+		"", "",
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	int		std;
+	int		ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strstr(inputs[i], inputs[i + 1]);
+		ft = ft_strstr(inputs[i], inputs[i + 1]);
+		if (std == ft)
+			pass(i / 2);
+		else
+		{
+			fails(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }
@@ -771,17 +789,23 @@ int		test_tolower(void)
 {
 	int		i = 0;
 	int		outcome = 1;
-	char	*inputs[] =
-	{
-		{-1}
-	};
-	char	*std;
-	char	*ft;
+	int		std;
+	int		ft;
 
-	while (inputs[i][0] != -1)
+	while (i <= 127)
 	{
-
+		std = tolower(i);
+		ft = ft_tolower(i);
+		if (std != ft)
+		{
+			faili(i, std, ft);
+			outcome = 0;
+			break ;
+		}
+		i++;
 	}
+	if (outcome == 1)
+		pass(0);
 	return (outcome);
 }
 
@@ -789,17 +813,22 @@ int		test_toupper(void)
 {
 	int		i = 0;
 	int		outcome = 1;
-	char	*inputs[] =
-	{
-		{-1}
-	};
-	char	*std;
-	char	*ft;
+	int		std;
+	int		ft;
 
-	while (inputs[i][0] != -1)
+	while (i <= 127)
 	{
-
+		std = toupper(i);
+		ft = ft_toupper(i);
+		if (std != ft)
+		{
+			faili(i, std, ft);
+			outcome = 0;
+		}
+		i++;
 	}
+	if (outcome == 1)
+		pass(0);
 	return (outcome);
 }
 
