@@ -78,6 +78,7 @@ void					ft_strclr(char *string_to_clear);
 char					*ft_strcpy(char *destination, const char *source);
 void					ft_strdel(char **string_to_delete);
 void					ft_strrev(char *string_to_reverse);
+char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
 
 /*
 ** Number Manipulation

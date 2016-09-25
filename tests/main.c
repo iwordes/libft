@@ -1211,14 +1211,31 @@ int		test_strnequ(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"", "",
 		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+
+	};
+	int		outputs[] =
+	{
+
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		equality = ft_strnequ(inputs[i], inputs[i + 1], bytecounts[i / 2]);
+		if (equality == outputs[i / 2])
+			pass(i / 2);
+		else
+		{
+			faili(i / 2, outputs[i], equality);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }
@@ -1229,14 +1246,26 @@ int		test_strnew(void)
 	int		outcome = 1;
 	size_t	inputs[] =
 	{
+		8,
+		16,
+		40,
+
 		-1
 	};
-	char	*std;
 	char	*ft;
 
 	while (inputs[i] != -1)
 	{
-
+		ft = ft_strnew(inputs[i]);
+		if (memcmp(ft, outputs[i], inputs[i] + 1) == 0)
+			pass(i);
+		else
+		{
+			fail(i, "zeroed string", "non-zeroed string");
+			outcome = 0;
+		}
+		free(ft);
+		i++;
 	}
 	return (outcome);
 }
@@ -1247,8 +1276,21 @@ int		test_strsplit(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"       A string with leading and trailing spaces.     ", " ",
+		"_______A string with leading underscores.", "_",
+		"A string with trailing commas,,,,,,,,", ",",
+		"A string with leading *** and trailing "
+		"*hello*fellow***students*", "*",
 		{-1}
 	};
+	char	**outputs[] =
+	{
+		{ "A string with leading and trailing spaces." },
+		{ "A string with leading underscores." },
+		{ "A string with trailing commas" },
+		{ " A string with leading ", " and trailing stars. " },
+
+	}
 	char	*std;
 	char	*ft;
 
