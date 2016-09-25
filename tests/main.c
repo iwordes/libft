@@ -1136,7 +1136,7 @@ char	func_strmapi(unsigned int index, char character)
 			counter++;
 		else
 			counter = -1;
-		return (character + 1 + (index - index));
+		return (character + 1);
 	}
 	else
 		return (counter != -1);
@@ -1148,18 +1148,30 @@ int		test_strmap(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.",
+		{ 1, 2, 3, 4, 5, 6, 7, 0 },
 		{-1}
 	};
 	char	*outputs[] =
 	{
-
+		"B!tusjoh!pg!dibsbdufst/",
+		{ 2, 3, 4, 5, 6, 7, 8, 0 }
 	};
 	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = ft_strmap(inputs[i], func_strmap);
+		if (strcmp(outputs[i], ft) == 0)
+			pass(i);
+		else
+		{
+			fail(i, outputs[i], ft);
+			outcome = 0;
+		}
+		free(ft);
+		i++;
 	}
 	return (outcome);
 }
@@ -1172,13 +1184,23 @@ int		test_strmapi(void)
 	{
 		{-1}
 	};
-	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-		if (func_strmapi(0, -1) == 0)
-			fail(i, "proper indexes passed to function", "invalid indexes");
+		ft = ft_strmapi(inputs[i], func_strmapi);
+		if (func_strmapi(0, -1) == 1 && strcmp(outputs[i], ft) == 0)
+			pass(i);
+		else
+		{
+			if (strcmp(outputs[i], ft) == 0)
+				fails(i, outputs[i], ft);
+			if (func_strmapi(0, -1) == 0)
+				fail(i, "proper indexes passed to func_strmapi()", "invalid indexes");
+			outcome = 0;
+		}
+		free(ft);
+		i++;
 	}
 	return (outcome);
 }
@@ -1205,14 +1227,14 @@ int		test_strnew(void)
 {
 	int		i = 0;
 	int		outcome = 1;
-	char	*inputs[] =
+	size_t	inputs[] =
 	{
-		{-1}
+		-1
 	};
 	char	*std;
 	char	*ft;
 
-	while (inputs[i][0] != -1)
+	while (inputs[i] != -1)
 	{
 
 	}
@@ -1390,7 +1412,7 @@ int		test_lstmap(void)
 
 int		test_lstnew(void)
 {
-	
+
 }
 
 struct
