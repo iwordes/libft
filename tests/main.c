@@ -524,17 +524,36 @@ int		test_strchr(void)
 int		test_strclr(void)
 {
 	int		i = 0;
+	int		j = 0;
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters",
+
+		"",
 		{-1}
 	};
-	char	*std;
 	char	*ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = strdup(inputs[i]);
+		ft_strclr(ft);
+		j = 0;
+		while (j <= strlen(inputs[i]))
+		{
+			if (ft[j] != 0)
+			{
+				if (j == strlen(inputs[i]))
+					fail(i, "ending terminator", "none");
+				else
+					fail(i, "zeroed string", "non-zeroed string");
+				outcome = 0;
+			}
+			j++;
+		}
+		free(ft);
+		i++;
 	}
 	return (outcome);
 }
@@ -545,14 +564,28 @@ int		test_strcmp(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.", "A string of fake characters.",
+		"A string of characters.", "A string of characters. And a suffix.",
+		"A string of characters.", "",
+		"", "A string of characters.",
+		"", "",
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	int		std;
+	int		ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strcmp(inputs[i], inputs[i + 1]);
+		ft = ft_strcmp(inputs[i], inputs[i + 1]);
+		if (std == ft)
+			pass(i / 2);
+		else
+		{
+			faili(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }
@@ -563,6 +596,11 @@ int		test_strcpy(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.", "A string.",
+		"A string.", "A string of characters.",
+		"A string of characters.", "",
+		"", "A string of characters.",
+		"", "",
 		{-1}
 	};
 	char	*std;
@@ -570,25 +608,18 @@ int		test_strcpy(void)
 
 	while (inputs[i][0] != -1)
 	{
-
-	}
-	return (outcome);
-}
-
-int		test_strctrim(void)
-{
-	int		i = 0;
-	int		outcome = 1;
-	char	*inputs[] =
-	{
-		{-1}
-	};
-	char	*std;
-	char	*ft;
-
-	while (inputs[i][0] != -1)
-	{
-
+		std = strdup(inputs[i]);
+		ft = strdup(inputs[i]);
+		strcpy(std, inputs[i + 1]);
+		ft_strcpy(ft, inputs[i + 1]);
+		if (strcmp(std, ft) == 0)
+			pass(i / 2);
+		else
+		{
+			fail(i / 2, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }
@@ -1079,6 +1110,8 @@ struct
 /*
 ** Tests for bonus functions.
 */
+
+
 struct
 {
 	char		*name[] =
@@ -1101,9 +1134,48 @@ struct
 	};
 }				bonus;
 
+
 /*
-** Tests for custom functions.
+** Tests for custom functions
 */
+int		test_strctrim(void)
+{
+	int		i = 0;
+	int		outcome = 1;
+	char	*inputs[] =
+	{
+
+		{-1}
+	};
+	char	*std;
+	char	*ft;
+
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
+}
+
+int		test_struntil(void)
+{
+	int		i = 0;
+	int		outcome = 1;
+	char	*inputs[] =
+	{
+
+		{-1}
+	};
+	char	*std;
+	char	*ft;
+
+	while (inputs[i][0] != -1)
+	{
+
+	}
+	return (outcome);
+}
+
 struct
 {
 	char		*name[] =
@@ -1118,14 +1190,21 @@ struct
 		//"ft_fileprepend",
 		//"ft_itoa_base",
 		"ft_strctrim",
+		"ft_strrev",
 		"ft_struntil"
 	};
 	int			(*func)(void)[] =
 	{
-		test_struntil,
+		test_strctrim,
+		test_strrev,
+		test_struntil
 	};
 }				custom;
 
+
+/*
+**
+*/
 int				*test_core(void)
 {
 	size_t		i;
@@ -1135,7 +1214,7 @@ int				*test_core(void)
 	i = 0;
 	passes = 0;
 	fails = 0;
-	printf("*** CORE FUNCTIONS ***");
+	printf("[ CORE FUNCTIONS ]");
 	while (map.name[i][0] != 0)
 	{
 		printf("[%s]\n", map.name[i]);
@@ -1146,12 +1225,9 @@ int				*test_core(void)
 		printf("\n\n");
 		i++;
 	}
-	printf("Total passes: ");
-	if ()
-	printf("Total fails: ");
-	if (fails == 0)
-		printf("\n*** " GRN "SUCCESS" NML " ***\n");
-	return (0);
+	printf("Total: " GRN "%d" NML " passed, " RED "%d" NML " failed of "
+			BLU "%d" NML "\n",
+			passes, fails, passes + fails);
 }
 
 void			test_bonus(void)
@@ -1174,14 +1250,12 @@ void			test_bonus(void)
 		printf("\n\n");
 		i++;
 	}
-	printf("Total passes: ");
-	if ()
-	printf("Total fails: ");
-	if (fails == 0)
-		printf("\n*** " GRN "SUCCESS" NML " ***\n");
-	return (0);
+	printf("Total: " GRN "%d" NML " passed, " RED "%d" NML " failed of "
+			BLU "%d" NML "\n",
+			passes, fails, passes + fails);
 }
 
+#ifdef IW_CUSTOM
 void			test_custom(void)
 {
 	size_t		i;
@@ -1202,22 +1276,21 @@ void			test_custom(void)
 		printf("\n\n");
 		i++;
 	}
-	printf("Total passes: ");
-	if ()
-	printf("Total fails: ");
-	if (fails == 0)
-		printf("\n*** " GRN "SUCCESS" NML " ***\n");
+	printf("Total: " GRN "%d" NML " passed, " RED "%d" NML " failed of "
+			BLU "%d" NML "\n",
+			passes, fails, passes + fails);
 }
-
+#endif
 
 void			print_help(const char *argv0)
 {
-	printf("Usage: %d core | bonus | custom", argv0);
+	#ifdef IW_CUSTOM
+	printf("Usage: %s core | bonus | custom\n", argv0);
+	#else
+	printf("Usage: %s core | bonus\n", argv0);
+	#endif
 }
 
-/*
-** Test functions and then release a final report.
-*/
 int		main(int argc, char **argv)
 {
 	if (argc == 2)
@@ -1226,8 +1299,10 @@ int		main(int argc, char **argv)
 			test_core();
 		else if (ft_strcmp(argv[1], "bonus"))
 			test_bonus();
+		#ifdef IW_CUSTOM
 		else if (ft_strcmp(argv[1], "custom"))
 			test_custom();
+		#endif
 		else
 			print_help();
 	}

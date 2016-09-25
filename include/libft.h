@@ -38,8 +38,9 @@ void					ft_putendl_fd(char *string, int file_descriptor);
 void					ft_putnbr_fd(int integer, int file_descriptor);
 
 void					ft_fileappend(char *string, int file_descriptor);
-void					ft_fileinsert(char *string, size_t after_line);
-void					ft_fileinsertb(char *string, size_t after_byte);
+void					ft_fileinsert(char *string, size_t after_byte);
+void					ft_fileinsertl(char *string, size_t after_line);
+void					ft_fileprepend(char *string, int file_descriptor);
 
 /*
 ** Character Checks
@@ -61,18 +62,27 @@ int						ft_tolower(int character);
 int						ft_toupper(int character);
 
 /*
-** String Manipulation
+** Conversion
 */
 int						ft_atoi(const char *string_to_parse);
+char					*ft_itoa(int integer_to_stringify);
+/*
+**char					*ft_itoa_base(int integer, int base);
+*/
+
+
+/*
+** String Manipulation
+*/
+void					ft_strclr(char *string_to_clear);
+char					*ft_strcpy(char *destination, const char *source);
+void					ft_strdel(char **string_to_delete);
 void					ft_strrev(char *string_to_reverse);
 
 /*
 ** Number Manipulation
 */
-char					*ft_itoa(int integer);
-/*
-**char					*ft_itoa_base(int integer, int base);
-*/
+
 
 /*
 ** Memory Manipulation
