@@ -1,8 +1,11 @@
-NAME    = libft
-AUTHOR  = iwordes
-VERSION = 0.1.0
+NAME    := libft
+AUTHOR  := iwordes
+VERSION := 0.1.0
 
-GCC = gcc -Wall -Wextra -Werror
+SOURCES :=
+OBJECTS := $(subst .c,.o,$(SOURCES))
+
+GCC := gcc -Wall -Wextra -Werror
 
 .PHONY: all
 all: $(NAME)
@@ -26,7 +29,7 @@ build/%.o: src/%.c
 	$(GCC) -c src/.c
 	mv .o build/.o
 
-lib/$(NAME).a: $(OBJ)
+lib/$(NAME).a: $(OBJECTS)
 	mkdir -p lib
 	ar -rc lib/$(NAME).a build/.o
 	ranlib lib/$(NAME).a

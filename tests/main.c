@@ -584,14 +584,26 @@ int		test_strlen(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.",
+		"A string.",
+		"",
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	size_t	std;
+	size_t	ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strlen(inputs[i]);
+		ft = ft_strlen(inputs[i]);
+		if (std == ft)
+			pass(i);
+		else
+		{
+			faili(i, std, ft);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }
@@ -602,17 +614,44 @@ int		test_strncmp(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.", "A string of characters.",
+		"A string of characters.", "A string",
+		"A string", "A string of characters.",
+		"A string of characters.", "A string",
+		"A string", "A string of characters.",
+		"", "",
+		"", "",
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	size_t	bytecounts[] =
+	{
+		strlen(inputs[0]),
+		strlen(inputs[2]),
+		strlen(inputs[5]),
+		strlen(inputs[7]),
+		strlen(inputs[8]),
+		1,
+		0
+	};
+	int		std;
+	int		ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		std = strncmp(inputs[i], inputs[i + 1]);
+		ft = ft_strncmp(inputs[i], inputs[i + 1]);
+		if (std == ft)
+			pass(i);
+		else
+		{
+			faili(i, std, ft);
+			outcome = 0;
+		}
+		i += 2;
 	}
 	return (outcome);
 }
+
 
 int		test_strncpy(void)
 {
@@ -620,7 +659,16 @@ int		test_strncpy(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"A string of characters.", "A string of characters.",
+		"A string of characters.", "A string.",
+		"A string.", "A string of characters.",
+		"", "", 
+		"", "",
 		{-1}
+	};
+	size_t	bytecounts[] =
+	{
+
 	};
 	char	*std;
 	char	*ft;
