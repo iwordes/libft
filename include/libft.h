@@ -14,6 +14,15 @@
 # include <unistd.h>
 
 /*
+** Enumerators
+*/
+typedef enum			e_bool
+{
+	false,
+	true
+}						t_bool;
+
+/*
 ** Structures
 */
 /*
@@ -51,7 +60,7 @@ typedef struct			s_list
 */
 
 /*
-** Typedefs
+** Typedefs (Generic)
 */
 typedef unsigned char	t_byte;
 
@@ -113,13 +122,32 @@ char					*ft_itoa(int integer_to_stringify);
 /*
 ** String Manipulation (std)
 */
+char					*ft_strcat(char *destination, const char *append);
+char					*ft_strchr(char *string, int character);
+int						ft_strcmp(char *string1, char *string2);
 char					*ft_strcpy(char *destination, const char *source);
+char					*ft_strdup(char *string_to_duplicate);
+char					*ft_strlcat(char *string, const char *append,
+									size_t total_buffer_size);
+/*
+**char					*ft_strlcpy(char *destination, const char *source,
+**									size_t total_buffer_size);
+*/
+size_t					ft_strlen(char *string_to_measure);
+int						ft_strncmp(const char *string1, const char *string2,
+									size_t bytes_to_compare);
+char					*ft_strncpy(char *destination, const char *source,
+									size_t bytes_to_copy);
+char					*ft_strnstr(const char *haystack, const char *needle,
+									size_t bytes_to_search);
+char					*ft_strstr(const char *haystack, const char *needle);
 
 /*
 ** String Manipulation (ft)
 */
 void					ft_strclr(char *string_to_clear);
 void					ft_strdel(char **string_to_delete);
+int						ft_strequ(const char *string1, const char *string2);
 
 /*
 ** String Manipulation (custom)
