@@ -1273,30 +1273,54 @@ int		test_strnew(void)
 int		test_strsplit(void)
 {
 	int		i = 0;
+	int		j = 0;
 	int		outcome = 1;
 	char	*inputs[] =
 	{
-		"       A string with leading and trailing spaces.     ", " ",
-		"_______A string with leading underscores.", "_",
-		"A string with trailing commas,,,,,,,,", ",",
-		"A string with leading *** and trailing "
-		"*hello*fellow***students*", "*",
+		"       A string with leading and trailing spaces.     ",
+		"_______A string with leading underscores.",
+		"A string with trailing commas,,,,,,,,",
+		"*** A string with leading, *** internal, *** and trailing stars. ***",
+		"*hello*fellow***students*",
 		{-1}
+	};
+	char	delimiters[] =
+	{
+		' ',
+		'_',
+		',',
+		'*',
+		'*'
 	};
 	char	**outputs[] =
 	{
 		{ "A string with leading and trailing spaces." },
 		{ "A string with leading underscores." },
 		{ "A string with trailing commas" },
-		{ " A string with leading ", " and trailing stars. " },
-
+		{ " A string with leading, ", " internal, ", " and trailing stars. " },
+		{ "hello", "fellow", "students" }
 	}
-	char	*std;
-	char	*ft;
+	int		splitcounts[] =
+	{
+		1,
+		1,
+		1,
+		3,
+		3
+	};
+	char	**ft;
 
 	while (inputs[i][0] != -1)
 	{
-
+		ft = ft_strsplit(inputs[i], delimiters[i]);
+		j = 0;
+		while (j < splitcounts[i])
+		{
+			if (strcmp(ft[j], outputs[i][j]) != 0)
+			{
+				outcome = 0;
+			}
+		}
 	}
 	return (outcome);
 }

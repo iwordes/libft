@@ -2,8 +2,8 @@ NAME    := libft
 AUTHOR  := iwordes
 VERSION := 0.1.0
 
-SOURCES := src/
-OBJECTS := $(subst .c,.o,$(SOURCES))
+SOURCES :=
+OBJECTS := $(subst src,build,$(subst .c,.o,$(SOURCES)))
 
 GCC := gcc -Wall -Wextra -Werror
 
@@ -30,6 +30,6 @@ build/%.o: src/%.c
 	mv .o build/.o
 
 lib/$(NAME).a: $(OBJECTS)
-	mkdir -p lib
+	@mkdir -p lib
 	ar -rc lib/$(NAME).a build/.o
 	ranlib lib/$(NAME).a
