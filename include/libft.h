@@ -14,10 +14,50 @@
 # include <unistd.h>
 
 /*
+** Structures
+*/
+/*
+**typedef struct			s_array
+**{
+**	void				*pointer;
+**	size_t				content_size;
+**	size_t				size;
+**}						t_array;
+*/
+
+typedef struct			s_list
+{
+	void				*content;
+	size_t				content_size;
+	struct s_list		*next;
+}						t_list;
+
+/*
+**typedef struct			s_string
+**{
+**	char				*ptr;
+**	size_t				length;
+**}						t_string;
+*/
+
+/*
+**typedef struct			s_tree
+**{
+**	void				*content;
+**	size_t				content_size;
+**	void				*left;
+**	void				*right;
+**}						t_tree;
+*/
+
+/*
 ** Typedefs
 */
 typedef unsigned char	t_byte;
 
+/*
+** Functions
+*/
 /*
 ** I/O
 */
@@ -71,13 +111,22 @@ char					*ft_itoa(int integer_to_stringify);
 
 
 /*
-** String Manipulation
+** String Manipulation (std)
+*/
+char					*ft_strcpy(char *destination, const char *source);
+
+/*
+** String Manipulation (ft)
 */
 void					ft_strclr(char *string_to_clear);
-char					*ft_strcpy(char *destination, const char *source);
 void					ft_strdel(char **string_to_delete);
+
+/*
+** String Manipulation (custom)
+*/
 void					ft_strrev(char *string_to_reverse);
 char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
+
 /*
 ** Number Manipulation
 */
@@ -91,12 +140,6 @@ void					*ft_bzero(void *pointer, int number_of_bytes_to_zero);
 /*
 ** List Manipulation
 */
-typedef struct			s_list
-{
-	void				*content;
-	size_t				content_size;
-	struct s_list		*next;
-}						t_list
 
 
 
