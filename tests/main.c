@@ -865,8 +865,7 @@ int		test_itoa(void)
 		#endif
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
@@ -918,16 +917,16 @@ int		test_strclr(void)
 		"",
 		{-1}
 	};
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = strdup(inputs[i]);
-		ft_strclr(ft);
+		output = strdup(inputs[i]);
+		ft_strclr(output);
 		j = 0;
 		while (j <= strlen(inputs[i]))
 		{
-			if (ft[j] != 0)
+			if (output[j] != 0)
 			{
 				if (j == strlen(inputs[i]))
 					fail(i, "ending terminator", "none");
@@ -937,7 +936,7 @@ int		test_strclr(void)
 			}
 			j++;
 		}
-		free(ft);
+		free(output);
 		i++;
 	}
 	return (outcome);
@@ -981,17 +980,16 @@ int		test_strequ(void)
 		0,
 		1
 	};
-	char	*std;
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = ft_strequ(inputs[i], inputs[i + 1]);
-		if (ft == outputs[i / 2])
+		output = ft_strequ(inputs[i], inputs[i + 1]);
+		if (output == outputs[i / 2])
 			pass(i / 2);
 		else
 		{
-			faili(i / 2, outputs[i / 2], ft);
+			faili(i / 2, outputs[i / 2], output);
 			outcome = 0;
 		}
 		i += 2;
@@ -1033,20 +1031,20 @@ int		test_striter(void)
 		"B string!of charbcters.",
 		""
 	};
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = strdup(inputs[i]);
-		ft_striter(ft, func_striter);
-		if (strcmp(outputs[i], ft) == 0)
+		output = strdup(inputs[i]);
+		ft_striter(output, func_striter);
+		if (strcmp(outputs[i], output) == 0)
 			pass(i);
 		else
 		{
-			fail(i, outputs[i], ft);
+			fail(i, outputs[i], output);
 			outcome = 0;
 		}
-		free(ft);
+		free(output);
 		i++;
 	}
 	return (outcome);
@@ -1065,18 +1063,17 @@ int		test_striteri(void)
 	{
 		"B string!of charbcters."
 	};
-	char	*std;
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = strdup(inputs[i]);
-		ft_striteri(ft, func_striteri);
-		if (strcmp(outputs[i], ft) == 0)
+		output = strdup(inputs[i]);
+		ft_striteri(output, func_striteri);
+		if (strcmp(outputs[i], output) == 0)
 			pass(i);
 		else
 		{
-			fails(i, outputs[i], ft);
+			fails(i, outputs[i], output);
 			outcome = 0;
 		}
 		i++;
@@ -1103,19 +1100,19 @@ int		test_strjoin(void)
 		"A string of characters.",
 		""
 	};
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = ft_strjoin(inputs[i], inputs[i + 1]);
-		if (strcmp(outputs[i], ft) == 0)
+		output = ft_strjoin(inputs[i], inputs[i + 1]);
+		if (strcmp(outputs[i], output) == 0)
 			pass(i / 2);
 		else
 		{
-			fail(i / 2, outputs[i], ft);
+			fail(i / 2, outputs[i], output);
 			outocme = 0;
 		}
-		free(ft);
+		free(output);
 		i += 2;
 	}
 	return (outcome);
@@ -1157,20 +1154,19 @@ int		test_strmap(void)
 		"B!tusjoh!pg!dibsbdufst/",
 		{ 2, 3, 4, 5, 6, 7, 8, 0 }
 	};
-	char	*std;
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = ft_strmap(inputs[i], func_strmap);
-		if (strcmp(outputs[i], ft) == 0)
+		output = ft_strmap(inputs[i], func_strmap);
+		if (strcmp(outputs[i], output) == 0)
 			pass(i);
 		else
 		{
-			fail(i, outputs[i], ft);
+			fail(i, outputs[i], output);
 			outcome = 0;
 		}
-		free(ft);
+		free(output);
 		i++;
 	}
 	return (outcome);
@@ -1184,22 +1180,22 @@ int		test_strmapi(void)
 	{
 		{-1}
 	};
-	char	*ft;
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = ft_strmapi(inputs[i], func_strmapi);
-		if (func_strmapi(0, -1) == 1 && strcmp(outputs[i], ft) == 0)
+		output = ft_strmapi(inputs[i], func_strmapi);
+		if (func_strmapi(0, -1) == 1 && strcmp(outputs[i], output) == 0)
 			pass(i);
 		else
 		{
-			if (strcmp(outputs[i], ft) == 0)
-				fails(i, outputs[i], ft);
+			if (strcmp(outputs[i], output) == 0)
+				fails(i, outputs[i], output);
 			if (func_strmapi(0, -1) == 0)
 				fail(i, "proper indexes passed to func_strmapi()", "invalid indexes");
 			outcome = 0;
 		}
-		free(ft);
+		free(output);
 		i++;
 	}
 	return (outcome);
@@ -1222,8 +1218,7 @@ int		test_strnequ(void)
 	{
 
 	};
-	char	*std;
-	char	*ft;
+	int		equality;
 
 	while (inputs[i][0] != -1)
 	{
@@ -1249,22 +1244,28 @@ int		test_strnew(void)
 		8,
 		16,
 		40,
-
 		-1
 	};
-	char	*ft;
+	char	*outputs[] =
+	{
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+	};
+	char	*output;
 
 	while (inputs[i] != -1)
 	{
-		ft = ft_strnew(inputs[i]);
-		if (memcmp(ft, outputs[i], inputs[i] + 1) == 0)
+		output = ft_strnew(inputs[i]);
+		if (memcmp(output, outputs[i], inputs[i] + 1) == 0)
 			pass(i);
 		else
 		{
 			fail(i, "zeroed string", "non-zeroed string");
 			outcome = 0;
 		}
-		free(ft);
+		free(output);
 		i++;
 	}
 	return (outcome);
@@ -1274,6 +1275,7 @@ int		test_strsplit(void)
 {
 	int		i = 0;
 	int		j = 0;
+	int		suboutcome = 1;
 	int		outcome = 1;
 	char	*inputs[] =
 	{
@@ -1308,19 +1310,26 @@ int		test_strsplit(void)
 		3,
 		3
 	};
-	char	**ft;
+	char	**output;
 
 	while (inputs[i][0] != -1)
 	{
-		ft = ft_strsplit(inputs[i], delimiters[i]);
 		j = 0;
+		suboutcome = 1;
+		output = ft_strsplit(inputs[i], delimiters[i]);
 		while (j < splitcounts[i])
 		{
-			if (strcmp(ft[j], outputs[i][j]) != 0)
+			if (strcmp(output[j], outputs[i][j]) != 0)
 			{
+				fails(i, outputs[i][j], output[j]);
+				suboutcome = 0;
 				outcome = 0;
 			}
+			j++;
 		}
+		if (suboutcome == 1)
+			pass(i);
+		i++;
 	}
 	return (outcome);
 }
@@ -1331,14 +1340,38 @@ int		test_strsub(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"The eye of the tiger",
+		"A string of contiguous characters",
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	size_t	offsets[] =
+	{
+		4,
+		12
+	};
+	size_t	bytecounts[] =
+	{
+		3,
+		10
+	};
+	char	*outputs[] =
+	{
+		"eye",
+		"contiguous"
+	};
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-
+		output = ft_strsub(inputs[i], offsets[i], bytecounts[i]);
+		if (strcmp(outputs[i], output) == 0)
+			pass(i);
+		else
+		{
+			fail(i, outputs[i], output);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }
@@ -1349,14 +1382,35 @@ int		test_strtrim(void)
 	int		outcome = 1;
 	char	*inputs[] =
 	{
+		"    A string with leading and trailing spaces.     ",
+		"\t\t\tA string with leading and trailing tabs.\t\t\t\t\t\t",
+		"\n\nA string with leading and trailing newlines.\n\n\n\n\n",
+		"\n\t \t \n\nA string with leading and trailing whitespaces. \n\t\t \t",
+		"\n\tA string with leading, \t\n internal, \t and trailing  \n"
+		"whitespaces.\n  \n \t  "
 		{-1}
 	};
-	char	*std;
-	char	*ft;
+	char	*outputs[] =
+	{
+		"A string with leading and trailing spaces.",
+		"A string with leading and trailing tabs.",
+		"A string with leading and trailing newlines.",
+		"A string with leading and trailing whitespaces.",
+		"A string with leading, \t\n internal, \t and trailing  \n whitespaces."
+	};
+	char	*output;
 
 	while (inputs[i][0] != -1)
 	{
-
+		output = ft_strtrim(inputs[i]);
+		if (strcmp(outputs[i], output) == 0)
+			pass(i);
+		else
+		{
+			fail(i, outputs[i], output);
+			outcome = 0;
+		}
+		i++;
 	}
 	return (outcome);
 }

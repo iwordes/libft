@@ -4,8 +4,7 @@
 /*
 ** Definitions
 */
-# define GREATER(X, Y) ((X) > (Y) ? (X) : (Y))
-# define LESSER(X, Y) ((X) < (Y) ? (X) : (Y))
+
 
 /*
 ** Inclusions
@@ -79,7 +78,6 @@ char					*ft_strcpy(char *destination, const char *source);
 void					ft_strdel(char **string_to_delete);
 void					ft_strrev(char *string_to_reverse);
 char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
-
 /*
 ** Number Manipulation
 */
