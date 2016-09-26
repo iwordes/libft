@@ -2,16 +2,17 @@
 # define LIBFT_H
 
 /*
-** Definitions
+** LIBFT
+** VERSION 0.1.0
+**
+**
 */
 
 
-/*
-** Inclusions
-*/
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
 
 /*
 ** Enumerators
@@ -21,6 +22,7 @@ typedef enum			e_bool
 	false,
 	true
 }						t_bool;
+
 
 /*
 ** Structures
@@ -59,14 +61,17 @@ typedef struct			s_list
 **}						t_tree;
 */
 
+
 /*
 ** Typedefs (Generic)
 */
 typedef unsigned char	t_byte;
 
+
 /*
 ** Functions
 */
+
 /*
 ** I/O
 */
@@ -76,6 +81,7 @@ void					ft_putendl(char *string);
 void					ft_putnbr(int integer);
 /*
 **void					ft_putbits(unsigned char byte);
+**int					ft_printf(char *pattern, ...);
 */
 
 void					ft_puterr(char *error);
@@ -113,6 +119,9 @@ int						ft_toupper(int character);
 ** Conversion
 */
 int						ft_atoi(const char *string_to_parse);
+/*
+**long long				ft_atoll(const char *string_to_parse);
+*/
 char					*ft_itoa(int integer_to_stringify);
 /*
 **char					*ft_itoa_base(int integer, int base);

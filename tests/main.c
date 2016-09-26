@@ -1510,7 +1510,7 @@ struct
 */
 int		test_lstadd(void)
 {
-
+	t_list
 }
 
 int		test_lstdel(void)
