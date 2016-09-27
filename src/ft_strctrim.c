@@ -1,5 +1,4 @@
 #include "libft.h"
-
 /*
 ** Delivers a copy of a given *string* sans leading or trailing *c*haracters.
 */

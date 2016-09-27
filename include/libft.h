@@ -129,7 +129,7 @@ char					*ft_itoa(int integer_to_stringify);
 
 
 /*
-** String Manipulation (std)
+** String Manipulation
 */
 char					*ft_strcat(char *destination, const char *append);
 char					*ft_strchr(char *string, int character);
@@ -151,16 +151,10 @@ char					*ft_strnstr(const char *haystack, const char *needle,
 									size_t bytes_to_search);
 char					*ft_strstr(const char *haystack, const char *needle);
 
-/*
-** String Manipulation (ft)
-*/
 void					ft_strclr(char *string_to_clear);
 void					ft_strdel(char **string_to_delete);
 int						ft_strequ(const char *string1, const char *string2);
 
-/*
-** String Manipulation (custom)
-*/
 void					ft_strrev(char *string_to_reverse);
 char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
 
@@ -173,6 +167,28 @@ char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
 ** Memory Manipulation
 */
 void					*ft_bzero(void *pointer, int number_of_bytes_to_zero);
+void					*ft_memccpy(void *restrict destination,
+									const void *restrict source,
+									int character, size_t bytecount);
+void					*ft_memchr(const void *memory,
+									int character_to_find,
+									size_t bytes_to_copy);
+int						ft_memcmp(const void *memory1,
+									const void *memory2,
+									size_t bytes_to_compare);
+void					*ft_memcpy(void *restrict destination,
+									const void *restrict source,
+									size_t bytes_to_copy);
+void					*ft_memmove(void *restrict destination,
+									const void *restrict source,
+									size_t bytes_to_copy);
+void					*ft_memset(void *restrict memory,
+									int value,
+									size_t bytes_to_write);
+
+void					*ft_memalloc(size_t bytes_to_allocate_and_zero);
+void					ft_memdel(void **memory_to_free);
+
 
 /*
 ** List Manipulation

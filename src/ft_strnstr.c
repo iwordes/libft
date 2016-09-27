@@ -1,7 +1,7 @@
-char		*ft_strnstr(const char *haystack, const char *needle, int n)
+char		*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int		hi;
-	int		ni;
+	size_t	hi;
+	size_t	ni;
 
 	hi = 0;
 	ni = 0;

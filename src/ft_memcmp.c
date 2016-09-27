@@ -1,4 +1,4 @@
-int			ft_memcmp(const void *mem1, const void *mem2, int n)
+int			ft_memcmp(const void *mem1, const void *mem2, size_t bytecount)
 {
 	int		i;
 	t_byte	*bytearr1;
@@ -7,7 +7,7 @@ int			ft_memcmp(const void *mem1, const void *mem2, int n)
 	i = 0;
 	bytearr1 = (t_byte*)memory1;
 	bytearr2 = (t_byte*)memory2;
-	while (i < n)
+	while (i < bytecount)
 	{
 		if (bytearr1[i] != bytearr2[i])
 			return (mem1[i] - mem2[i]);
