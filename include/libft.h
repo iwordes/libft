@@ -76,8 +76,8 @@ typedef unsigned char	t_byte;
 ** I/O
 */
 void					ft_putchar(char character);
-void					ft_putstr(char *string);
-void					ft_putendl(char *string);
+void					ft_putstr(const char *string);
+void					ft_putendl(const char *string);
 void					ft_putnbr(int integer);
 /*
 **void					ft_putbits(unsigned char byte);
@@ -87,14 +87,14 @@ void					ft_putnbr(int integer);
 void					ft_puterr(char *error);
 
 void					ft_putchar_fd(char character, int file_descriptor);
-void					ft_putstr_fd(char *string, int file_descriptor);
-void					ft_putendl_fd(char *string, int file_descriptor);
+void					ft_putstr_fd(const char *string, int file_descriptor);
+void					ft_putendl_fd(const char *string, int file_descriptor);
 void					ft_putnbr_fd(int integer, int file_descriptor);
 
-void					ft_fileappend(char *string, int file_descriptor);
-void					ft_fileinsert(char *string, size_t after_byte);
-void					ft_fileinsertl(char *string, size_t after_line);
-void					ft_fileprepend(char *string, int file_descriptor);
+void					ft_fileappend(const char *string, int file_descriptor);
+void					ft_fileinsert(const char *string, size_t after_byte);
+void					ft_fileinsertl(const char *string, size_t after_line);
+void					ft_fileprepend(const char *string, int file_descriptor);
 
 /*
 ** Character Checks
@@ -129,20 +129,22 @@ char					*ft_itoa(int integer_to_stringify);
 
 
 /*
-** String Manipulation
+** Strings
 */
-char					*ft_strcat(char *destination, const char *append);
-char					*ft_strchr(char *string, int character);
-int						ft_strcmp(char *string1, char *string2);
+char					*ft_strcat(char *restrict destination,
+									const char *restrict append);
+char					*ft_strchr(const char *string, int character);
+int						ft_strcmp(const char *string1, const char *string2);
 char					*ft_strcpy(char *destination, const char *source);
-char					*ft_strdup(char *string_to_duplicate);
-char					*ft_strlcat(char *string, const char *append,
+char					*ft_strdup(const char *string_to_duplicate);
+size_t					ft_strlcat(char *restrict string,
+									const char *restrict append,
 									size_t total_buffer_size);
 /*
 **char					*ft_strlcpy(char *destination, const char *source,
 **									size_t total_buffer_size);
 */
-size_t					ft_strlen(char *string_to_measure);
+size_t					ft_strlen(const char *string_to_measure);
 int						ft_strncmp(const char *string1, const char *string2,
 									size_t bytes_to_compare);
 char					*ft_strncpy(char *destination, const char *source,
@@ -150,23 +152,28 @@ char					*ft_strncpy(char *destination, const char *source,
 char					*ft_strnstr(const char *haystack, const char *needle,
 									size_t bytes_to_search);
 char					*ft_strstr(const char *haystack, const char *needle);
+char					*ft_strsub(const char *string, size_t start,
+									size_t length);
 
 void					ft_strclr(char *string_to_clear);
 void					ft_strdel(char **string_to_delete);
 int						ft_strequ(const char *string1, const char *string2);
+char					*ft_strnew(size_t length);
 
-void					ft_strrev(char *string_to_reverse);
-char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
-
-/*
-** Number Manipulation
-*/
-int						ft_pow(int integer, int exponent);
+void					ft_strrev(char *string_to_reverse_in_place);
+char					*ft_strrevdup(const char *string);
+size_t					ft_struntil(const char *string, char next_characte00r);
 
 /*
-** Memory Manipulation
+** Numbers
 */
-void					*ft_bzero(void *pointer, int number_of_bytes_to_zero);
+int						ft_greater(int input1, int input2);
+int						ft_lesser(int input1, int input2);
+
+/*
+** Memory
+*/
+void					ft_bzero(void *pointer, size_t number_of_bytes_to_zero);
 void					*ft_memccpy(void *restrict destination,
 									const void *restrict source,
 									int character, size_t bytecount);
@@ -193,7 +200,26 @@ void					ft_memdel(void **memory_to_free);
 /*
 ** List Manipulation
 */
+void					ft_lstadd(t_list **list, t_list *link);
+void					ft_lstdel(t_list **list, void (*del)(void*, size_t));
+void					ft_lstdelone(t_list **list, void (*del)(void*, size_t));
+t_list					*ft_lstnew(const void *content, size_t content_size);
+void					ft_lstiter(t_list *list, void (*f)(t_list*));
+t_list					*ft_lstmap(t_list *list, t_list *(*f)(t_list*));
 
+t_list					*ft_lstend(t_list *list);
+void					ft_lstinsert(t_list *list, t_list *insert,
+									size_t after_index);
+size_t					ft_lstlen(const t_list *list);
+t_list					*ft_lstn(t_list *list, size_t index);
+void					ft_lstndel(t_list **list, void (*del)(void*, size_t),
+									size_t index);
+void					ft_lstndelone(t_list **list, void (*del)(void*, size_t),
+										size_t index);
+t_list					*ft_lstpop(t_list *list);
+void					ft_lstpush(t_list *list, t_list *link);
+t_list					*ft_lstshift(t_list **list);
+void					ft_lstunshift(t_list **list, t_list *link);
 
 
 #endif

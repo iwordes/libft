@@ -1,3 +1,4 @@
+#include "libft.h"
 char		*ft_strmap(const char *string, char (*func)(char))
 {
 	int		i;

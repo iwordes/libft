@@ -1,12 +1,29 @@
-NAME    := libft
-VERSION := 1.0.0
-AUTHOR  := iwordes
+NAME     := libft
+VERSION  := 1.0.0
+AUTHOR   := iwordes
 
-SRCDIR  := ./src
-OBJDIR  := ./build
-OUTDIR  := ./lib
+INCDIR   := ./include
+OBJDIR   := ./build
+OUTDIR   := ./lib
+SRCDIR   := ./src
 
-SRC     :=\
+COMPILER := gcc
+CFLAGS   := -Wall -Wextra -Werror #-I $(INCDIR) #-L $(LIBDIR)
+
+CMP      := $(COMPILER) $(CFLAGS)
+
+# Organized in two main sections:
+# Specified
+#     libc recreations
+#     libft specific
+#     libft bonus (list functions)
+# Custom
+#     libc recreations
+#     libft custom
+#     list functions
+#
+# It makes more sense when you actually look at the spec PDF.
+SRC      :=\
 $(SRCDIR)/ft_atoi.c\
 $(SRCDIR)/ft_bzero.c\
 $(SRCDIR)/ft_isalnum.c\
@@ -93,10 +110,10 @@ $(SRCDIR)/ft_lstpush.c\
 $(SRCDIR)/ft_lstshift.c\
 $(SRCDIR)/ft_lstunshift.c
 
-OBJ     := $(subst $(SRCDIR),$(OBJDIR),$(subst .c,.o,$(SRC)))
-BIN     := $(OUTDIR)/$(NAME).a #$(OUTDIR)/$(NAME).so
+OBJ      := $(subst $(SRCDIR),$(OBJDIR),$(subst .c,.o,$(SRC)))
+BIN      := $(OUTDIR)/$(NAME).a
 
-CMP     := gcc -Wall -Wextra -Werror
+# Phony targets #
 
 .PHONY: all
 all: $(NAME)
@@ -115,6 +132,12 @@ re: fclean all
 .PHONY: $(NAME)
 $(NAME): $(BIN)
 
+# Real targets #
+
+# When any object file is needed, the equivalent source file will be compiled.
+# %: Makefile text command. The one in the recipe name and the one in the
+#    prerequisites will match up, so that a file main.o will only match to a
+#    file called main.c, and not a called file program.c or asset.png.
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
 	$(GCC) -c $<
@@ -124,7 +147,3 @@ $(OUTDIR)/$(NAME).a: $(OBJ)
 	@mkdir -p $(OUTDIR)
 	ar -rc $(OUTDIR)/$(NAME).a $(OBJ)
 	ranlib $(OUTDIR)/$(NAME).a
-
-#$(OUTDIR)/$(NAME).so:
-#	@mkdir -p $(OUTDIR)
-#	gcc -shared

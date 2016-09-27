@@ -1,3 +1,4 @@
+#include "libft.h"
 char		*ft_strmapi(const char *string, char (*func)(unsigned int, char))
 {
 	int		i;

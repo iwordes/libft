@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void		*memccpy(void *restrict dest, const void *restrict src,
+void		*ft_memccpy(void *restrict dest, const void *restrict src,
 					int character, size_t n)
 {
 	size_t	i;

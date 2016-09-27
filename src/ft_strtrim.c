@@ -14,8 +14,6 @@ char		*ft_strtrim(const char *string)
 	while (string[length - 1] == ' ' || string[length - 1] == '\t'
 		|| string[length - 1] == '\n')
 		length--;
-	trimmed_string = ft_strnew(length);
-	if (trimmed_string != NULL)
-		trimmed_string = ft_strsub(string, length);
+	trimmed_string = ft_strsub(string, start, length);
 	return (trimmed_string);
 }

@@ -14,8 +14,6 @@ char		*ft_strctrim(const char *string, const char c)
 	length = ft_strlen(string + start);
 	while (string[length - 1] == c)
 		length--;
-	trimmed = ft_strnew(length);
-	if (trimmed != NULL)
-		trimmed = ft_strsub(string, length);
+	trimmed = ft_strsub(string, start, length);
 	return (trimmed);
 }

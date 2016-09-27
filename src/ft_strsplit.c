@@ -19,6 +19,7 @@ static int	get_num_splits(const char *string, char delimiter)
 				splits++;
 		}
 	}
+	return (splits);
 }
 
 char		**ft_strsplit(const char *string, char delimiter)
@@ -30,13 +31,14 @@ char		**ft_strsplit(const char *string, char delimiter)
 
 	i = 0;
 	si = 0;
-	substrings = (char**)malloc(sizeof(char**) * get_num_splits(string));
+	substrings = (char**)malloc(sizeof(char**)
+								* get_num_splits(string, delimiter));
 	while (string[i])
 	{
 		if (string[i] != delimiter)
 		{
 			next = ft_struntil(string + i, delimiter);
-			if (next == -1)
+			if (next == 0)
 				next = ft_strlen(string + i);
 			substrings[si] = ft_strsub(string, i, next);
 			si++;
@@ -45,4 +47,5 @@ char		**ft_strsplit(const char *string, char delimiter)
 			while (string[i] == delimiter)
 				i++;
 	}
+	return (substrings);
 }

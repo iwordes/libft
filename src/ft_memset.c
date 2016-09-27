@@ -1,6 +1,7 @@
+#include "libft.h"
 void	*ft_memset(void *memory, int value, size_t length)
 {
-	int		i;
+	size_t	i;
 	t_byte	*bytearr;
 
 	i = 0;

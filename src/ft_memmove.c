@@ -1,8 +1,10 @@
+#include "libft.h"
 /*
 ** Performs a non-destructive copy (that is, the output is not influenced by the
 ** changes caused by the copy process) of *n* bytes from *src* to *dest*
 */
-void	*ft_memmove(void *mem_dest, const void *mem_src, int n)
+void	*ft_memmove(void *restrict mem_dest, const void *restrict mem_src,
+					size_t n)
 {
 	void	*cache;
 

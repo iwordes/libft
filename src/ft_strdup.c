@@ -10,7 +10,10 @@ char		*ft_strdup(const char *original)
 	copy = ft_strnew(ft_strlen(original));
 	if (copy != NULL)
 		while (original[i])
-			copy[i] = original[i++];
+		{
+			copy[i] = original[i];
+			i++;
+		}
 	else
 		errno = ENOMEM;
 	return (copy);
