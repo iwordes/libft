@@ -161,7 +161,7 @@ char					*ft_strrevdup(char *string_to_duplicate_and_reverse);
 /*
 ** Number Manipulation
 */
-
+int						ft_pow(int integer, int exponent);
 
 /*
 ** Memory Manipulation
