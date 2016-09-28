@@ -5,7 +5,7 @@ static int	get_num_places(int integer)
 	int		places;
 
 	places = 1;
-	while (integer / 10 > 0)
+	while (integer / 10 != 0)
 	{
 		integer /= 10;
 		places++;
@@ -15,10 +15,12 @@ static int	get_num_places(int integer)
 
 char		*ft_itoa(int integer)
 {
+	int		sign;
 	int		place;
 	int		places;
 	char	*string;
 
+	sign = 1;
 	places = get_num_places(integer);
 	if (integer < 0)
 		places++;
@@ -27,13 +29,13 @@ char		*ft_itoa(int integer)
 	{
 		if (integer < 0)
 		{
-			integer *= -1;
+			sign = -1;
 			string[0] = '-';
 		}
 		place = places - 1;
-		while (integer / 10 > 0)
+		while (sign * (integer / 10) != 0)
 		{
-			string[place] = integer % 10 + '0';
+			string[place] = sign * (integer % 10) + '0';
 			integer /= 10;
 			place--;
 		}

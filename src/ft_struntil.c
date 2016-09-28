@@ -1,7 +1,8 @@
 #include "libft.h"
 /*
 ** Get the forward distance from the starting pointer *string* until the first
-** instance of the character to match. If no match is found, it returns 0.
+** instance of the character to match. If no match is found, it returns the
+** index of the string's terminator.
 */
 size_t		ft_struntil(const char *string, char match)
 {
@@ -14,5 +15,5 @@ size_t		ft_struntil(const char *string, char match)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (i);
 }

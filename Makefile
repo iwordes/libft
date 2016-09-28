@@ -89,6 +89,8 @@ ft_lstnew\
 ft_iscntrl\
 ft_ispunct\
 ft_isspace\
+ft_isstdspace\
+ft_strncat\
 \
 ft_greater\
 ft_leftpad\

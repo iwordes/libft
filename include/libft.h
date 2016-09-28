@@ -110,6 +110,7 @@ int						ft_isdigit(int character);
 int						ft_isalnum(int character);
 int						ft_ispunct(int character);
 int						ft_isspace(int character);
+int						ft_isstdspace(int character);
 int						ft_isprint(int character);
 int						ft_isascii(int character);
 
@@ -165,6 +166,9 @@ int						ft_strequ(const char *string1, const char *string2);
 int						ft_strnequ(const char *string1, const char *string2,
 									size_t n);
 char					*ft_strnew(size_t length);
+char					*ft_strtrim(const char *string);
+
+char					*ft_strncat(char *string, const char *suffix, size_t n);
 
 void					ft_strrev(char *string_to_reverse_in_place);
 char					*ft_strrevdup(const char *string);
