@@ -1,8 +1,10 @@
+#include "libft.h"
 void		ft_strclr(char *string)
 {
-	while (*string)
-	{
-		*string = 0;
-		string++;
-	}
+	if (string != NULL)
+		while (*string)
+		{
+			*string = 0;
+			string++;
+		}
 }

@@ -48,6 +48,10 @@ typedef struct			s_list
 **{
 **	char				*ptr;
 **	size_t				length;
+**	enum
+**	{
+**		ascii;
+**	}					encoding;
 **}						t_string;
 */
 
@@ -152,7 +156,7 @@ char					*ft_strncpy(char *destination, const char *source,
 char					*ft_strnstr(const char *haystack, const char *needle,
 									size_t bytes_to_search);
 char					*ft_strstr(const char *haystack, const char *needle);
-char					*ft_strsub(const char *string, size_t start,
+char					*ft_strsub(const char *string, unsigned int start,
 									size_t length);
 
 void					ft_strclr(char *string_to_clear);
@@ -163,6 +167,11 @@ char					*ft_strnew(size_t length);
 void					ft_strrev(char *string_to_reverse_in_place);
 char					*ft_strrevdup(const char *string);
 size_t					ft_struntil(const char *string, char next_characte00r);
+
+char					*ft_leftpad(const char *string, char pad,
+									size_t target);
+char					*ft_rightpad(const char *string, char pad,
+									size_t target);
 
 /*
 ** Numbers
