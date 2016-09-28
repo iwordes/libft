@@ -4,11 +4,15 @@ char	*ft_strsub(const char *string, unsigned int start, size_t length)
 {
 	char	*substring;
 
-	substring = ft_strnew(length);
-	if (substring != NULL)
+	if (string != NULL)
 	{
-		ft_strncpy(substring, string + start, length);
-		substring[start + length] = 0;
+		substring = ft_strnew(length);
+		if (substring != NULL)
+		{
+			ft_strncpy(substring, string + start, length);
+			substring[start + length] = 0;
+		}
+		return (substring);
 	}
-	return (substring);
+	return (NULL);
 }

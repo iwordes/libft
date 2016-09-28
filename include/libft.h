@@ -162,6 +162,8 @@ char					*ft_strsub(const char *string, unsigned int start,
 void					ft_strclr(char *string_to_clear);
 void					ft_strdel(char **string_to_delete);
 int						ft_strequ(const char *string1, const char *string2);
+int						ft_strnequ(const char *string1, const char *string2,
+									size_t n);
 char					*ft_strnew(size_t length);
 
 void					ft_strrev(char *string_to_reverse_in_place);

@@ -17,6 +17,6 @@ int			ft_atoi(const char *str)
 		i++;
 	}
 	while (ft_isdigit(str[i]))
-		total = (total * 10) + (str[i] - '0');
+		total = (total * 10) + (str[i++] - '0');
 	return (total * sign);
 }
