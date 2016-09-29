@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int	get_num_places(int integer)
+static int	get_places(int integer)
 {
 	int		places;
 
@@ -15,30 +15,58 @@ static int	get_num_places(int integer)
 
 char		*ft_itoa(int integer)
 {
-	int		sign;
-	int		place;
-	int		places;
 	char	*string;
+	int		places;
 
-	sign = 1;
-	places = get_num_places(integer);
+	places = get_places(integer);
 	if (integer < 0)
 		places++;
 	string = ft_strnew(places);
 	if (string != NULL)
 	{
 		if (integer < 0)
+			*string = '-';
+		string += places;
+		while (true)
 		{
-			sign = -1;
-			string[0] = '-';
-		}
-		place = places - 1;
-		while (sign * (integer / 10) != 0)
-		{
-			string[place] = sign * (integer % 10) + '0';
+			*string = '0' + ft_absolute(integer % 10);
 			integer /= 10;
-			place--;
+			string--;
+			if (integer == 0)
+				break ;
 		}
 	}
 	return (string);
 }
+
+/*
+** Iterative, Mk.I
+**{
+**	int		sign;
+**	int		place;
+**	int		places;
+**	char	*string;
+**
+**	sign = 1;
+**	places = get_num_places(integer);
+**	if (integer < 0)
+**		places++;
+**	string = ft_strnew(places);
+**	if (string != NULL)
+**	{
+**		if (integer < 0)
+**		{
+**			sign = -1;
+**			string[0] = '-';
+**		}
+**		place = places - 1;
+**		while (sign * (integer / 10) != 0)
+**		{
+**			string[place] = sign * (integer % 10) + '0';
+**			integer /= 10;
+**			place--;
+**		}
+**	}
+**	return (string);
+**}
+*/
