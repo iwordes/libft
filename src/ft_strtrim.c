@@ -14,7 +14,7 @@ char		*ft_strtrim(const char *string)
 			start++;
 		length = ft_strlen(string + start);
 		if (length > 0)
-			while (ft_isstdspace(string[length + start - 1]))
+			while (ft_isstdspace(string[start + length - 1]))
 				length--;
 		trimmed_string = ft_strsub(string, start, length);
 		return (trimmed_string);

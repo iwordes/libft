@@ -19,7 +19,7 @@ void				*ft_memmove(void *restrict mem_dest,
 		i = n;
 		dest = (t_byte*)mem_dest + n;
 		src = (const t_byte*)mem_src + n;
-		while ((t_byte*)mem_dest < dest)
+		while (dest > (t_byte*)mem_dest)
 		{
 			*dest = *src;
 			dest--;
