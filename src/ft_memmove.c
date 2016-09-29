@@ -6,6 +6,7 @@ void				*ft_memmove(void *mem_dest, const void *mem_src, size_t n)
 {
 	t_byte			*dest;
 	const t_byte	*src;
+	size_t			i;
 
 	if (mem_src == mem_dest)
 		return (mem_dest);
@@ -13,14 +14,12 @@ void				*ft_memmove(void *mem_dest, const void *mem_src, size_t n)
 		return (ft_memcpy(mem_dest, mem_src, n));
 	else
 	{
-		n--;
-		dest = (t_byte*)mem_dest + n;
-		src = (const t_byte*)mem_src + n;
-		while (n != 0)
-		{
-			dest[n] = src[n];
-			n--;
-		}
+		i = n;
+		dest = (t_byte*)mem_dest;
+		src = (const t_byte*)mem_src;
+		while (--i)
+			dest[i] = src[i];
+		dest[0] = src[0];
 		return (mem_dest);
 	}
 }
