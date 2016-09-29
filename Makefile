@@ -92,9 +92,11 @@ ft_isspace\
 ft_isstdspace\
 ft_strncat\
 \
+ft_absolute\
 ft_greater\
 ft_leftpad\
 ft_lesser\
+ft_power\
 ft_puterr\
 ft_strctrim\
 ft_strrev\

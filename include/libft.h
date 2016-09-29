@@ -182,8 +182,10 @@ char					*ft_rightpad(const char *string, char pad,
 /*
 ** Numbers
 */
+int						ft_absolute(int integer);
 int						ft_greater(int input1, int input2);
 int						ft_lesser(int input1, int input2);
+int						ft_power(int integer, unsigned int exponent);
 
 /*
 ** Memory

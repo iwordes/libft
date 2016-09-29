@@ -2,6 +2,12 @@
 
 void	ft_putstr_fd(const char *str, int fd)
 {
-	while (*str)
-		write(1, str++, fd);
+	write(fd, str, ft_strlen(str));
 }
+/*
+** Iterative Mk.I
+**{
+**	while (*str)
+**		write(fd, str++, 1);
+**}
+*/
