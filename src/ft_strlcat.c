@@ -13,5 +13,8 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 	}
 	if (size > 0)
 		string[end + i] = 0;
-	return (end + i);
+	if (i >= size)
+		return (size);
+	else
+		return (end + i);
 }

@@ -1,4 +1,5 @@
 #include "libft.h"
+
 /*
 ** Create a new link of a linked list and initialize it to a usable state.
 */

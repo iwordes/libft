@@ -91,6 +91,7 @@ ft_ispunct\
 ft_isspace\
 ft_isstdspace\
 ft_strncat\
+ft_strrchr\
 \
 ft_absolute\
 ft_greater\
