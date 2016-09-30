@@ -170,6 +170,7 @@ char					*ft_strtrim(const char *string);
 
 char					*ft_strncat(char *string, const char *suffix, size_t n);
 
+size_t					ft_chrcnt(const char *string, char to_count);
 void					ft_strrev(char *string_to_reverse_in_place);
 char					*ft_strrevdup(const char *string);
 size_t					ft_struntil(const char *string, char next_characte00r);
