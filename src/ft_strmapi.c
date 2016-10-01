@@ -1,17 +1,19 @@
 #include "libft.h"
 char		*ft_strmapi(const char *string, char (*func)(unsigned int, char))
 {
-	int		i;
+	size_t	i;
 	char	*new_string;
+	size_t	string_length;
 
 	if (string != NULL && func != NULL)
 	{
 		i = 0;
-		new_string = ft_strnew(ft_strlen(string));
+		string_length = ft_strlen(string);
+		new_string = ft_strnew(string_length);
 		if (new_string != NULL)
-			while (string[i] != 0)
+			while (i < string_length)
 			{
-				new_string[i] = func(i, string[i]);
+				new_string[i] = func((unsigned)i, string[i]);
 				i++;
 			}
 		return (new_string);
