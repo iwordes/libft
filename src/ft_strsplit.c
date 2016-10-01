@@ -3,22 +3,30 @@
 static size_t	get_chunk_count(const char *string, char delimiter)
 {
 	size_t		chunk_count;
-	chunk_count = 1;
-	while (*string == delimiter)
-		string++;
-	while (*string != 0)
+
+	chunk_count = 0;
+	if (*string == 0)
+		return (0);
+	else if (delimiter == 0)
+		return (1);
+	else
 	{
-		if (*string == delimiter)
-		{
-			while (*string == delimiter)
-				string++;
-			if (*string != 0)
-				chunk_count++;
-		}
-		else
+		while (*string == delimiter)
 			string++;
+		while (*string != 0)
+		{
+			if (*string == delimiter)
+			{
+				while (*string == delimiter)
+					string++;
+				if (*string != 0)
+					chunk_count++;
+			}
+			else
+				string++;
+		}
+		return (chunk_count);
 	}
-	return (chunk_count);
 }
 
 /*
@@ -34,39 +42,35 @@ static size_t	get_chunk_count(const char *string, char delimiter)
 ** 3. If the delimiter is
 */
 #include <stdio.h>
-char		**split_string(const char *str, char delim)
+static char		**split_string(const char *str, char delim)
 {
-	size_t	chunk_count;
-	char	**chunks;
-	size_t	i;
+	size_t		chunk_count;
+	char		**chunks;
+	size_t		i;
 
 	i = 0;
-	printf("\n\"%s\"", str);
 	chunk_count = get_chunk_count(str, delim);
-	chunks = (char**)malloc(sizeof(char**) * chunk_count);
+	chunks = (char**)malloc(sizeof(char**) * (chunk_count + 1));
 	if (chunks != NULL)
 	{
-		while (*str == delim)
-			str++;
 		if (delim == 0)
-			chunks[0] = ft_strdup(str);
+			chunks[i++] = ft_strdup(str);
 		else
 			while (i < chunk_count)
 			{
 				while (*str == delim)
 					str++;
-				if (*str != 0)
-					chunks[i] = ft_strsub(str, 0, ft_struntil(str, delim));
-				printf("\n\"%s\"\n", chunks[i]);
-				while (*str != delim && *str != 0)
+				chunks[i] = ft_strsub(str, 0, ft_struntil(str, delim));
+				while (*str != 0 && *str != delim)
 					str++;
 				i++;
 			}
+		chunks[i] = NULL;
 	}
 	return (chunks);
 }
 
-char	**ft_strsplit(const char *string, char delimiter)
+char			**ft_strsplit(const char *string, char delimiter)
 {
 	if (string != NULL)
 		return (split_string(string, delimiter));
