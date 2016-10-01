@@ -1,26 +1,26 @@
 #include "libft.h"
 char		*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	size_t	hi;
-	size_t	hsi;
-	size_t	ni;
+	size_t	h_index;
+	size_t	h_subindex;
+	size_t	n_index;
 
-	hi = 0;
-	ni = 0;
+	h_index = 0;
+	n_index = 0;
 	if (ft_strlen(needle) == 0)
 		return ((char*)haystack);
-	while (hi < n)
+	while (h_index < n)
 	{
-		hsi = hi;
-		while (haystack[hsi] == needle[ni] && hsi < n)
+		h_subindex = h_index;
+		while (haystack[h_subindex] == needle[n_index] && h_subindex < n)
 		{
-			if (needle[ni + 1] == 0)
-				return ((char*)haystack + hsi - ni);
-			hsi++;
-			ni++;
+			if (needle[n_index + 1] == 0)
+				return ((char*)haystack + h_subindex - n_index);
+			h_subindex++;
+			n_index++;
 		}
-		ni = 0;
-		hi++;
+		n_index = 0;
+		h_index++;
 	}
 	return ((char*)NULL);
 }

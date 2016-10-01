@@ -17,10 +17,7 @@ t_list		*ft_lstnew(const void *content, size_t content_size)
 			link->content_size = content_size;
 		}
 		else
-		{
-			link->content = NULL;
 			link->content_size = 0;
-		}
 		link->next = NULL;
 	}
 	return (link);
