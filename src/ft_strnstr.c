@@ -12,7 +12,7 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	while (haystack[h_index] != 0 && h_index < n)
 	{
 		h_subindex = h_index;
-		while (haystack[h_subindex] == needle[n_index] && h_subindex < n)
+		while (h_subindex < n && haystack[h_subindex] == needle[n_index])
 		{
 			if (needle[n_index + 1] == 0)
 				return ((char*)haystack + h_subindex - n_index);
