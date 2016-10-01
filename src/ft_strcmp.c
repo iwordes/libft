@@ -1,6 +1,14 @@
 #include "libft.h"
-int			ft_strcmp(const char *str1, const char *str2)
+int			ft_strcmp(const char *string1, const char *string2)
 {
-	return (ft_strncmp(str1, str2, ft_greater(
-		ft_strlen(str1) + 1, ft_strlen(str2) + 1)));
+	if (string1 == string2)
+		return (0);
+	while (*string1 == *string2)
+	{
+		if (*string1 == 0)
+			return (0);
+		string1++;
+		string2++;
+	}
+	return ((t_byte)*string1 - (t_byte)*string2);
 }

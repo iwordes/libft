@@ -24,20 +24,22 @@
 */
 size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 {
-	size_t	end;
+	size_t	body_length;
+	size_t	sfx_length;
 	size_t	i;
 
 	i = 0;
-	end = ft_strlen(string);
-	while (end + i < size - 1 && suffix[i] != 0)
+	sfx_length = ft_strlen(suffix);
+	body_length = ft_strlen(string);
+	while (body_length + i < size - 1 && i < sfx_length)
 	{
-		string[end + i] = suffix[i];
+		string[body_length + i] = suffix[i];
 		i++;
 	}
 	if (size > 0)
-		string[end + i] = 0;
-	if (end + i <= size)
-		return (end + i);
+		string[body_length + i] = 0;
+	if (body_length + sfx_length + 1 > size)
+		return (body_length + sfx_length);
 	else
-		return (end + ft_strlen(suffix));
+		return (body_length + i);
 }
