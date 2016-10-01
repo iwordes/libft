@@ -18,7 +18,6 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 
 	i = 0;
 	end = ft_strlen(string);
-	if (end + i < size - 1)
 	while (end + i < size - 1 && suffix[i] != 0)
 	{
 		string[end + i] = suffix[i];
@@ -26,7 +25,7 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 	}
 	if (size > 0)
 		string[end + i] = 0;
-	if (end + i < size)
+	if (end + i <= size)
 		return (end + i);
 	else
 		return (end + ft_strlen(suffix));

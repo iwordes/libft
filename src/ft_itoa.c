@@ -5,14 +5,17 @@ static int	get_places(int integer)
 	int		places;
 
 	places = 1;
-	while (integer / 10 != 0)
-	{
-		integer /= 10;
+	while ((integer /= 10) != 0)
 		places++;
-	}
 	return (places);
 }
 
+/*
+** 1. We get the number of places in the integer.
+** 2. If the integer is negative, another place will be needed for the sign.
+** 3. We create a new string of the proper size.
+** 4. If the integer is negative, we add the proper sign to the start.
+*/
 char		*ft_itoa(int integer)
 {
 	char	*string;
@@ -25,48 +28,14 @@ char		*ft_itoa(int integer)
 	if (string != NULL)
 	{
 		if (integer < 0)
-			*string = '-';
-		string += places;
+			string[0] = '-';
 		while (true)
 		{
-			*string = '0' + ft_absolute(integer % 10);
+			string[--places] = '0' + ft_absolute(integer % 10);
 			integer /= 10;
-			string--;
 			if (integer == 0)
-				break ;
+				break;
 		}
 	}
 	return (string);
 }
-
-/*
-** Iterative, Mk.I
-**{
-**	int		sign;
-**	int		place;
-**	int		places;
-**	char	*string;
-**
-**	sign = 1;
-**	places = get_num_places(integer);
-**	if (integer < 0)
-**		places++;
-**	string = ft_strnew(places);
-**	if (string != NULL)
-**	{
-**		if (integer < 0)
-**		{
-**			sign = -1;
-**			string[0] = '-';
-**		}
-**		place = places - 1;
-**		while (sign * (integer / 10) != 0)
-**		{
-**			string[place] = sign * (integer % 10) + '0';
-**			integer /= 10;
-**			place--;
-**		}
-**	}
-**	return (string);
-**}
-*/
