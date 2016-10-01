@@ -1,6 +1,5 @@
 #include "libft.h"
 
-#include <stdio.h>
 char		*ft_strmap(const char *string, char (*func)(char))
 {
 	size_t	i;
@@ -8,7 +7,6 @@ char		*ft_strmap(const char *string, char (*func)(char))
 
 	if (string != NULL && func != NULL)
 	{
-		printf("\n%s", string);
 		i = 0;
 		new_string = ft_strnew(ft_strlen(string));
 		if (new_string != NULL)

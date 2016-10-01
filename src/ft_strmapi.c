@@ -1,4 +1,5 @@
 #include "libft.h"
+
 char		*ft_strmapi(const char *string, char (*func)(unsigned int, char))
 {
 	size_t	i;
