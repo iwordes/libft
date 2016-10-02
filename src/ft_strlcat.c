@@ -6,21 +6,18 @@
 ** Given two strings and a target size, appends up to (size - strlen(string1)
 ** - 1) characters to the first string.
 **
-** Returns one of three values:
-** 1. If it used LESS space than the given size, returns how much it used.
-** 2. If it used AS MUCH space as the given size, returns the given size.
-** 3. If it used AS MUCH space but needed MORE, returns how much it needed.
+** The value it returns is ALWAYS THE SAME. However, it has several meanings:
+** 1. If it didn't use the entire buffer, the return value is what it used.
+** 2. If it used the entire buffer, the return value is the input size.
+** 3. If it needed more memory, the return value is the necessary buffer size.
 **
 ** Explanation
 ** ===========
-** 1. If
-** 1. While there is space left in the given buffer and characters left to
-**    append, append more characters.
-** 2.
-*/
-/*
-** Given issue: Not returning proper value; not quite sure what the issues is
-** yet.
+** 1. If the body's size exceeds the given size, we truncate it to the given.
+** 2. While there are characters left to append and there is space in the
+**    buffer, we copy more characters to the end of the buffer.
+** 3. If there is space remaining, we terminate the end of the buffer.
+** 4. Finally, we return the total size of the body and suffix combined.
 */
 size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 {
