@@ -22,28 +22,7 @@
 ** Given issue: Not returning proper value; not quite sure what the issues is
 ** yet.
 */
-#include <stdio.h>
 size_t		ft_strlcat(char *string, const char *suffix, size_t size)
-/*
-{
-	size_t	body_length;
-	size_t	suffix_length;
-
-	body_length = ft_strlen(string);
-	suffix_length = ft_strlen(suffix);
-	while (*string != 0 && size-- != 0)
-		string++;
-	while (*suffix != 0 && size-- != 0)
-	{
-		*string = *suffix;
-		string++;
-		suffix++;
-	}
-	if (size-- != 0)
-		*string = 0;
-	return (body_length + suffix_length);
-}
-*/
 {
 	size_t	i;
 	size_t	body_length;
@@ -63,30 +42,3 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 		string[body_length + i] = 0;
 	return (body_length + suffix_length);
 }
-
-/*
-{
-	size_t	body_length;
-	size_t	sfx_length;
-	size_t	i;
-
-	i = 0;
-	sfx_length = ft_strlen(suffix);
-	body_length = ft_strlen(string);
-	printf("\nBody: \"%s\"\nSuffix: \"%s\"", string, suffix);
-	printf("\nBody Length: %zu\nSuffix Length: %zu\nTotal Length: %zu\nAllowed size: %zu", body_length, sfx_length, body_length + sfx_length, size);
-	while (i < sfx_length && body_length + i < size - 1)
-	{
-		string[body_length + i] = suffix[i];
-		i++;
-	}
-	if (size > 0 && body_length < size)
-		string[body_length + sfx_length] = 0;
-	printf("\nString: \"%s\"\nString Length: %zu\n", string, ft_strlen(string));
-	printf("");
-	if (body_length + sfx_length >= size - 1)
-		return (body_length + sfx_length);
-	else
-		return (body_length + i);
-}
-*/

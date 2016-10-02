@@ -145,10 +145,6 @@ char					*ft_strdup(const char *string_to_duplicate);
 size_t					ft_strlcat(char *restrict string,
 									const char *restrict append,
 									size_t total_buffer_size);
-/*
-**char					*ft_strlcpy(char *destination, const char *source,
-**									size_t total_buffer_size);
-*/
 size_t					ft_strlen(const char *string_to_measure);
 int						ft_strncmp(const char *string1, const char *string2,
 									size_t bytes_to_compare);
@@ -156,6 +152,7 @@ char					*ft_strncpy(char *destination, const char *source,
 									size_t bytes_to_copy);
 char					*ft_strnstr(const char *haystack, const char *needle,
 									size_t bytes_to_search);
+char					*ft_strrchr(const char *string, char find);
 char					*ft_strstr(const char *haystack, const char *needle);
 char					*ft_strsub(const char *string, unsigned int start,
 									size_t length);
