@@ -160,8 +160,8 @@ char					*ft_strsub(const char *string, unsigned int start,
 void					ft_strclr(char *string_to_clear);
 void					ft_strdel(char **string_to_delete);
 int						ft_strequ(const char *string1, const char *string2);
-void					ft_striter(const char *string, void (*func)(char*));
-void					ft_striteri(const char *string,
+void					ft_striter(char *string, void (*func)(char*));
+void					ft_striteri(char *string,
 									void (*func)(unsigned, char*));
 char					*ft_strjoin(const char *prefix, const char *suffix);
 char					*ft_strmap(const char *string, char (*func)(char));
