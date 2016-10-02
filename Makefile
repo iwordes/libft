@@ -43,9 +43,11 @@ ft_strcpy\
 ft_strdup\
 ft_strlcat\
 ft_strlen\
+ft_strncat\
 ft_strncmp\
 ft_strncpy\
 ft_strnstr\
+ft_strrchr\
 ft_strstr\
 ft_strsub\
 \
@@ -113,6 +115,7 @@ ft_square\
 ft_strctrim\
 ft_strrev\
 ft_strrevdup\
+ft_strsim\
 ft_struntil
 
 SRC      := $(addsuffix .c,$(addprefix $(SRCDIR)/,$(INPUTS)))
