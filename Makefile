@@ -19,10 +19,7 @@ CMP      := $(COMPILER) $(CFLAGS)
 #     libft bonus (list functions)
 # Custom
 #     libc recreations
-#     libft custom
-#     list functions
-#
-# It makes more sense when you actually look at the spec PDF.
+#     general custom
 INPUTS   :=\
 ft_atoi\
 ft_bzero\
@@ -89,21 +86,16 @@ ft_lstnew\
 ft_iscntrl\
 ft_ispunct\
 ft_isspace\
-ft_isstdspace\
 ft_strncat\
 ft_strrchr\
 \
 ft_absolute\
+ft_chrcnt\
+ft_chrrcnt\
 ft_greater\
+ft_isstdspace\
 ft_leftpad\
 ft_lesser\
-ft_power\
-ft_puterr\
-ft_strctrim\
-ft_strrev\
-ft_strrevdup\
-ft_struntil\
-\
 ft_lstend\
 ft_lstinsert\
 ft_lstlen\
@@ -113,7 +105,15 @@ ft_lstndelone\
 ft_lstpop\
 ft_lstpush\
 ft_lstshift\
-ft_lstunshift
+ft_lstunshift\
+ft_power\
+ft_puterr\
+ft_rightpad\
+ft_square\
+ft_strctrim\
+ft_strrev\
+ft_strrevdup\
+ft_struntil
 
 SRC      := $(addsuffix .c,$(addprefix $(SRCDIR)/,$(INPUTS)))
 OBJ      := $(addsuffix .o,$(addprefix $(OBJDIR)/,$(INPUTS)))
