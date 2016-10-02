@@ -13,6 +13,7 @@
 **
 ** Explanation
 ** ===========
+** 1. If
 ** 1. While there is space left in the given buffer and characters left to
 **    append, append more characters.
 ** 2.
@@ -58,7 +59,7 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 		string[body_length + i] = suffix[i];
 		i++;
 	}
-	if (size > 0 && body_length <= size)
+	if (size > 0 && body_length < size)
 		string[body_length + i] = 0;
 	return (body_length + suffix_length);
 }
