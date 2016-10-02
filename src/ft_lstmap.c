@@ -1,4 +1,5 @@
 #include "libft.h"
+
 /*
 ** Given a t_list* list and a t_list* function *func(), applies func() to each
 ** link in the list, and returns a new list consisting of the sum output of all
@@ -17,14 +18,14 @@ t_list		*ft_lstmap(t_list *list, t_list *(*func)(t_list*))
 
 	if (list != NULL && func != NULL)
 	{
-		link = list;
-		map = func(link);
+		map = func(list);
 		map_item = map;
-		while (link != NULL && map_item != NULL)
+		link = list;
+		while (link->next != NULL)
 		{
-			map_item->next = func(link);
-			link = link->next;
+			map_item->next = func(link->next);
 			map_item = map_item->next;
+			link = link->next;
 		}
 		return (map);
 	}
