@@ -6,7 +6,7 @@
 ** Given two strings and a target size, appends up to (size - strlen(string1)
 ** - 1) characters to the first string.
 **
-** The value it returns is ALWAYS THE SAME. However, it has several meanings:
+** The return value is ALWAYS THE SAME. However, it has several meanings:
 ** 1. If it didn't use the entire buffer, the return value is what it used.
 ** 2. If it used the entire buffer, the return value is the input size.
 ** 3. If it needed more memory, the return value is the necessary buffer size.
