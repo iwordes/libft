@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-static int	get_places(int integer)
-{
-	int		places;
-
-	places = 1;
-	while ((integer /= 10) != 0)
-		places++;
-	return (places);
-}
-
 /*
 ** 1. We get the number of places in the integer.
 ** 2. If the integer is negative, another place will be needed for the sign.
@@ -33,7 +23,7 @@ char		*ft_itoa(int integer)
 	char	*string;
 	int		places;
 
-	places = get_places(integer);
+	places = ft_intlen(integer);
 	if (integer < 0)
 		places++;
 	string = ft_strnew(places);
