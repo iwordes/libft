@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_chrrcnt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:42:11 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:42:13 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Counts the number of runs of characters (instead of individual characters) in
+** the given string.
 */
-void	ft_putnbr_fd(int integer, int fd)
+size_t		ft_chrrcnt(char *string, char find)
 {
-	ft_putint_fd(integer, fd);
+	size_t	runs;
+
+	runs = 0;
+	if (string != NULL)
+		while (*string != 0)
+		{
+			if (*string == find)
+			{
+				while (*string == find)
+					string++;
+				runs++;
+			}
+			else
+				string++;
+		}
+	return (runs);
 }

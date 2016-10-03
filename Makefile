@@ -95,6 +95,8 @@ ft_absolute\
 ft_chrcnt\
 ft_chrrcnt\
 ft_greater\
+ft_intlen\
+ft_intlen_base\
 ft_isstdspace\
 ft_leftpad\
 ft_lesser\
@@ -110,6 +112,10 @@ ft_lstshift\
 ft_lstunshift\
 ft_power\
 ft_puterr\
+ft_putint\
+ft_putint_base\
+ft_putint_base_fd\
+ft_putint_fd\
 ft_rightpad\
 ft_square\
 ft_strctrim\

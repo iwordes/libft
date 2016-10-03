@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:44:01 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:44:03 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
-*/
-void	ft_putnbr_fd(int integer, int fd)
+int		ft_square(int integer)
 {
-	ft_putint_fd(integer, fd);
+	return (ft_power(integer, 2));
 }

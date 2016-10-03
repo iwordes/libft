@@ -12,7 +12,10 @@
 
 #include "libft.h"
 
-void	ft_putnbr(int num)
+/*
+** In favor of the more accurate ft_putint, this function will not be used.
+*/
+void	ft_putnbr(int integer)
 {
-	ft_putnbr_fd(num, 1);
+	ft_putint(integer);
 }

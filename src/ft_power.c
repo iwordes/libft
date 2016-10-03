@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:43:40 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:43:41 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Returns the given number * itself power times.
+** Watch out for overflow!
 */
-void	ft_putnbr_fd(int integer, int fd)
+int			ft_power(int base, unsigned int exponent)
 {
-	ft_putint_fd(integer, fd);
+	int		output;
+
+	if (exponent == 0)
+		return (1);
+	else
+	{
+		output = base;
+		while (--exponent != 0)
+			output *= base;
+	}
+	return (output);
 }

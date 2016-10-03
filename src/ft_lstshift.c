@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstshift.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:43:20 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:47:56 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Given a t_list **list, detaches the first link from that list and returns a
+** t_list* to it.
+** - If given a NULL list, returns NULL.
+** - If given a list of only a single link, returns that first link.
 */
-void	ft_putnbr_fd(int integer, int fd)
+t_list		*ft_lstshift(t_list **list)
 {
-	ft_putint_fd(integer, fd);
+	t_list	*link;
+
+	if (list != NULL && *list != NULL)
+	{
+		link = *list;
+		if ((*list)->next != NULL)
+			*list = (*list)->next;
+		link->next = NULL;
+		return (link);
+	}
+	return (NULL);
 }

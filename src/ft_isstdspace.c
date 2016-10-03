@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isstdspace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:42:32 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:42:33 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Determines whether the given character is a Standard WhiteSPACE.
 */
-void	ft_putnbr_fd(int integer, int fd)
+int		ft_isstdspace(int ch)
 {
-	ft_putint_fd(integer, fd);
+	return (ch == ' ' || ch == '\t' || ch == '\n');
 }

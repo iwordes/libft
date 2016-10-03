@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:44:54 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:44:56 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Given a string and a character, locates the last occurance of that character
+** and returns a pointer to it.
 */
-void	ft_putnbr_fd(int integer, int fd)
+char		*ft_strrchr(const char *string, char find)
 {
-	ft_putint_fd(integer, fd);
+	char	*current;
+
+	current = (char*)string + ft_strlen(string);
+	while (current >= string)
+	{
+		if (*current == find)
+			return (current);
+		current--;
+	}
+	return (NULL);
 }

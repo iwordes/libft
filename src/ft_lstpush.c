@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:43:18 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:47:52 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Given a t_list* list and a t_list* link, appends the link to the end of the
+** list.
+** - Given NULL for either argument, it does nothing.
 */
-void	ft_putnbr_fd(int integer, int fd)
+void		ft_lstpush(t_list *list, t_list *link)
 {
-	ft_putint_fd(integer, fd);
+	t_list	*last_link;
+
+	if (list != NULL && link != NULL)
+	{
+		last_link = list;
+		last_link = ft_lstend(list);
+		last_link->next = link;
+	}
 }

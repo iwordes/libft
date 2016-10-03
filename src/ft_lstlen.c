@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:43:05 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:47:14 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Given a t_list* list, returns the length of that list.
+** - If passed NULL, returns 0.
+** - If passed an invalid pointer to a list, undefined behavior may occur!
 */
-void	ft_putnbr_fd(int integer, int fd)
+size_t		ft_lstlen(const t_list *list)
 {
-	ft_putint_fd(integer, fd);
+	size_t	l;
+
+	l = 0;
+	while (list != NULL)
+	{
+		list = list->next;
+		l++;
+	}
+	return (l);
 }

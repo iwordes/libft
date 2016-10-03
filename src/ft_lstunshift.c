@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstunshift.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:43:22 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:48:01 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Given a t_list* list and a t_list* link, prepends the given link to the
+** beginning of the list.
+** - If the given list or link is NULL, does nothing.
 */
-void	ft_putnbr_fd(int integer, int fd)
+void		ft_lstunshift(t_list **list, t_list *link)
 {
-	ft_putint_fd(integer, fd);
+	if (list != NULL && link != NULL)
+	{
+		link->next = *list;
+		*list = link;
+	}
 }

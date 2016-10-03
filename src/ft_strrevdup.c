@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strrevdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:44:58 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:45:00 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Returns a reversed copy of the given string.
 */
-void	ft_putnbr_fd(int integer, int fd)
+char		*ft_strrevdup(const char *string)
 {
-	ft_putint_fd(integer, fd);
+	char	*gnirts;
+
+	gnirts = ft_strdup(string);
+	NULL_GUARD(gnirts);
+	ft_strrev(gnirts);
+	return (gnirts);
 }

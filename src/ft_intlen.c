@@ -1,9 +1,9 @@
 int			ft_intlen(int integer)
 {
-	int		places;
+	int		length;
 
-	places = 1;
+	length = 1;
 	while ((integer /= 10) != 0)
-		places++;
-	return (places);
+		length++;
+	return (length);
 }

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strsim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/10/02 16:45:00 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/02 16:45:02 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** In favor of the more accurate ft_putint_fd, this function will not be used.
+** Counts the similar characters between two given strings, in order.
+** Semantically, the return value is both the number of characters similar, and
+** the index of the first difference.
 */
-void	ft_putnbr_fd(int integer, int fd)
+size_t		ft_strsim(const char *string1, const char *string2)
 {
-	ft_putint_fd(integer, fd);
+	size_t	similar;
+
+	similar = 0;
+	if (string1 != NULL && string2 != NULL)
+		while (string1[similar] == string2[similar])
+			similar++;
+	return (similar);
 }

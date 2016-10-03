@@ -26,18 +26,15 @@ char		*ft_itoa(int integer)
 	places = ft_intlen(integer);
 	if (integer < 0)
 		places++;
-	string = ft_strnew(places);
-	if (string != NULL)
+	NULL_GUARD(string = ft_strnew(places));
+	if (integer < 0)
+		string[0] = '-';
+	while (1)
 	{
-		if (integer < 0)
-			string[0] = '-';
-		while (true)
-		{
-			string[--places] = '0' + ft_absolute(integer % 10);
-			integer /= 10;
-			if (integer == 0)
-				break;
-		}
+		string[--places] = '0' + ft_absolute(integer % 10);
+		integer /= 10;
+		if (integer == 0)
+			break ;
 	}
 	return (string);
 }

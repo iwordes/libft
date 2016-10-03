@@ -3,11 +3,8 @@
 
 /*
 ** LIBFT
-** VERSION 0.1.0
-**
-**
+** VERSION 1.0.0
 */
-
 
 # include <stdlib.h>
 # include <string.h>
@@ -15,61 +12,41 @@
 
 
 /*
-** Enumerators
+** NULL_GUARD - return NULL if a value is NULL
 */
-typedef enum			e_bool
-{
-	false,
-	true
-}						t_bool;
+# define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
+
+/*
+** CHRMAP - character map for numerical base functions
+*/
+# define CHRMAP "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 
 /*
 ** Structures
 */
-/*
-**typedef struct			s_array
-**{
-**	void				*pointer;
-**	size_t				content_size;
-**	size_t				size;
-**}						t_array;
-*/
-
-typedef struct			s_list
+struct					s_list
 {
 	void				*content;
 	size_t				content_size;
 	struct s_list		*next;
-}						t_list;
+};
 
-/*
-**typedef struct			s_string
-**{
-**	char				*ptr;
-**	size_t				length;
-**	enum
-**	{
-**		ascii;
-**	}					encoding;
-**}						t_string;
-*/
-
-/*
-**typedef struct			s_tree
-**{
-**	void				*content;
-**	size_t				content_size;
-**	void				*left;
-**	void				*right;
-**}						t_tree;
-*/
+struct					s_tree
+{
+	void				*content;
+	size_t				content_size;
+	void				*left;
+	void				*right;
+};
 
 
 /*
-** Typedefs (Generic)
+** Typedefs
 */
 typedef unsigned char	t_byte;
+typedef struct s_list	t_list;
+typedef struct s_tree	t_tree;
 
 
 /*
@@ -79,13 +56,17 @@ typedef unsigned char	t_byte;
 /*
 ** I/O
 */
+/*
+** int					ft_printf(char *pattern, ...);
+*/
+
 void					ft_putchar(char character);
 void					ft_putstr(const char *string);
 void					ft_putendl(const char *string);
-void					ft_putnbr(int integer);
+void					ft_putint(int integer);
+void					ft_putint_base(int integer, int base);
 /*
-**void					ft_putbits(unsigned char byte);
-**int					ft_printf(char *pattern, ...);
+** void					ft_putdbl(double number);
 */
 
 void					ft_puterr(char *error);
@@ -93,12 +74,24 @@ void					ft_puterr(char *error);
 void					ft_putchar_fd(char character, int file_descriptor);
 void					ft_putstr_fd(const char *string, int file_descriptor);
 void					ft_putendl_fd(const char *string, int file_descriptor);
-void					ft_putnbr_fd(int integer, int file_descriptor);
+void					ft_putint_fd(int integer, int file_descriptor);
+void					ft_putint_base_fd(int integer, int base, int file_des);
+/*
+** void					ft_putdbl_fd(double number, int file_descriptor);
+*/
 
-void					ft_fileappend(const char *string, int file_descriptor);
-void					ft_fileinsert(const char *string, size_t after_byte);
-void					ft_fileinsertl(const char *string, size_t after_line);
-void					ft_fileprepend(const char *string, int file_descriptor);
+/*
+**void					ft_fileappend(const char *string, int file_descriptor);
+**void					ft_fileinsert(const char *string, size_t after_byte);
+**void					ft_fileinsertl(const char *string, size_t after_line);
+**void					ft_fileprepend(const char *string, int file_descriptor);
+*/
+
+/*
+** These are not used in favor of ft_putint. However, they both work the same.
+*/
+void					ft_putnbr(int integer);
+void					ft_putnbr_fd(int integer, int file_descriptor);
 
 /*
 ** Character Checks
@@ -109,8 +102,8 @@ int						ft_isalpha(int character);
 int						ft_isdigit(int character);
 int						ft_isalnum(int character);
 int						ft_ispunct(int character);
-int						ft_isspace(int character);
 int						ft_isstdspace(int character);
+int						ft_isspace(int character);
 int						ft_isprint(int character);
 int						ft_isascii(int character);
 
@@ -127,25 +120,21 @@ int						ft_atoi(const char *string_to_parse);
 /*
 **long long				ft_atoll(const char *string_to_parse);
 */
-char					*ft_itoa(int integer_to_stringify);
-/*
-**char					*ft_itoa_base(int integer, int base);
-*/
+char					*ft_itoa(int integer);
+char					*ft_itoa_base(int integer, unsigned int base);
 
 
 /*
 ** Strings
 */
-char					*ft_strcat(char *restrict destination,
-									const char *restrict append);
+char					*ft_strcat(char *string, const char *suffix);
 char					*ft_strchr(const char *string, int character);
 int						ft_strcmp(const char *string1, const char *string2);
 char					*ft_strcpy(char *destination, const char *source);
-char					*ft_strdup(const char *string_to_duplicate);
-size_t					ft_strlcat(char *restrict string,
-									const char *restrict append,
+char					*ft_strdup(const char *string);
+size_t					ft_strlcat(char *string, const char *suffix,
 									size_t total_buffer_size);
-size_t					ft_strlen(const char *string_to_measure);
+size_t					ft_strlen(const char *string);
 int						ft_strncmp(const char *string1, const char *string2,
 									size_t bytes_to_compare);
 char					*ft_strncpy(char *destination, const char *source,
@@ -157,12 +146,11 @@ char					*ft_strstr(const char *haystack, const char *needle);
 char					*ft_strsub(const char *string, unsigned int start,
 									size_t length);
 
-void					ft_strclr(char *string_to_clear);
-void					ft_strdel(char **string_to_delete);
+void					ft_strclr(char *string);
+void					ft_strdel(char **string);
 int						ft_strequ(const char *string1, const char *string2);
 void					ft_striter(char *string, void (*func)(char*));
-void					ft_striteri(char *string,
-									void (*func)(unsigned, char*));
+void					ft_striteri(char *string, void (*f)(unsigned, char*));
 char					*ft_strjoin(const char *prefix, const char *suffix);
 char					*ft_strmap(const char *string, char (*func)(char));
 char					*ft_strmapi(const char *string,
@@ -176,48 +164,43 @@ char					*ft_strtrim(const char *string);
 char					*ft_strncat(char *string, const char *suffix, size_t n);
 
 size_t					ft_chrcnt(const char *string, char to_count);
-void					ft_strrev(char *string_to_reverse_in_place);
+void					ft_strrev(char *string);
 char					*ft_strrevdup(const char *string);
 size_t					ft_struntil(const char *string, char next_characte00r);
 
-char					*ft_leftpad(const char *string, char pad,
-									size_t target);
-char					*ft_rightpad(const char *string, char pad,
-									size_t target);
+char					*ft_leftpad(const char *string, char pad, size_t size);
+char					*ft_rightpad(const char *string, char pad, size_t size);
 
 /*
 ** Numbers
 */
 int						ft_absolute(int integer);
 int						ft_greater(int input1, int input2);
+int						ft_intlen(int integer);
+int						ft_intlen_base(int integer, unsigned int base);
 int						ft_lesser(int input1, int input2);
 int						ft_power(int integer, unsigned int exponent);
+int						ft_square(int integer, unsigned int exponent);
 
 /*
 ** Memory
 */
 void					ft_bzero(void *pointer, size_t number_of_bytes_to_zero);
-void					*ft_memccpy(void *restrict destination,
-									const void *restrict source,
+void					*ft_memccpy(void *destination, const void *source,
 									int character, size_t bytecount);
-void					*ft_memchr(const void *memory,
-									int character_to_find,
+void					*ft_memchr(const void *memory, int character,
 									size_t bytes_to_copy);
-int						ft_memcmp(const void *memory1,
-									const void *memory2,
+int						ft_memcmp(const void *memory1, const void *memory2,
 									size_t bytes_to_compare);
-void					*ft_memcpy(void *restrict destination,
-									const void *restrict source,
+void					*ft_memcpy(void *destination, const void *source,
 									size_t bytes_to_copy);
-void					*ft_memmove(void *restrict destination,
-									const void *restrict source,
+void					*ft_memmove(void *destination, const void *source,
 									size_t bytes_to_copy);
-void					*ft_memset(void *restrict memory,
-									int value,
+void					*ft_memset(void *memory, int value,
 									size_t bytes_to_write);
 
 void					*ft_memalloc(size_t bytes_to_allocate_and_zero);
-void					ft_memdel(void **memory_to_free);
+void					ft_memdel(void **memory);
 
 
 /*
