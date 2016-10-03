@@ -18,22 +18,24 @@
 ** - base-36 is the maximum range of case-insensitive numbers. (0-9, Aa-Bb)
 ** - Does not pad numbers with zeroes. Use
 */
-#include <stdio.h>
-char		*ft_itoa_base(int integer, unsigned int base)
+char		*ft_itoa_base(int integer, int base)
 {
 	char	*string;
-	int		places;
+	int		place;
 
 	if (base >= 2 && base <= 62)
 	{
-		places = ft_intlen_base(integer, base);
-		NULL_GUARD(string = ft_strnew(places + ((integer < 0) ? 1 : 0)));
+		place = ft_intlen_base(integer, base);
+		if (integer < 0)
+			place++;
+		NULL_GUARD(string = ft_strnew(place));
 		if (integer < 0 && base == 10)
 			string[0] = '-';
 		while (1)
 		{
-			string[--places] = CHRMAP[ft_absolute(integer % base)];
-			if ((integer /= base) == 0)
+			string[--place] = CHRMAP[ft_absolute(integer % base)];
+			integer /= base;
+			if (integer == 0)
 				break ;
 		}
 		return (string);
