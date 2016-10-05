@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
+/*   Updated: 2016/10/05 10:44:22 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -10,9 +22,9 @@
 # include <string.h>
 # include <unistd.h>
 
-
 /*
 ** NULL_GUARD - return NULL if a value is NULL
+** Only good when multiple instances of malloc are not being called.
 */
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 
@@ -20,7 +32,6 @@
 ** CHRMAP - character map for numerical base functions
 */
 # define CHRMAP "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
 
 /*
 ** Structures
@@ -40,14 +51,12 @@ struct					s_tree
 	void				*right;
 };
 
-
 /*
 ** Typedefs
 */
 typedef unsigned char	t_byte;
 typedef struct s_list	t_list;
 typedef struct s_tree	t_tree;
-
 
 /*
 ** Functions
@@ -123,7 +132,6 @@ int						ft_atoi(const char *string_to_parse);
 char					*ft_itoa(int integer);
 char					*ft_itoa_base(int integer, int base);
 
-
 /*
 ** Strings
 */
@@ -163,10 +171,14 @@ char					*ft_strtrim(const char *string);
 
 char					*ft_strncat(char *string, const char *suffix, size_t n);
 
-size_t					ft_chrcnt(const char *string, char to_count);
+/*
+** Strings - Custom
+*/
+size_t					ft_charcnt(const char *string, char to_count);
+size_t					ft_struntil(const char *string, char next_character);
+
 void					ft_strrev(char *string);
 char					*ft_strrevdup(const char *string);
-size_t					ft_struntil(const char *string, char next_characte00r);
 
 char					*ft_leftpad(const char *string, char pad, size_t size);
 char					*ft_rightpad(const char *string, char pad, size_t size);
@@ -200,9 +212,8 @@ void					*ft_memset(void *memory, int value,
 void					*ft_memalloc(size_t bytes_to_allocate_and_zero);
 void					ft_memdel(void **memory);
 
-
 /*
-** List Manipulation
+** Lists
 */
 void					ft_lstadd(t_list **list, t_list *link);
 void					ft_lstdel(t_list **list, void (*del)(void*, size_t));
@@ -224,6 +235,5 @@ t_list					*ft_lstpop(t_list *list);
 void					ft_lstpush(t_list *list, t_list *link);
 t_list					*ft_lstshift(t_list **list);
 void					ft_lstunshift(t_list **list, t_list *link);
-
 
 #endif
