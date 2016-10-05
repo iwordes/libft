@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-/*
-** Prints a given integer, in a given base, to a given file descriptor.
-*/
-
 static void		print_integer_in_base_to_fd(int integer, int base, int fd)
 {
 	if (integer / 10 != 0)

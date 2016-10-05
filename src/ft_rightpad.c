@@ -26,13 +26,10 @@ char	*ft_rightpad(const char *string, char pad, size_t target)
 	if (string != NULL)
 	{
 		i = ft_strlen(string);
-		padded_string = ft_strnew(ft_greater(target, i));
-		if (padded_string != NULL)
-		{
-			ft_strcat(padded_string, string);
-			while (i < target)
-				padded_string[i++] = pad;
-		}
+		NULL_GUARD(padded_string = ft_strnew(ft_greater(target, i)));
+		ft_strcat(padded_string, string);
+		while (i < target)
+			padded_string[i++] = pad;
 		return (padded_string);
 	}
 	return (NULL);

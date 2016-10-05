@@ -22,9 +22,6 @@ size_t		ft_wordcnt(const char *string)
 
 	words = 0;
 	if (string != NULL)
-	{
-		while (ft_isspace(*string))
-			string++;
 		while (*string != 0)
 		{
 			while (ft_isspace(*string))
@@ -34,6 +31,5 @@ size_t		ft_wordcnt(const char *string)
 			while (!ft_isspace(*string) && *string != 0)
 				string++;
 		}
-	}
 	return (words);
 }

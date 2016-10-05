@@ -20,8 +20,7 @@ char	*ft_strrevdup(const char *string)
 {
 	char	*gnirts;
 
-	gnirts = ft_strdup(string);
-	NULL_GUARD(gnirts);
+	NULL_GUARD(gnirts = ft_strdup(string));
 	ft_strrev(gnirts);
 	return (gnirts);
 }

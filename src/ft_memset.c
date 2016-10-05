@@ -15,11 +15,11 @@
 void	*ft_memset(void *memory, int value, size_t length)
 {
 	size_t	i;
-	t_byte	*bytearr;
+	t_byte	*bytes;
 
 	i = 0;
-	bytearr = (t_byte*)memory;
+	bytes = (t_byte*)memory;
 	while (i < length)
-		bytearr[i++] = (t_byte)value;
+		bytes[i++] = (t_byte)value;
 	return (memory);
 }
