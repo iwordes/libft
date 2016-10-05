@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:58 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:45:00 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:47 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
 ** Returns a reversed copy of the given string.
 */
-char		*ft_strrevdup(const char *string)
+
+char	*ft_strrevdup(const char *string)
 {
 	char	*gnirts;
 

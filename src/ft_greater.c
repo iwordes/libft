@@ -6,11 +6,11 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:14 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:42:15 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:16 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_greater(int num1, int num2)
 {
-	return ((num1 > num2)? num1 : num2);
+	return ((num1 > num2) ? num1 : num2);
 }

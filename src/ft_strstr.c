@@ -6,16 +6,12 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:04 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:45:05 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:21 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** h*: Haystack related
-** n*: Needle related
-*/
 char		*ft_strstr(const char *haystack, const char *needle)
 {
 	size_t	hi;

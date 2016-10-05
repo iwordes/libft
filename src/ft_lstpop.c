@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:17 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:46 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:39 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 **
 ** I'm sure this can be done more efficiently.
 */
+
 t_list			*ft_lstpop(t_list *list)
 {
 	t_list		*second_last_link;

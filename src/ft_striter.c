@@ -14,7 +14,7 @@
 
 void		ft_striter(char *string, void (*func)(char*))
 {
-	if (string != NULL)
+	if (string != NULL && func != NULL)
 		while (*string)
 		{
 			func(string);

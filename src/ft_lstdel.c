@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:55 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:46:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:05:00 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 ** - If the given list is already NULL, finishes immediately.
 ** - free DOES NOT work on lists created on the stack.
 */
-void		ft_lstdel(t_list **list, void (*del)(void*, size_t))
+
+void	ft_lstdel(t_list **list, void (*del)(void*, size_t))
 {
 	t_list	*next_link;
 

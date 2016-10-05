@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:11 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:33 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:05:15 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** Given a t_list* list and a size_t index n, detaches and deletes all links
 ** after index N.
 */
+
 void		ft_lstndel(t_list **list, void (*del)(void*, size_t), size_t n)
 {
 	t_list	*temp;

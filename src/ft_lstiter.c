@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:03 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:09 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:47 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** element of the list.
 ** - If func() modifies list->next, undefined behavior may occur!
 */
-void		ft_lstiter(t_list *list, void (*func)(t_list*))
+
+void	ft_lstiter(t_list *list, void (*func)(t_list*))
 {
 	while (list != NULL)
 	{

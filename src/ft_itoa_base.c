@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:47 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:42:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:30 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** - base-36 is the maximum range of case-insensitive numbers. (0-9, Aa-Bb)
 ** - Does not pad numbers with zeroes. Use
 */
+
 char		*ft_itoa_base(int integer, int base)
 {
 	char	*string;

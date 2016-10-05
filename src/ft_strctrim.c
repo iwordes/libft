@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:13 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:49:29 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:52:42 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Delivers a copy of a given *string* sans leading or trailing *c*haracters.
 */
+
 char		*ft_strctrim(const char *string, const char c)
 {
 	size_t	length;

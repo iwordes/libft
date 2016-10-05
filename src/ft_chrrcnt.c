@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:11 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:42:13 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:56:08 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** Counts the number of runs of characters (instead of individual characters) in
 ** the given string.
 */
+
 size_t		ft_chrrcnt(char *string, char find)
 {
 	size_t	runs;

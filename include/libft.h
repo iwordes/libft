@@ -121,7 +121,7 @@ int						ft_atoi(const char *string_to_parse);
 **long long				ft_atoll(const char *string_to_parse);
 */
 char					*ft_itoa(int integer);
-char					*ft_itoa_base(int integer, unsigned int base);
+char					*ft_itoa_base(int integer, int base);
 
 
 /*
@@ -177,10 +177,8 @@ char					*ft_rightpad(const char *string, char pad, size_t size);
 int						ft_absolute(int integer);
 int						ft_greater(int input1, int input2);
 int						ft_intlen(int integer);
-int						ft_intlen_base(int integer, unsigned int base);
+int						ft_intlen_base(int integer, int base);
 int						ft_lesser(int input1, int input2);
-int						ft_power(int integer, unsigned int exponent);
-int						ft_square(int integer, unsigned int exponent);
 
 /*
 ** Memory

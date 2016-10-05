@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:02 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:45:04 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:52:54 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,27 @@ static size_t	get_chunk_count(const char *string, char delimiter)
 	}
 }
 
+/*
+** When you make a mess, clean up after yourself, or so they say.
+*/
+
+static char		**oh_god_its_all_gone_to_hell(char **halp)
+{
+	int			i;
+	char		*chunk;
+
+	i = 0;
+	chunk = *halp;
+	while (chunk)
+	{
+		free(chunk);
+		i++;
+		chunk = halp[i];
+	}
+	free(halp);
+	return (NULL);
+}
+
 static char		**split_string(const char *string, char delim)
 {
 	size_t		chunk_count;
@@ -47,20 +68,20 @@ static char		**split_string(const char *string, char delim)
 	i = 0;
 	chunk_count = get_chunk_count(string, delim);
 	chunks = (char**)malloc(sizeof(char*) * (chunk_count + 1));
-	if (chunks != NULL)
-	{
-		if (chunk_count > 0)
-			while (i < chunk_count)
-			{
-				while (*string == delim)
-					string++;
-				chunks[i] = ft_strsub(string, 0, ft_struntil(string, delim));
-				while (*string != 0 && *string != delim)
-					string++;
-				i++;
-			}
-		chunks[chunk_count] = NULL;
-	}
+	NULL_GUARD(chunks);
+	if (chunk_count > 0)
+		while (i < chunk_count)
+		{
+			while (*string == delim)
+				string++;
+			chunks[i] = ft_strsub(string, 0, ft_struntil(string, delim));
+			if (chunks[i] == NULL)
+				return (oh_god_its_all_gone_to_hell(chunks));
+			while (*string != 0 && *string != delim)
+				string++;
+			i++;
+		}
+	chunks[chunk_count] = NULL;
 	return (chunks);
 }
 

@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:36 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:48:27 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:52:15 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Performs a non-destructive copy of n bytes from memory_src to memory_dest.
 */
+
 void				*ft_memmove(void *mem_dest, const void *mem_src, size_t n)
 {
 	t_byte			*dest;

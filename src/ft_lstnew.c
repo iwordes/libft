@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:15 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:16 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:54:24 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Create a new link of a linked list and initialize it to a usable state.
 */
+
 t_list		*ft_lstnew(const void *content, size_t content_size)
 {
 	t_list	*link;

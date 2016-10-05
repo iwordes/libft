@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:59 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:49:04 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:56:18 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** that meets the given target, filling any characters necessary with the given
 ** fill character.
 */
-char		*ft_rightpad(const char *string, char pad, size_t target)
+
+char	*ft_rightpad(const char *string, char pad, size_t target)
 {
 	char	*padded_string;
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:13 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:38 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:07:55 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** from the list and deletes it. The original pointer is updated if necessary.
 ** - If the given list is not long enough, it deletes the last link in the list.
 ** - If the given value for n is zero,
-**
 */
-void		ft_lstndelone(t_list **list, void (*del)(void*, size_t), size_t n)
+
+void	ft_lstndelone(t_list **list, void (*del)(void*, size_t), size_t n)
 {
 	t_list	*temp_parent;
 	t_list	*temp;

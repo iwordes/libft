@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:56 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:50:37 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:55:38 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 ** - Stops when the pointers for start and end overlap. (no garbling)
 ** - Triple XOR (bitwise eXclusive OR) swaps two variables without a third.
 */
-void		ft_strrev(char *start)
+
+void	ft_strrev(char *start)
 {
+	char	temp;
 	char	*end;
 
 	if (start != NULL && *start != 0)
@@ -27,9 +29,9 @@ void		ft_strrev(char *start)
 		end = start + ft_strlen(start) - 1;
 		while (start < end)
 		{
-			*start = *start ^ *end;
-			*end = *start ^ *end;
-			*start = *start ^ *end;
+			temp = *start;
+			*start = *end;
+			*end = temp;
 			start++;
 			end--;
 		}

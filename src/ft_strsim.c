@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:00 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:45:02 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:26 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ** Semantically, the return value is both the number of characters similar, and
 ** the index of the first difference.
 */
+
 size_t		ft_strsim(const char *string1, const char *string2)
 {
 	size_t	similar;

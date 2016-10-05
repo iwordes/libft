@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:05 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:14 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:52:58 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ** - If passed NULL, returns 0.
 ** - If passed an invalid pointer to a list, undefined behavior may occur!
 */
+
 size_t		ft_lstlen(const t_list *list)
 {
 	size_t	l;

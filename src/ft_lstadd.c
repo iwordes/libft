@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:46:44 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:08 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ** beginning of the list.
 ** - If the given list or link is NULL, does nothing.
 */
+
 void	ft_lstadd(t_list **list, t_list *link)
 {
 	ft_lstunshift(list, link);

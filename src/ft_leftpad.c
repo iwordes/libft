@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:49 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:46:37 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:29 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** - If the given string is too long to pad, a copy of it is returned.
 ** - If
 */
+
 char		*ft_leftpad(const char *string, char pad, size_t target)
 {
 	char	*padded_string;

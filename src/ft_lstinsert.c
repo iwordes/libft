@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:01 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:04 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:05:07 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** - n is an index from 0 onward.
 ** - If the value of n is at either end of the list, it pre- or appends insert.
 */
+
 void		ft_lstinsert(t_list *list, t_list *insert, size_t n)
 {
 	if (list != NULL && insert != NULL)

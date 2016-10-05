@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:57 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:46:55 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:53 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 ** - Passing in a pointer to a list not created with malloc in some form will
 **   result in undefined behavior!
 */
-void			ft_lstdelone(t_list **link, void (*del)(void*, size_t))
+
+void	ft_lstdelone(t_list **link, void (*del)(void*, size_t))
 {
 	if (*link != NULL)
 	{

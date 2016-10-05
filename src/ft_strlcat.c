@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:30 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:44:32 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:51:44 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 ** 3. If there is space remaining, we terminate the end of the buffer.
 ** 4. Finally, we return the total size of the body and suffix combined.
 */
+
 size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 {
 	size_t	i;

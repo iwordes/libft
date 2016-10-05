@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:10 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:50:57 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:02:34 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** index of the string's terminator.
 ** - If the string is NULL, returns 0.
 */
+
 size_t		ft_struntil(const char *string, char match)
 {
 	size_t		i;

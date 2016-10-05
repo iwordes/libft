@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:18 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:52 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:51:55 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** list.
 ** - Given NULL for either argument, it does nothing.
 */
-void		ft_lstpush(t_list *list, t_list *link)
+
+void	ft_lstpush(t_list *list, t_list *link)
 {
 	t_list	*last_link;
 

@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:20 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:47:56 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:00:08 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 ** - If given a NULL list, returns NULL.
 ** - If given a list of only a single link, returns that first link.
 */
+
 t_list		*ft_lstshift(t_list **list)
 {
 	t_list	*link;

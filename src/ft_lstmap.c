@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:07 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:43:08 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:53:13 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 **   This is because it is impossible to tell if a pointer has been freed
 **   prior to freeing it, hence re-pointing freed pointers to NULL.
 */
+
 t_list		*ft_lstmap(t_list *list, t_list *(*func)(t_list*))
 {
 	t_list	*map;

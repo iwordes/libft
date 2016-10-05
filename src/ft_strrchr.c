@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:54 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:44:56 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:59:48 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 ** Given a string and a character, locates the last occurance of that character
 ** and returns a pointer to it.
 */
-char		*ft_strrchr(const char *string, char find)
+
+char	*ft_strrchr(const char *string, char find)
 {
 	char	*current;
 
