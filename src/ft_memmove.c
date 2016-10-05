@@ -16,19 +16,19 @@
 ** Performs a non-destructive copy of n bytes from memory_src to memory_dest.
 */
 
-void				*ft_memmove(void *mem_dest, const void *mem_src, size_t n)
+void				*ft_memmove(void *mdest, const void *msrc, size_t n)
 {
 	t_byte			*dest;
 	const t_byte	*src;
 
-	if (mem_src == mem_dest || n == 0)
-		return (mem_dest);
-	else if (mem_dest < mem_src)
-		return (ft_memcpy(mem_dest, mem_src, n));
+	if (msrc == mdest || n == 0)
+		return (mdest);
+	else if (mdest < msrc)
+		return (ft_memcpy(mdest, msrc, n));
 	else
 	{
-		dest = (t_byte*)mem_dest;
-		src = (const t_byte*)mem_src;
+		src = (const t_byte*)msrc;
+		dest = (t_byte*)mdest;
 		while (--n)
 			dest[n] = src[n];
 		dest[0] = src[0];

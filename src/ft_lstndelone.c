@@ -24,7 +24,7 @@ void	ft_lstndelone(t_list **list, void (*del)(void*, size_t), size_t n)
 	t_list	*temp_parent;
 	t_list	*temp;
 
-	if (list != NULL && del != NULL)
+	if (list != NULL && *list != NULL && del != NULL)
 	{
 		if (n == 0)
 		{

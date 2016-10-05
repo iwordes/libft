@@ -12,9 +12,13 @@
 
 #include "libft.h"
 
+/*
+** Freeing NULL is defined behavior, doing absolutely nothing.
+*/
+
 void	ft_memdel(void **pointer)
 {
-	if (pointer != NULL && *pointer != NULL)
+	if (pointer != NULL)
 	{
 		free(*pointer);
 		*pointer = NULL;

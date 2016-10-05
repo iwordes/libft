@@ -15,10 +15,8 @@
 /*
 ** Given a t_list*, detaches the last link from the list and returns a t_list*
 ** to it.
-** - If the given list has only one link, returns that link.
 ** - If the given list is NULL, returns NULL.
-**
-** I'm sure this can be done more efficiently.
+** - If the given list has only one link, returns that link.
 */
 
 t_list			*ft_lstpop(t_list *list)
@@ -26,14 +24,14 @@ t_list			*ft_lstpop(t_list *list)
 	t_list		*second_last_link;
 	t_list		*last_link;
 
+	NULL_GUARD(list);
 	last_link = list;
-	second_last_link = last_link;
+	second_last_link = list;
 	while (last_link->next != NULL)
 	{
 		second_last_link = last_link;
 		last_link = last_link->next;
 	}
-	if (second_last_link != last_link && second_last_link != NULL)
-		second_last_link->next = NULL;
+	second_last_link->next = NULL;
 	return (last_link);
 }

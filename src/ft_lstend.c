@@ -16,9 +16,6 @@
 ** Given a t_list list, non-destructively returns the last link of that list.
 ** - If the list is only one link long, returns the list immediately.
 ** - If the list is NULL, returns immediately.
-**
-** Yes, nesting a while under an if is less pretty, but it doesn't need to check
-** every time if the given list is NULL.
 */
 
 t_list		*ft_lstend(t_list *list)

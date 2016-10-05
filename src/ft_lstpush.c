@@ -15,7 +15,6 @@
 /*
 ** Given a t_list* list and a t_list* link, appends the link to the end of the
 ** list.
-** - Given NULL for either argument, it does nothing.
 */
 
 void	ft_lstpush(t_list *list, t_list *link)
@@ -24,7 +23,6 @@ void	ft_lstpush(t_list *list, t_list *link)
 
 	if (list != NULL && link != NULL)
 	{
-		last_link = list;
 		last_link = ft_lstend(list);
 		last_link->next = link;
 	}

@@ -31,7 +31,6 @@ t_list		*ft_lstn(t_list *list, size_t n)
 			list = list->next;
 			i++;
 		}
-		return (list);
 	}
-	return (NULL);
+	return (list);
 }

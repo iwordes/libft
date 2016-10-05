@@ -18,6 +18,18 @@
 ** - base-36 is the maximum range of case-insensitive numbers. (0-9, Aa-Bb)
 ** - Does not pad numbers with zeroes. Use
 */
+/*
+** Why...
+** ===
+** - do you use while (1)?
+**   A: It's loop that runs at least once before it may or may not break out.
+**   That's quite similar to how some other looping control statements work...
+** - do you use --place?
+**   A: It takes less lines and causes me to *not* overwrite the strnew \0.
+** - do you use CHRMAP? What even is that, anyway?
+**   A: CHRMAP is my macro that provides the proper character set for my base
+**   functions, like itoa_base. I've defined it in my header.
+*/
 
 char		*ft_itoa_base(int integer, int base)
 {

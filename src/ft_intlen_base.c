@@ -20,13 +20,15 @@ int		ft_intlen_base(int integer, int base)
 {
 	int		length;
 
-	length = 1;
 	if (base > 1)
+	{
+		length = 1;
 		while ((integer /= base) != 0)
 			length++;
+		return (length);
+	}
 	else if (base == 1)
 		return (integer);
-	else if (base < 1)
+	else
 		return (-1);
-	return (length);
 }

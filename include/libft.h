@@ -193,6 +193,12 @@ int						ft_intlen_base(int integer, int base);
 int						ft_lesser(int input1, int input2);
 
 /*
+** Be careful of integer overflow!
+*/
+int						ft_square(int integer);
+int						ft_power(int integer, int exponent);
+
+/*
 ** Memory
 */
 void					ft_bzero(void *pointer, size_t number_of_bytes_to_zero);

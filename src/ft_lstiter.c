@@ -20,9 +20,10 @@
 
 void	ft_lstiter(t_list *list, void (*func)(t_list*))
 {
-	while (list != NULL)
-	{
-		func(list);
-		list = list->next;
-	}
+	if (func != NULL)
+		while (list != NULL)
+		{
+			func(list);
+			list = list->next;
+		}
 }
