@@ -20,21 +20,26 @@
 ** - If
 */
 
+#include <stdio.h>
 char		*ft_leftpad(const char *string, char pad, size_t target)
 {
 	char	*padded_string;
-	size_t	l;
+	size_t	length;
 	size_t	i;
 
 	if (string != NULL)
 	{
 		i = 0;
-		l = ft_strlen(string);
-		padded_string = ft_strnew(ft_greater(target, l));
+		length = ft_strlen(string);
+		padded_string = ft_strnew(ft_greater(target, length));
 		NULL_GUARD(padded_string);
-		while (i < target - l)
-			padded_string[i++] = pad;
+		printf(">>> Allocation successful\n");
+		if (length < target)
+			while (i < target - length)
+				padded_string[i++] = pad;
+		printf(">>> Pad successful\n");
 		ft_strcat(padded_string, string);
+		printf(">>> Append successful\n");
 		return (padded_string);
 	}
 	return (NULL);
