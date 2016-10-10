@@ -175,6 +175,9 @@ char					*ft_strncat(char *string, const char *suffix, size_t n);
 ** Strings - Custom
 */
 size_t					ft_charcnt(const char *string, char to_count);
+size_t					ft_charrcnt(const char *string, char to_count_runs);
+size_t					ft_wordcnt(const char *string);
+
 size_t					ft_struntil(const char *string, char next_character);
 
 void					ft_strrev(char *string);
@@ -188,9 +191,10 @@ char					*ft_rightpad(const char *string, char pad, size_t size);
 */
 int						ft_absolute(int integer);
 int						ft_greater(int input1, int input2);
+int						ft_lesser(int input1, int input2);
+
 int						ft_intlen(int integer);
 int						ft_intlen_base(int integer, int base);
-int						ft_lesser(int input1, int input2);
 
 /*
 ** Be careful of integer overflow!
