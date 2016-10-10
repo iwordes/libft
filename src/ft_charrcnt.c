@@ -17,7 +17,7 @@
 ** the given string.
 */
 
-size_t		ft_chrrcnt(char *string, char find)
+size_t		ft_charrcnt(const char *string, char find)
 {
 	size_t	runs;
 

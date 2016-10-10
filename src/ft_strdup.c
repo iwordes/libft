@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
 #include "libft.h"
 
 char		*ft_strdup(const char *original)
@@ -26,7 +25,5 @@ char		*ft_strdup(const char *original)
 			copy[i] = original[i];
 			i++;
 		}
-	else
-		errno = ENOMEM;
 	return (copy);
 }
