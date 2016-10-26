@@ -36,11 +36,9 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 {
 	size_t	i;
 	size_t	body_length;
-	size_t	suffix_length;
 
 	i = 0;
 	body_length = ft_strlen(string);
-	suffix_length = ft_strlen(suffix);
 	if (body_length > size)
 		body_length = size;
 	while (suffix[i] != 0 && body_length + i < size - 1)
@@ -50,5 +48,5 @@ size_t		ft_strlcat(char *string, const char *suffix, size_t size)
 	}
 	if (size > 0 && body_length < size)
 		string[body_length + i] = 0;
-	return (body_length + suffix_length);
+	return (body_length + ft_strlen(suffix));
 }
