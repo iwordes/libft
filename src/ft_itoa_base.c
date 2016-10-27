@@ -36,17 +36,17 @@ char		*ft_itoa_base(int integer, int base)
 	char	*string;
 	int		place;
 
-	if (base >= 2 && base <= 62)
+	if (base >= 2 && base <= 64)
 	{
 		place = ft_intlen_base(integer, base);
-		if (integer < 0)
+		if (integer < 0 && base == 10)
 			place++;
 		NULL_GUARD(string = ft_strnew(place));
 		if (integer < 0 && base == 10)
 			string[0] = '-';
-		while (1)
+		while (TRUE)
 		{
-			string[--place] = CHRMAP[ft_absolute(integer % base)];
+			string[--place] = BASE64[ft_absolute(integer % base)];
 			integer /= base;
 			if (integer == 0)
 				break ;

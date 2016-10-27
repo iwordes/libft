@@ -16,7 +16,6 @@ char		*ft_strtrim(const char *string)
 {
 	size_t	length;
 	size_t	start;
-	char	*trimmed_string;
 
 	if (string != NULL)
 	{
@@ -27,8 +26,7 @@ char		*ft_strtrim(const char *string)
 		if (length > 0)
 			while (ft_isstdspace(string[start + length - 1]))
 				length--;
-		trimmed_string = ft_strsub(string, start, length);
-		return (trimmed_string);
+		return (ft_strsub(string, start, length));
 	}
 	return (NULL);
 }
