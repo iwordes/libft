@@ -16,9 +16,7 @@ static size_t	get_chunk_count(const char *string, char delimiter)
 {
 	size_t		chunk_count;
 
-	if (*string == 0)
-		return (0);
-	else if (delimiter == 0)
+	if (delimiter == 0)
 		return (1);
 	else
 	{
@@ -42,20 +40,13 @@ static size_t	get_chunk_count(const char *string, char delimiter)
 ** When you make a mess, clean up after yourself, or so they say.
 */
 
-static char		**oh_god_its_all_gone_to_hell(char **halp)
+static char		**panic(char **halp)
 {
-	int			i;
-	char		*chunk;
-
-	i = 0;
-	chunk = *halp;
-	while (chunk)
+	while (*substrings)
 	{
-		free(chunk);
-		i++;
-		chunk = halp[i];
+		free(*substrings);
+		substrings++;
 	}
-	free(halp);
 	return (NULL);
 }
 
@@ -76,7 +67,7 @@ static char		**split_string(const char *string, char delim)
 				string++;
 			chunks[i] = ft_strsub(string, 0, ft_struntil(string, delim));
 			if (chunks[i] == NULL)
-				return (oh_god_its_all_gone_to_hell(chunks));
+				return (panic(chunks));
 			while (*string != 0 && *string != delim)
 				string++;
 			i++;
