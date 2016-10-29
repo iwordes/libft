@@ -21,18 +21,11 @@
 
 size_t		ft_struntil(const char *string, char match)
 {
-	size_t		i;
+	size_t	i;
 
+	i = 0;
 	if (string != NULL)
-	{
-		i = 0;
-		while (string[i] != 0)
-		{
-			if (string[i] == match)
-				return (i);
+		while (string[i] != 0 && string[i] != match)
 			i++;
-		}
-		return (i);
-	}
-	return (0);
+	return (i);
 }
