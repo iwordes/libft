@@ -1,5 +1,5 @@
 NAME     := libft
-VERSION  := 1.0.1
+VERSION  := 1.1.0
 AUTHOR   := iwordes
 
 INCDIR   := ./include
@@ -121,9 +121,7 @@ $(NAME): $(OUTPUTS)
 #    file called main.c, and not a called file program.c or asset.png.
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	@echo -n ""
 	$(CMP) -c $< -o $@
-	@echo -n ""
 
 $(OUTDIR)/$(NAME).a: $(OBJ)
 	@mkdir -p $(OUTDIR)

@@ -15,12 +15,12 @@ typedef struct	s_file
 	int			desc;
 }				t_file;
 
-typedef struct	s_folder
+typedef struct	s_dir
 {
 	int			desc;
 	char		*types;
 	void		*contents;
-}				t_folder;
+}				t_dir;
 
 /*
 ** Input
@@ -69,37 +69,9 @@ void	ft_putint_base_fd(int integer, int base, int fd);
 void	ft_putnbr(int integer);
 void	ft_putnbr_fd(int integer, int fd);
 
-
-
 /*
 ** Filesystem
 */
 
-/*
-**t_file		ft_fileopen();
-*/
-
-/*
-**int			ft_mkfile(char *path);
-**int			ft_mkdir(char *path);
-**int			ft_fscopy(char *source_path, char *destination_path);
-**int			ft_fsmove(char *source_path, char *destination_path);
-*/
-/*
-**void					ft_fileappend(const char *string, int file_descriptor);
-**void					ft_fileinsert(const char *string, size_t after_byte);
-**void					ft_fileinsertl(const char *string, size_t after_line);
-**void					ft_fileprepend(const char *string, int file_descriptor);
-**
-**char					*ft_fileread(const char *name);
-**char					*ft_fileread_fd(int fd);
-**int					ft_filewrite(const char *name, const char *content);
-**
-**int					ft_filefind(int filedes, const char *string);
-**int					ft_filecpy(int fd_dest, int fd_src);
-**int					ft_filemov()
-**
-**size_t				ft_filesize(int fd);
-*/
 
 #endif

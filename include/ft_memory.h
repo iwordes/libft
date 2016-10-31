@@ -12,6 +12,8 @@ void	*ft_memset(void *memory, int value, size_t bytecount);
 void	*ft_memalloc(size_t bytecount);
 void	ft_memdel(void **memory);
 
+void	*ft_realloc(void *memory, size_t target, size_t original);
+
 /*
 **void	*ft_malloc(size_t bytes);
 **void	*ft_realloc(void *memory, size_t target, size_t original);

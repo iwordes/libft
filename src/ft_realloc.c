@@ -8,15 +8,14 @@
 ** new one, returning the copy after freeing the original pointer.
 ** + Should allocation fail, the function will return without any harm done.
 */
-void	*ft_realloc(void *original, size_t target, size_t orig_size)
+void		*ft_realloc(void *original, size_t target, size_t orig_size)
 {
-	t_byte	*copy;
-	size_t	i;
+	void	*copy;
 
 	NULL_GUARD(copy = (t_byte*)malloc(target));
 	if (original != NULL && copy != NULL)
 	{
-		ft_memcpy(copy, original, ft_lesser(target, original_size));
+		ft_memcpy(copy, original, ft_lesser(target, orig_size));
 		free(original);
 	}
 	return (copy);

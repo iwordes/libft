@@ -39,6 +39,13 @@ static char	**panic(char **substrings)
 	return (NULL);
 }
 
+static void	ft_strssplit_init(const char *dm, size_t *i, size_t *s, size_t *dl)
+{
+	*i = 0;
+	*s = 0;
+	*dl = ft_strlen(dm);
+}
+
 char		**ft_strssplit(const char *string, const char *delim)
 {
 	char	**substr;
@@ -49,9 +56,7 @@ char		**ft_strssplit(const char *string, const char *delim)
 
 	if (string == NULL || delim == NULL)
 		return (NULL);
-	i = 0;
-	s = 0;
-	dl = ft_strlen(delim);
+	ft_strssplit_init(&i, &s, &dl);
 	substring_cnt = get_substring_cnt(string, delim);
 	NULL_GUARD(substr = malloc(sizeof(char*) * (substring_cnt + 1)));
 	while (s < substring_cnt)
@@ -61,7 +66,8 @@ char		**ft_strssplit(const char *string, const char *delim)
 		if (string[i] != 0 && (substr[s]
 			= ft_strsub(string, i++, ft_struntils(string, delim))) != NULL)
 			return (panic(substr));
-		i += ft_struntils(string + i, delim);
+		while (string[i] != 0 && !ft_strnequ(string + i, delim, dl))
+			i++;
 		s++;
 	}
 	substr[s] = NULL;

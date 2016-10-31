@@ -4,7 +4,7 @@
 # define BASE10 "0123456789"
 # define BASE16 BASE10 "ABCDEF"
 # define BASE36 BASE16 "GHIJKLMNOPQRSTUVWXYZ"
-# define BASE62 BASE32 "abcdefghijklmnopqrstuvwxyz"
+# define BASE62 BASE36 "abcdefghijklmnopqrstuvwxyz"
 # define BASE64 BASE62 "+/"
 
 # ifndef TRUE
