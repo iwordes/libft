@@ -44,21 +44,25 @@ char	*ft_readline(int filedes);
 */
 
 void	ft_putchar(char c);
-void	ft_putstr(char *string);
-void	ft_putendl(char *string);
-void	ft_putint(int integer);
-void	ft_putint_base(int integer, int base);
+void	ft_putstr(const char *string);
+void	ft_putendl(const char *string);
+void	ft_putint(long long integer);
+void	ft_putint_base(long long integer, int base);
+void	ft_putuint(unsigned long long integer);
+void	ft_putuint_base(unsigned long long integer, int base);
 /*
 **void	ft_putdbl(double number);
 */
 
-void	ft_puterr(char *error);
+void	ft_puterr(const char *error);
 
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *string, int fd);
-void	ft_putendl_fd(char *string, int fd);
-void	ft_putint_fd(int integer, int fd);
-void	ft_putint_base_fd(int integer, int base, int fd);
+void	ft_putstr_fd(const char *string, int fd);
+void	ft_putendl_fd(const char *string, int fd);
+void	ft_putint_fd(long long integer, int fd);
+void	ft_putint_base_fd(long long integer, int base, int fd);
+void	ft_putuint_fd(unsigned long long integer, int fd);
+void	ft_putuint_base_fd(unsigned long long integer, int base, int fd);
 /*
 **void	ft_putdbl_fd(double number, int fd);
 */
