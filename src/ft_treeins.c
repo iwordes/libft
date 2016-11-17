@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:10 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/17 13:23:00 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/11/17 15:31:38 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_treeins(t_tree *tree, void *data, int (*cmp)(void*, void*))
 				next = tree->left;
 			else
 				next = tree->right;
-			if (*next != NULL)
-				tree = *next;
+			if (next != NULL)
+				tree = next;
 			else
 			{
 				if (outcome <= 0)
