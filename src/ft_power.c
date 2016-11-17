@@ -15,9 +15,9 @@
 ** Watch out for overflow!
 */
 
-int			ft_power(int base, unsigned int exponent)
+long long			ft_power(long long base, unsigned int exponent)
 {
-	int		output;
+	long long		output;
 
 	if (exponent == 0)
 		return (1);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 10:53:52 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 10:53:53 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
@@ -10,7 +22,7 @@ t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)(void*, void*))
 	{
 		while (list)
 		{
-			if (cmp(data, list->data) == 0)
+			if (cmp(data, list->content) == 0)
 				return (list);
 			list = list->next;
 		}

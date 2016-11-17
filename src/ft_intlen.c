@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_intlen(int integer)
+#include "libft.h"
+
+int			ft_intlen(long long integer)
 {
 	int		length;
 
-	length = 1;
+	length = (integer < 0) ? 2 : 1;
 	while ((integer /= 10) != 0)
 		length++;
 	return (length);

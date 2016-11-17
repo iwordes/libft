@@ -1,10 +1,22 @@
-#include "ft_data.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treefind.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 10:53:13 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 10:53:15 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_tree.h"
 
 /*
 ** Find some data in a tree.
 */
 
-void		*ft_treefind(t_tree *tree, void *data, int (*cmp)(void*, void*))
+t_tree		*ft_treefind(t_tree *tree, void *data, int (*cmp)(void*, void*))
 {
 	int		outcome;
 
@@ -19,6 +31,7 @@ void		*ft_treefind(t_tree *tree, void *data, int (*cmp)(void*, void*))
 			else
 				return (NULL);
 		}
-		return (tree->data);
+		return (tree);
 	}
+	return (NULL);
 }

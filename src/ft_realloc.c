@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 10:53:16 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/17 10:42:27 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
@@ -8,6 +20,7 @@
 ** new one, returning the copy after freeing the original pointer.
 ** + Should allocation fail, the function will return without any harm done.
 */
+
 void		*ft_realloc(void *original, size_t target, size_t orig_size)
 {
 	void	*copy;

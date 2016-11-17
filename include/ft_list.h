@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 16:38:43 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 16:41:01 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_LIST_H
 # define FT_LIST_H
 
@@ -23,7 +35,6 @@ void				ft_lstndel(t_list **list, void (*del)(void*, size_t),
 							size_t index);
 void				ft_lstndelone(t_list **list, void (*del)(void*, size_t),
 							size_t index);
-
 
 void				ft_lstpush(t_list *list, t_list *link);
 t_list				*ft_lstpop(t_list *list);

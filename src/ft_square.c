@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_square(int integer)
+long long	ft_square(long long integer)
 {
 	return (ft_power(integer, 2));
 }

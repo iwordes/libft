@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memory.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 16:38:48 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 16:38:49 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_MEMORY_H
 # define FT_MEMORY_H
 
@@ -13,6 +25,7 @@ void	*ft_memalloc(size_t bytecount);
 void	ft_memdel(void **memory);
 
 void	*ft_realloc(void *memory, size_t target, size_t original);
+void	*ft_drealloc(void *memory, size_t target, size_t original);
 
 /*
 **void	*ft_malloc(size_t bytes);

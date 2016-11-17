@@ -16,7 +16,7 @@
 ** Prints a given integer in a given base to stdout.
 */
 
-void	ft_putint_base(int integer, int base)
+void	ft_putint_base(long long integer, int base)
 {
 	ft_putint_base_fd(integer, base, 1);
 }

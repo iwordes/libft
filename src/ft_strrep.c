@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrep.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 10:54:06 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/17 10:41:46 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
@@ -22,11 +34,11 @@
 ** Room for optimizations:
 ** - ft_strlen is run twice on both find and replace, once in each function.
 **   However, ft_strrep is already 25 lines long.
+** - There is 1 removable line: 23
 */
 
-
 static size_t	get_final_size(const char *string, const char *find,
-													const char *replace)
+	const char *replace)
 {
 	size_t		l;
 	size_t		fl;
@@ -49,12 +61,12 @@ static size_t	get_final_size(const char *string, const char *find,
 }
 
 char			*ft_strrep(const char *string, const char *find,
-												const char *replace)
+							const char *replace)
 {
-	char		*newstring;
 	size_t		i;
 	size_t		fl;
 	size_t		rl;
+	char		*newstring;
 
 	if (string == NULL || find == NULL || replace == NULL)
 		return (NULL);

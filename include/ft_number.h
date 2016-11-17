@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_number.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 16:38:49 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 16:38:50 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_NUMBER_H
 # define FT_NUMBER_H
 
-int						ft_absolute(int integer);
+long long	ft_absolute(long long integer);
 
-int						ft_greater(int input1, int input2);
-int						ft_lesser(int input1, int input2);
+long long	ft_greater(long long input1, long long input2);
+long long	ft_lesser(long long input1, long long input2);
 
-int						ft_intlen(int integer);
-int						ft_intlen_base(int integer, int base);
+int			ft_intlen(long long integer);
+int			ft_intlen_base(long long integer, int base);
 
-int						ft_square(int integer);
-int						ft_power(int integer, int exponent);
+long long	ft_square(long long integer);
+long long	ft_power(long long integer, unsigned int exponent);
 
 #endif

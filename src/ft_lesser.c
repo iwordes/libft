@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_lesser(int num1, int num2)
+long long		ft_lesser(long long num1, long long num2)
 {
 	return ((num1 < num2) ? num1 : num2);
 }

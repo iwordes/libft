@@ -16,19 +16,18 @@
 ** Returns the number of places in a given number when converted to X base.
 */
 
-int		ft_intlen_base(int integer, int base)
+int		ft_intlen_base(long long integer, int base)
 {
-	int		length;
+	int	length;
 
 	if (base > 1)
 	{
-		length = 1;
+		length = (integer < 0) ? 2 : 1;
 		while ((integer /= base) != 0)
 			length++;
 		return (length);
 	}
-	else if (base == 1)
+	if (base == 1)
 		return (integer);
-	else
-		return (-1);
+	return (0);
 }

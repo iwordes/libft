@@ -40,9 +40,9 @@ static size_t	get_chunk_count(const char *string, char delimiter)
 ** When you make a mess, clean up after yourself, or so they say.
 */
 
-static char		**panic(char **halp)
+static char		**panic(char **substrings)
 {
-	while (*substrings)
+	while (*substrings != NULL)
 	{
 		free(*substrings);
 		substrings++;

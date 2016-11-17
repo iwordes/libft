@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strssplit.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/16 10:54:24 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/17 10:42:16 by iwordes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
@@ -5,7 +17,7 @@
 ** substrings.
 */
 
-static int	get_substring_cnt(char *string, char *delim)
+static int	get_substring_cnt(const char *string, const char *delim)
 {
 	size_t	cnt;
 	size_t	delim_length;
@@ -56,15 +68,15 @@ char		**ft_strssplit(const char *string, const char *delim)
 
 	if (string == NULL || delim == NULL)
 		return (NULL);
-	ft_strssplit_init(&i, &s, &dl);
+	ft_strssplit_init(string, &i, &s, &dl);
 	substring_cnt = get_substring_cnt(string, delim);
 	NULL_GUARD(substr = malloc(sizeof(char*) * (substring_cnt + 1)));
 	while (s < substring_cnt)
 	{
 		while (string[i] != 0 && ft_strnequ(string + i, delim, dl))
 			i += dl;
-		if (string[i] != 0 && (substr[s]
-			= ft_strsub(string, i++, ft_struntils(string, delim))) != NULL)
+		if (string[i] != 0 && (substr[s] =
+			ft_strsub(string, i++, ft_struntils(string, delim))) != NULL)
 			return (panic(substr));
 		while (string[i] != 0 && !ft_strnequ(string + i, delim, dl))
 			i++;

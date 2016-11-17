@@ -17,7 +17,7 @@
 **        behavior.
 */
 
-int		ft_absolute(int integer)
+long long	ft_absolute(long long integer)
 {
 	return (integer >= 0 ? integer : -integer);
 }
