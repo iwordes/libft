@@ -22,6 +22,7 @@ char		*ft_strctrim(const char *string, const char c)
 	size_t	start;
 	char	*trimmed;
 
+	NULL_GUARD(string);
 	start = 0;
 	while (string[start] == c)
 		start++;
