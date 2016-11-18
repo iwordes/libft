@@ -25,6 +25,8 @@ void		*ft_realloc(void *original, size_t target, size_t orig_size)
 {
 	void	*copy;
 
+	if (target == orig_size)
+		return (original);
 	NULL_GUARD(copy = (t_byte*)malloc(target));
 	if (original != NULL && copy != NULL)
 	{
