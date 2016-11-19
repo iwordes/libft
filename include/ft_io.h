@@ -23,25 +23,20 @@
 /*
 ** Input
 */
-char	ft_getchar(char *prompt);
-
-/*
-** char	*ft_getdline(char *prompt, char delimiter);
-** char	*ft_getline(char *prompt);
-** void	ft_getline_ltd(char *prompt, char *buffer, size_t limit);
-**
-** char	*ft_readline(int filedes);
-*/
+ssize_t	ft_getline(int fd, char **line);
+ssize_t	ft_getdelim(int fd, char **line, char delimiter);
 
 /*
 ** Output
 */
 /*
-**void		ft_printf(const char *format, ...);
-**void		ft_fprintf(FILE *file, const char *format, ...);
-**char		*ft_sprintf(const char *format, ...);
+** void	ft_printf(const char *format, ...);
+** void	ft_asprintf(char **ret, const char *format, ...);
+** void	ft_fdprintf(int fd, const char *format, ...);
 **
-**void		ft_asprintf(char **ret, const char *format, ...);
+** void	ft_vprintf(const char *format, va_list args);
+** void	ft_vasprintf(char **ret, const char *format, va_list args);
+** void	ft_vfdprintf(int fd, const char *format, va_list args);
 */
 
 void	ft_putaddr(const void *address);
@@ -56,6 +51,7 @@ void	ft_putuint(unsigned long long integer);
 void	ft_putuint_base(unsigned long long integer, int base);
 /*
 **void	ft_putdbl(double number);
+**void	ft_putldbl(long double number);
 */
 
 void	ft_puterr(const char *error);
@@ -73,6 +69,7 @@ void	ft_putuint_fd(unsigned long long integer, int fd);
 void	ft_putuint_base_fd(unsigned long long integer, int base, int fd);
 /*
 **void	ft_putdbl_fd(double number, int fd);
+**void	ft_putldbl_fd(long double number, int fd);
 */
 
 /*
