@@ -25,6 +25,7 @@ ft_memcpy\
 ft_memdel\
 ft_memmove\
 ft_memset\
+ft_memuntil\
 ft_realloc
 
 FN_STRING =\
