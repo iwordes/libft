@@ -48,7 +48,6 @@ ft_strmapi\
 ft_strncat\
 ft_strnequ\
 ft_strnew\
-ft_strrchr\
 ft_strsplit\
 ft_strtrim\
 \

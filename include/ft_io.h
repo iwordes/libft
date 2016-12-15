@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_io.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:42 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 16:47:03 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:24:33 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,38 +48,24 @@ ssize_t	ft_getdelim(const int fd, char **const line, const char delimiter);
 ** void	ft_vfdprintf(int fd, const char *format, va_list args);
 */
 
-void	ft_putaddr(const void *address);
 void	ft_putchar(char c);
-void	ft_putdbl(double number);
 void	ft_putendl(const char *string);
-void	ft_putint(long long integer);
-void	ft_putint_base(long long integer, int base);
-void	ft_putldbl(long double number);
+void	ft_putint(intmax_t integer);
+void	ft_putint_base(intmax_t integer, char base);
 void	ft_putstr(const char *string);
-void	ft_putuint(unsigned long long integer);
-void	ft_putuint_base(unsigned long long integer, int base);
-/*
-**void	ft_putdbl(double number);
-**void	ft_putldbl(long double number);
-*/
+void	ft_putuint(uintmax_t integer);
+void	ft_putuint_base(uintmax_t integer, char base);
 
 void	ft_puterr(const char *error);
 
-void	ft_putaddr_fd(const void *address);
 void	ft_putchar_fd(char c, int fd);
-void	ft_putdbl_fd(double number, int fd);
 void	ft_putendl_fd(const char *string, int fd);
 void	ft_putflt_fd(long double number, int fd);
-void	ft_putint_fd(long long integer, int fd);
-void	ft_putint_base_fd(long long integer, int base, int fd);
-void	ft_putldbl_fd(long double number, int fd);
+void	ft_putint_fd(intmax_t integer, int fd);
+void	ft_putint_base_fd(intmax_t integer, char base, int fd);
 void	ft_putstr_fd(const char *string, int fd);
-void	ft_putuint_fd(unsigned long long integer, int fd);
-void	ft_putuint_base_fd(unsigned long long integer, int base, int fd);
-/*
-**void	ft_putdbl_fd(double number, int fd);
-**void	ft_putldbl_fd(long double number, int fd);
-*/
+void	ft_putuint_fd(uintmax_t integer, int fd);
+void	ft_putuint_base_fd(uintmax_t integer, char base, int fd);
 
 /*
 ** Deprecated
