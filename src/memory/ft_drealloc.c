@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_drealloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:16 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:54:17 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:13:27 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Similar to realloc, but frees the input pointer if allocation fails.
