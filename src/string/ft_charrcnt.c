@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chrrcnt.c                                       :+:      :+:    :+:   */
+/*   ft_charrcnt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:11 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 09:56:08 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:14:34 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Counts the number of runs of characters (instead of individual characters) in

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_struntil.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:10 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:02:34 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:56 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Get the forward distance from the starting pointer *string* until the first

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rightppad.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:53:32 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/17 11:48:54 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:15:10 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Prints a string, afterwards printing N instances of char pad until the given

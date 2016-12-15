@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:29 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:54:30 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:15:12 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Capitalizes each word in a string. A word is defined as any consecutive run

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_struntils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:20 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:54:22 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:57 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** ft_struntils(const char *string, const char *find)

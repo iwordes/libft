@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnsim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:50 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 09:56:03 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:20 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Returns the number of similar characters between string1 and string2 that are

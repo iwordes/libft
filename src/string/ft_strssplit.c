@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strssplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:36 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:54:36 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:48 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Splits a string by a given string delimiter and returns an array of

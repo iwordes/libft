@@ -6,11 +6,11 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:47 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 09:15:41 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:14:55 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Uses modulo arithmetic to convert any number to a string of the proper base.

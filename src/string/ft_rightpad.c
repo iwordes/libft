@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rightpad.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:59 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 09:56:18 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:15:08 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a char* string, a char pad, and a size_t target, returns a new string

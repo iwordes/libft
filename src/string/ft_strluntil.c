@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strluntil.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 19:40:23 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/14 19:40:24 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:01 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include <libft.h>
 
 /*
 ** A version of struntil with a search limit.

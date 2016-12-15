@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:30 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:54:31 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:36 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** ft_strrep(const char*, const char*, const char*)

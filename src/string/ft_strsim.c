@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:45:00 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:02:26 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:16:42 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Counts the similar characters between two given strings, in order.
