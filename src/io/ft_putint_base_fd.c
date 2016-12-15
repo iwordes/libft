@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putint_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/05 10:01:37 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:01:39 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:08:12 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include <libft.h>
 
 static void		ft_putint_base_fd_body(long long integer, int base, int fd)
 {

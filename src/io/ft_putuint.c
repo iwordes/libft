@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:53:46 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:53:47 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:10:17 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include <libft.h>
 
-void	ft_putuint(unsigned long long integer)
+void	ft_putuint(uintmax_t integer)
 {
 	ft_putuint_base_fd(integer, 10, 1);
 }
