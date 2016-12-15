@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:05 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 09:52:58 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:12:32 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a t_list* list, returns the length of that list.

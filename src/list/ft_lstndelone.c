@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstndelone.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:13 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:07:55 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:12:43 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a t_list* list and a size_t index n, detaches the element at index n

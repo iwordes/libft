@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:01 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:05:07 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:12:27 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a t_list* list, a t_list* insert, and a size_t n, inserts the second

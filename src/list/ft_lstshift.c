@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstshift.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:20 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:00:08 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:12:52 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a t_list **list, detaches the first link from that list and returns a

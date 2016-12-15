@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstndel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:11 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/14 19:40:58 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:12:40 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Given a t_list* list and a size_t index n, detaches and deletes all links
