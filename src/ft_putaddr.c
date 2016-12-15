@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treeclr.c                                       :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 10:53:29 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:53:30 by iwordes          ###   ########.fr       */
+/*   Created: 2016/11/16 10:54:33 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 10:54:35 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_tree.h"
+#include "ft_io.h"
 
-/*
-** Frees the data pointer of all nodes in the tree and sets them to NULL.
-*/
-
-void	ft_treeclr(t_tree *tree)
+void	ft_putaddr(const void *address)
 {
-	if (tree->left != NULL)
-		ft_treeclr(tree->left);
-	if (tree->right != NULL)
-		ft_treeclr(tree->right);
-	free(tree->data);
-	tree->data = NULL;
+	ft_putaddr_fd(address, 1);
 }

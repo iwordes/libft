@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_number.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:49 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 16:38:50 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 18:53:12 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_NUMBER_H
 # define FT_NUMBER_H
 
-long long	ft_absolute(long long integer);
+# include <stdint.h>
 
-long long	ft_greater(long long input1, long long input2);
-long long	ft_lesser(long long input1, long long input2);
+uintmax_t	ft_absolute(intmax_t integer);
 
-int			ft_intlen(long long integer);
-int			ft_intlen_base(long long integer, int base);
+intmax_t	ft_greater(intmax_t input1, intmax_t input2);
+intmax_t	ft_lesser(intmax_t input1, intmax_t input2);
 
-long long	ft_square(long long integer);
-long long	ft_power(long long integer, unsigned int exponent);
+int			ft_intlen(intmax_t integer);
+int			ft_intlen_base(intmax_t integer, char base);
+
+intmax_t	ft_square(intmax_t integer);
+intmax_t	ft_power(intmax_t integer, unsigned exponent);
 
 #endif

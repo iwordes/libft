@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/02 16:43:18 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 09:51:55 by iwordes          ###   ########.fr       */
+/*   Created: 2016/11/16 10:54:13 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 10:54:14 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_io.h"
 
-/*
-** Given a t_list* list and a t_list* link, appends the link to the end of the
-** list.
-*/
-
-void	ft_lstpush(t_list *list, t_list *link)
+void	ft_putaddr_fd(const void *address, int fd)
 {
-	t_list	*last_link;
-
-	if (list != NULL && link != NULL)
-	{
-		last_link = ft_lstend(list);
-		last_link->next = link;
-	}
+	ft_putstr("0x");
+	ft_putuint_base_fd((const unsigned long long*)address);
 }

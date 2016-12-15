@@ -20,11 +20,20 @@
 ** reading from/writing to a file.
 */
 
+typedef struct		s_getln
+{
+	int				fd;
+	ssize_t			index;
+	ssize_t			limit;
+	char			buffer[4096];
+	struct s_getln	*next;
+}					t_getln;
+
 /*
 ** Input
 */
-ssize_t	ft_getline(int fd, char **line);
-ssize_t	ft_getdelim(int fd, char **line, char delimiter);
+ssize_t	ft_getline(const int fd, char **const line);
+ssize_t	ft_getdelim(const int fd, char **const line, const char delimiter);
 
 /*
 ** Output

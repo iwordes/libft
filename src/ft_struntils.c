@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstn.c                                          :+:      :+:    :+:   */
+/*   ft_struntils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 10:56:53 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 10:56:56 by iwordes          ###   ########.fr       */
+/*   Created: 2016/11/16 10:54:20 by iwordes           #+#    #+#             */
+/*   Updated: 2016/11/16 10:54:22 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Given a t_list* list and a size_t n, returns the Nth index of that list.
-** - If the list is NULL, returns NULL.
-** - If the given value for n is 0, the original list is returned.
-** - If the given list is too short, returns the last element of that list.
+** ft_struntils(const char *string, const char *find)
+** ============
+** Returns either the index of the first valid occurrence of find in string, or
+** the index of the string's terminating NUL.
 */
 
-t_list		*ft_lstn(t_list *list, size_t n)
+size_t		ft_struntils(const char *string, const char *substring)
 {
 	size_t	i;
+	size_t	sl;
 
-	if (list != NULL)
+	i = 0;
+	if (string != NULL && substring != NULL)
 	{
-		i = 0;
-		while (i < n && list->next != NULL)
-		{
-			list = list->next;
+		sl = ft_strlen(substring);
+		while (string[i] != 0 && !ft_strnequ(string, substring, sl))
 			i++;
-		}
 	}
-	return (list);
+	return (i);
 }

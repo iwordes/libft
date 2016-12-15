@@ -6,7 +6,7 @@
 /*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:48 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 16:38:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/11/26 17:39:24 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	*ft_drealloc(void *memory, size_t target, size_t original);
 **
 **void	*ft_realloc(void *memory, size_t target);
 */
+
+size_t	ft_memuntil(const void *memory, t_byte find, size_t limit);
 
 #endif

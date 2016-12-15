@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/16 16:47:18 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 18:51:58 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
+# include <stdint.h>
 # include <string.h>
+
 # include "ft_macros.h"
 # include "ft_number.h"
 
@@ -72,8 +74,8 @@ char	*ft_rightpad(const char *string, char pad, size_t size);
 ** Conversion
 */
 int		ft_atoi(const char *string);
-char	*ft_itoa(int integer);
-char	*ft_itoa_base(int integer, int base);
+char	*ft_itoa(intmax_t integer);
+char	*ft_itoa_base(intmax_t integer, char base);
 
 /*
 ** Character Checks

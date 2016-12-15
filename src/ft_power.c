@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:40 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:08:07 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 09:17:23 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ** Watch out for overflow!
 */
 
-long long			ft_power(long long base, unsigned int exponent)
+intmax_t	ft_power(intmax_t base, int exponent)
 {
 	long long		output;
 

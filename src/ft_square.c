@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:01 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/02 16:44:03 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 09:18:03 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	ft_square(long long integer)
+intmax_t	ft_square(intmax_t integer)
 {
 	return (ft_power(integer, 2));
 }

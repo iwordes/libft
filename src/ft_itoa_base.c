@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:47 by iwordes           #+#    #+#             */
-/*   Updated: 2016/10/05 10:02:30 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 09:15:41 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 **   functions, like itoa_base. I've defined it in my header.
 */
 
-char		*ft_itoa_base(int integer, int base)
+char		*ft_itoa_base(intmax_t integer, char base)
 {
 	char	*string;
 	int		place;
