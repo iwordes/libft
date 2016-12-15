@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:30 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:16:36 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:26:31 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 ** - ft_strlen is run twice on both find and replace, once in each function.
 **   However, ft_strrep is already 25 lines long.
 */
-
 
 static size_t	get_final_size(const char *string, const char *find,
 													const char *replace)

@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:36 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:16:48 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:27:03 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ char		**ft_strssplit(const char *string, const char *delim)
 	{
 		while (string[i] != 0 && ft_strnequ(string + i, delim, dl))
 			i += dl;
-		if (string[i] != 0 && (substr[s]
-			= ft_strsub(string, i++, ft_struntils(string, delim))) != NULL)
+		if (string[i] != 0 && (substr[s] = ft_strsub(string, i++,
+			ft_struntils(string, delim))) != NULL)
 			return (panic(substr));
 		while (string[i] != 0 && !ft_strnequ(string + i, delim, dl))
 			i++;
