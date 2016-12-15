@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_treeins.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwordes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:10 by iwordes           #+#    #+#             */
-/*   Updated: 2016/11/17 15:31:38 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/14 19:17:57 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_tree.h"
+#include <libft.h>
 
 void	ft_treeins(t_tree *tree, void *data, int (*cmp)(void*, void*))
 {
