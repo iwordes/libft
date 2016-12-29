@@ -83,3 +83,8 @@ FN_LIST   := ft_lstadd ft_lstdel ft_lstdelone ft_lstend ft_lstinsert ft_lstiter\
 			 ft_lstpop ft_lstpush ft_lstshift ft_lstunshift
 
 FN_TREE   := ft_treebal ft_treeclr ft_treedel ft_treefind ft_treeins ft_treenew
+FN_UTF    := ft_utf8_decode ft_utf8_encode ft_utf8_size\
+			 ft_utf8to16 ft_utf8to16_len\
+			 ft_utf16_decode ft_utf16_encode\
+			 ft_utf16to8 ft_utf16to8_len\
+			 ft_utf32to8 ft_utf32to8_len

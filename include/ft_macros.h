@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/13 13:35:45 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/29 15:10:11 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 #  define NULL (void*)0
 # endif
 
+# define FREE_RET(FREE, RET) free(FREE); return (RET)
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 
 # define ABS(NUM) ((NUM < 0) ? -NUM : NUM)

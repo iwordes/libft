@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_utf8to16_len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 14:31:45 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/28 14:49:54 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/29 15:22:37 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <libft.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+/*
+** Return the byte length of a VALID UTF-8 string if re-encoded in UTF-16.
+*/
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
+size_t	ft_utf8to16_len(const uint8_t *utf8)
+{
+	size_t	i;
+	size_t	l;
+	size_t	t;
 
-# include "ft_io.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+	i = 0;
+	l = 0;
+	while (utf8[i] != 0)
+	{
+		if ((utf8[i] & 0xE0) == 0xE0)
+			t = ((utf8[i] & 0xF0) == 0xF0) ? 4 : 3;
+		else
+			t = ((utf8[i] & 0x80) == 0x80) ? 2 : 1;
+		l += (t < 4) ? 1 : 2;
+		i += t;
+	}
+	return (l);
+}

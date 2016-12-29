@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 18:51:58 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/27 09:20:21 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_strdel(char **string);
 int		ft_strequ(const char *string1, const char *string2);
 void	ft_striter(char *string, void (*func)(char*));
 void	ft_striteri(char *string, void (*f)(unsigned int, char*));
+char	*ft_strdjoin(char *prefix, char *suffix);
 char	*ft_strjoin(const char *prefix, const char *suffix);
 char	*ft_strmap(const char *string, char (*func)(char));
 char	*ft_strmapi(const char *string, char (*func)(unsigned int, char));

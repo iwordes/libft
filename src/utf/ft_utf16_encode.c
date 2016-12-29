@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_utf16_encode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 14:31:45 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/28 12:49:56 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/29 15:04:46 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <libft.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+/*
+** Encode a Unicode codepoint as up to two UTF-16 code units in a wint_t.
+*/
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
+uint32_t	ft_utf16_encode(uint32_t utf32)
+{
+	uint32_t	utf16;
+	uint16_t	*cu;
 
-# include "ft_io.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+	if (utf32 >= 0xD800 && utf32 <= 0xDFFF)
+		return (-1);
+	if (utf32 <= 0xFFFF)
+		return (utf32);
+	else
+	{
+		cu = (uint16_t*)&utf16;
+		cu[0] = 0xD800 | ((utf32 >> 10) & 0x3FF);
+		cu[1] = 0xDC00 | (utf32 & 0x3FF);
+		return (utf16);
+	}
+}

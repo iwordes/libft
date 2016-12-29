@@ -18,6 +18,7 @@ IN      += $(addprefix memory/,$(FN_MEMORY))
 IN      += $(addprefix number/,$(FN_NUMBER))
 IN      += $(addprefix string/,$(FN_STRING))
 IN      += $(addprefix tree/,$(FN_TREE))
+IN      += $(addprefix utf/,$(FN_UTF))
 IN      := $(IN)
 
 OBJ     := $(addsuffix .o,$(addprefix $(OBJDIR)/,$(IN)))
