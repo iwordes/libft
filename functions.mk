@@ -68,23 +68,40 @@ ft_strssplit\
 ft_tolower\
 ft_toupper\
 
-FN_NUMBER := ft_absolute ft_greater ft_intlen ft_intlen_base ft_lesser ft_power\
-			 ft_square ft_swap
+FN_NUMBER    := ft_absolute ft_greater ft_intlen ft_intlen_base ft_lesser ft_power\
+				ft_square ft_swap ft_uintlen ft_uintlen_base
 
-FN_IO     := ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_puterr\
-			 ft_putint ft_putint_fd ft_putint_base ft_putint_base_fd ft_putstr\
-			 ft_putstr_fd ft_putuint ft_putuint_fd ft_putuint_base\
-			 ft_putuint_base_fd ft_putnbr ft_putnbr_fd
-FN_IO     += ft_getline
-FN_IO     +=
+FN_IO        := ft_printf ft_vprintf\
+				ft_asprintf ft_vasprintf\
+				ft_dprintf ft_vdprintf
+FN_IO        += ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_puterr\
+				ft_putint ft_putint_fd ft_putint_base ft_putint_base_fd ft_putstr\
+				ft_putstr_fd ft_putuint ft_putuint_fd ft_putuint_base\
+				ft_putuint_base_fd ft_putnbr ft_putnbr_fd
+FN_IO        += ft_getline
 
-FN_LIST   := ft_lstadd ft_lstdel ft_lstdelone ft_lstend ft_lstinsert ft_lstiter\
-			 ft_lstlen ft_lstmap ft_lstn ft_lstndel ft_lstndelone ft_lstnew\
-			 ft_lstpop ft_lstpush ft_lstshift ft_lstunshift
+FN_PRINTF    := cast_signed cast_unsigned
 
-FN_TREE   := ft_treebal ft_treeclr ft_treedel ft_treefind ft_treeins ft_treenew
-FN_UTF    := ft_utf8_decode ft_utf8_encode ft_utf8_size\
-			 ft_utf8to16 ft_utf8to16_len\
-			 ft_utf16_decode ft_utf16_encode\
-			 ft_utf16to8 ft_utf16to8_len\
-			 ft_utf32to8 ft_utf32to8_len
+FN_ASPRINTF  := dispatch\
+				parse parse_flags parse_length parse_wargp\
+				text\
+				uitoa_base
+FN_ASPRINTF  += conv_char conv_char_long\
+				conv_dec conv_dec_long\
+				conv_hex conv_hex_caps\
+				conv_literal\
+				conv_octal conv_octal_long\
+				conv_ptr\
+				conv_str conv_str_long\
+				conv_unsigned conv_unsigned_long
+
+FN_LIST      := ft_lstadd ft_lstdel ft_lstdelone ft_lstend ft_lstinsert ft_lstiter\
+				ft_lstlen ft_lstmap ft_lstn ft_lstndel ft_lstndelone ft_lstnew\
+				ft_lstpop ft_lstpush ft_lstshift ft_lstunshift
+
+FN_TREE      := ft_treebal ft_treeclr ft_treedel ft_treefind ft_treeins ft_treenew
+FN_UTF       := ft_utf8_decode ft_utf8_encode ft_utf8_size\
+				ft_utf8to16 ft_utf8to16_len\
+				ft_utf16_decode ft_utf16_encode\
+				ft_utf16to8 ft_utf16to8_len\
+				ft_utf32to8 ft_utf32to8_len

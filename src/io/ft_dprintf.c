@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 17:02:04 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/14 09:07:29 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/14 20:07:44 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <ft_printf.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+/*
+** Print a formatted string to a file descriptor.
+*/
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
+int		ft_dprintf(int fd, const char *fmt, ...)
+{
+	va_list	args;
+	ssize_t	ret;
 
-# include "ft_io.h"
-# include "ft_printf.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+	va_start(args, fmt);
+	ret = ft_vdprintf(fd, fmt, args);
+	va_end(args);
+	return (ret);
+}

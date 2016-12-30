@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   conv_char_long.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 17:02:04 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/29 13:56:15 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/29 16:17:15 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <ft_printf.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
-
-# include "ft_io.h"
-# include "ft_printf.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+ssize_t	ft_asprintf_conv_char_long(char **string, va_list arg, t_printer *p)
+{
+	(void)p;
+	if ((*string = ft_strnew(4)) == NULL)
+		return (-1);
+	else if ((*(wchar_t*)*string = ft_utf8_encode(va_arg(arg, wchar_t))) == -1)
+		return (-1);
+	else
+		return ((ssize_t)ft_strlen(*string));
+}

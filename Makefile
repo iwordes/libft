@@ -1,5 +1,5 @@
 NAME    := libft
-VERSION := 1.2.0
+VERSION := 1.3.0
 AUTHOR  := iwordes
 
 INCDIR  := ./include
@@ -13,6 +13,8 @@ CF      := -Wall -Wextra -Werror -I $(INCDIR)
 include functions.mk
 
 IN      := $(addprefix io/,$(FN_IO))
+IN      += $(addprefix io/ft_printf/,$(FN_PRINTF))
+IN      += $(addprefix io/ft_asprintf/,$(FN_ASPRINTF))
 IN      += $(addprefix list/,$(FN_LIST))
 IN      += $(addprefix memory/,$(FN_MEMORY))
 IN      += $(addprefix number/,$(FN_NUMBER))

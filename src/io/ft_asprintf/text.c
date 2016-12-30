@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   text.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 17:02:04 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/08 14:35:12 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/14 08:40:01 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <ft_printf.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+/*
+** Return a copy of all characters in the given format specifier until the next
+** '%' character.
+*/
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
+ssize_t		ft_asprintf_text(const char **fmt, char **state)
+{
+	ssize_t	length;
 
-# include "ft_io.h"
-# include "ft_printf.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+	length = ft_struntil(*fmt, '%');
+	*state = ft_strsub(*fmt, 0, length);
+	if (*state == NULL)
+		return (-1);
+	*fmt += length;
+	return (length);
+}

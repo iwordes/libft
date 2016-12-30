@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   conv_dec.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 17:02:04 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/11 10:32:42 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/29 17:24:14 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <ft_printf.h>
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+ssize_t		ft_asprintf_conv_dec(char **string, va_list arg, t_printer *p)
+{
+	intmax_t	integer;
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
-
-# include "ft_io.h"
-# include "ft_printf.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-#endif
+	integer = ft_asprintf_cast_signed(arg, p);
+	if (integer < 0)
+		p->sign = TRUE;
+	*string = ft_asprintf_uitoa_base(ABS(integer), 10, p);
+	if (*string == NULL)
+		return (-1);
+	if (integer < 0)
+		**string = '-';
+	return (ft_strlen(*string));
+}
