@@ -29,7 +29,7 @@ OUT     := $(OUTDIR)/$(NAME).a
 
 
 .PHONY: all
-all: $(OUT)
+all: $(NAME)
 
 .PHONY: clean
 clean:
@@ -42,6 +42,8 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
+.PHONY: $(NAME)
+$(NAME): $(OUT)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(@D)

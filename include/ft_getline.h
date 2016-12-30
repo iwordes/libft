@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_getline.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/05 10:44:21 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/30 13:19:21 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/30 13:10:02 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/30 13:10:45 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FT_GETLINE_H
+# define FT_GETLINE_H
 
-# include <stdint.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+/*
+** Added: 1.2.0
+*/
 
-# include "ft_macros.h"
-# include "ft_typedefs.h"
-# include "ft_datatypes.h"
+typedef struct		s_getln
+{
+	int				fd;
+	ssize_t			index;
+	ssize_t			limit;
+	char			buffer[4096];
+	struct s_getln	*next;
+}					t_getln;
 
-# include "ft_io.h"
-# include "ft_memory.h"
-# include "ft_number.h"
-# include "ft_string.h"
-# include "ft_utf.h"
-
-# include "ft_getline.h"
-# include "ft_printf.h"
+ssize_t				ft_getline(const int fd, char **const line);
 
 #endif

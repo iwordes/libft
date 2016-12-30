@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:42 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:24:33 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/30 13:11:15 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,9 @@
 ** reading from/writing to a file.
 */
 
-typedef struct		s_getln
-{
-	int				fd;
-	ssize_t			index;
-	ssize_t			limit;
-	char			buffer[4096];
-	struct s_getln	*next;
-}					t_getln;
-
-/*
-** Input
-*/
-ssize_t	ft_getline(const int fd, char **const line);
-ssize_t	ft_getdelim(const int fd, char **const line, const char delimiter);
-
 /*
 ** Output
 */
-/*
-** void	ft_printf(const char *format, ...);
-** void	ft_asprintf(char **ret, const char *format, ...);
-** void	ft_fdprintf(int fd, const char *format, ...);
-**
-** void	ft_vprintf(const char *format, va_list args);
-** void	ft_vasprintf(char **ret, const char *format, va_list args);
-** void	ft_vfdprintf(int fd, const char *format, va_list args);
-*/
-
 void	ft_putchar(char c);
 void	ft_putendl(const char *string);
 void	ft_putint(intmax_t integer);

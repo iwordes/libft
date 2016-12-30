@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:18:01 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/26 20:49:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/30 10:36:45 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static ssize_t	get_text_segment(char **string, const char **fmt)
 **    NOTE: This implementation is at risk of deviating from standard printf
 **    behavior and may skip arguments when an argsel has been specified.
 **        while (TRUE) { get_arg(); a++ }
-**    NOTE: This may not work as intended due to the unknown internal 
+**    NOTE: This may not work as intended due to the unknown internal
 **    implementation of va_list.
 ** 5. Run the proper convspec function as defined in the t_printer.
 **    Its return value is passed to our caller.

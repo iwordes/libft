@@ -6,12 +6,12 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 10:50:09 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 16:21:13 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/30 13:12:50 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_INTERNAL
-# define FT_PRINTF_INTERNAL
+#ifndef FT_PRINTF_INTERNAL_H
+# define FT_PRINTF_INTERNAL_H
 
 # include <stdarg.h>
 # include <stddef.h>

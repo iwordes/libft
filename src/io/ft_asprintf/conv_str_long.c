@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 09:30:40 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 16:39:02 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/30 10:37:03 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 /*
 ** TODO
-** - Truncate string to precision length 
+** - Truncate string to precision length
 */
 
 ssize_t		ft_asprintf_conv_str_long(char **string, va_list arg, t_printer *p)
