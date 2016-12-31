@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/27 09:20:21 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/31 08:50:56 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strchr(const char *string, int character);
 int		ft_strcmp(const char *string1, const char *string2);
 char	*ft_strcpy(char *destination, const char *source);
 char	*ft_strdup(const char *string);
+char	*ft_strndup(const char *string, size_t limit);
 size_t	ft_strlcat(char *string, const char *suffix, size_t size);
 size_t	ft_strlen(const char *string);
 char	*ft_strncat(char *string, const char *suffix, size_t n);
