@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 15:38:37 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/27 12:57:10 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/31 10:34:28 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ char	ft_asprintf_parse_flags(const char **fmt, t_printer *printer)
 		|| **fmt == '\'' || **fmt == '#')
 	{
 		*fmt += 1;
-		return (1);
+		return (TRUE);
 	}
 	else
-		return (0);
+		return (FALSE);
 }

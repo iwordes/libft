@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:42:06 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 08:32:15 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/01 14:41:49 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void	ft_asprintf_parse(const char **fmt, t_printer *printer)
 		|| ft_asprintf_parse_length(fmt, printer))
 		(void)0;
 	printer->conv = **fmt;
+	if (printer->left_just || (PF_NUM(printer->conv) && printer->prec >= 0))
+		printer->zero_pad = FALSE;
 	*fmt += 1;
 }

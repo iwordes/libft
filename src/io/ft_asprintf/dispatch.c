@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 19:29:32 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 17:25:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/01 21:14:29 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,29 +57,25 @@ static ssize_t	(*g_conv_f[])(char**, va_list, t_printer*) =
 /*
 ** Launch the proper conversion delegate and enforce minimum field width.
 */
+/*
+** NOTE: There is an issue with ("%c:", 0) returning (2) ":" due to not yet
+** actually inserting a NUL into the string when conv_char is given 0.
+** This must be dealt with at a higher level than that of conversions.
+*/
 
-ssize_t			ft_asprintf_dispatch(char **string, va_list arg, t_printer *p)
+ssize_t			ft_asprintf_dispatch(char **str, va_list arg, size_t *a,
+															t_printer *p)
 {
 	int		i;
 	char	*raw;
-	ssize_t	length;
+	ssize_t	l;
 
 	i = 0;
 	while (g_conv_c[i] != p->conv && g_conv_c[i] != 0)
 		i += 1;
-	if ((length = g_conv_f[i](&raw, arg, p)) < 0)
-		return (length);
-	if (p->width > 0)
-	{
-		if (p->left_just)
-			*string = ft_rightpad(raw, p->width, p->zero_pad ? '0' : ' ');
-		else
-			*string = ft_leftpad(raw, p->width, p->zero_pad ? '0' : ' ');
-		free(raw);
-		if (*string == NULL)
-			return (-1);
-		return (MAX(length, p->width));
-	}
-	*string = raw;
-	return (length);
+	if (g_conv_c[i] != 0)
+		*a += 1;
+	if ((l = g_conv_f[i](&raw, arg, p)) < 0)
+		return (l);
+	return (ft_asprintf_format(str, raw, l, p));
 }

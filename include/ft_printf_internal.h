@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 10:50:09 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/30 13:12:50 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/01 21:23:26 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@
 
 # include "ft_printf.h"
 
+# define PF_DEC_S(X) ((X) == 'd' || (X) == 'D' || (X) == 'i')
+# define PF_DEC_U(X) ((X) == 'u' || (X) == 'U')
+# define PF_DEC(X) (PF_DEC_S(X) || PF_DEC_U(X))
+# define PF_HEX(X) ((X) == 'x' || (X) == 'X')
+# define PF_OCT(X) ((X) == 'o' || (X) == 'O')
+# define PF_NUM(X) (PF_DEC(X) || PF_HEX(X) || PF_OCT(X))
+
 typedef struct	s_printer
 {
 	char		conv;
@@ -36,6 +43,7 @@ typedef struct	s_printer
 	char		sign;
 	char		pad;
 	char		length;
+	char		neg;
 
 	size_t		arg;
 	size_t		width;
@@ -44,11 +52,17 @@ typedef struct	s_printer
 
 intmax_t		ft_asprintf_cast_signed(va_list a, t_printer *p);
 uintmax_t		ft_asprintf_cast_unsigned(va_list a, t_printer *p);
-ssize_t			ft_asprintf_dispatch(char **s, va_list a, t_printer *p);
+ssize_t			ft_asprintf_dispatch(char **s, va_list ag, size_t *a,
+																t_printer *p);
+ssize_t			ft_asprintf_format(char **s, char *r, ssize_t l, t_printer *p);
+char			*ft_asprintf_ljust(char *s, char p, size_t tgt, size_t len);
 void			ft_asprintf_parse(const char **fmt, t_printer *p);
 char			ft_asprintf_parse_flags(const char **fmt, t_printer *p);
 char			ft_asprintf_parse_length(const char **fmt, t_printer *p);
 char			ft_asprintf_parse_wargp(const char **fmt, t_printer *p);
+char			*ft_asprintf_rjust(char *s, char p, size_t tgt, size_t len);
+char			*ft_asprintf_segdjoin(char *t, char *c, ssize_t lt, ssize_t lc);
+char			*ft_asprintf_segjoin(char *t, char *c, ssize_t lt, ssize_t lc);
 char			*ft_asprintf_uitoa_base(uintmax_t integer, uint8_t base,
 																t_printer *p);
 

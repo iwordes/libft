@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/29 15:10:11 by iwordes          ###   ########.fr       */
+/*   Updated: 2016/12/31 19:00:25 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 # define FREE_RET(FREE, RET) free(FREE); return (RET)
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
+# define PASS (void)0
 
 # define ABS(NUM) ((NUM < 0) ? -NUM : NUM)
 # define MAX(LHS, RHS) ft_greater(LHS, RHS)

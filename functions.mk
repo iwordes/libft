@@ -30,9 +30,12 @@ ft_isstdspace\
 ft_strdup\
 ft_strlcat\
 ft_strlen\
+\
 ft_strncmp\
 ft_strncpy\
+ft_strndup\
 ft_strnstr\
+\
 ft_strrchr\
 ft_strstr\
 ft_strsub\
@@ -83,7 +86,10 @@ FN_IO        += ft_getline
 FN_PRINTF    := cast_signed cast_unsigned
 
 FN_ASPRINTF  := dispatch\
+				format\
+				ljust rjust\
 				parse parse_flags parse_length parse_wargp\
+				segdjoin segjoin\
 				text\
 				uitoa_base
 FN_ASPRINTF  += conv_char conv_char_long\

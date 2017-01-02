@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:18:01 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/30 10:36:45 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/01 21:12:12 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static ssize_t	get_text_segment(char **string, const char **fmt)
 **    If not, terminate early with an empty string.
 ** 2. Zero out and initialize a t_printer struct.
 ** 3. Parse the conversion spec, storing its data in the t_printer.
+**    If there literally was no conversion (EOL was hit), return error.
 ** 4. Get the proper argument. If an $argument selector was parsed, it will be
 **    used instead of the current argument index.
 **    NOTE: This implementation is at risk of deviating from standard printf
@@ -54,7 +55,7 @@ static ssize_t	get_text_segment(char **string, const char **fmt)
 */
 
 static ssize_t	get_conv_segment(char **string, const char **fmt,
-								va_list args, size_t a)
+								va_list args, size_t *a)
 {
 	t_printer	printer;
 	ssize_t		length;
@@ -67,14 +68,16 @@ static ssize_t	get_conv_segment(char **string, const char **fmt,
 		return (0);
 	}
 	ft_bzero(&printer, sizeof(t_printer));
-	printer.arg = a;
+	printer.arg = *a;
 	printer.prec = -1;
 	ft_asprintf_parse(fmt, &printer);
+	if (printer.conv == 0)
+		return (-1);
 	va_copy(arg, args);
 	i = 0;
 	while (i++ < printer.arg)
 		va_arg(arg, int);
-	length = ft_asprintf_dispatch(string, arg, &printer);
+	length = ft_asprintf_dispatch(string, arg, a, &printer);
 	va_end(arg);
 	return (length);
 }
@@ -86,28 +89,28 @@ static ssize_t	get_conv_segment(char **string, const char **fmt,
 int				ft_vasprintf(char **string, const char *fmt, va_list args)
 {
 	char		*seg[2];
-	ssize_t		length[3];
+	ssize_t		l[3];
 	size_t		a;
 
 	a = 0;
-	length[2] = 0;
+	l[2] = 0;
 	*string = ft_strnew(0);
 	while (*fmt != 0)
 	{
-		if ((length[0] = get_text_segment(seg + 0, &fmt)) < 0)
+		if ((l[0] = get_conv_segment(seg + 0, &fmt, args, &a)) < 0)
 			break ;
-		if ((length[1] = get_conv_segment(seg + 1, &fmt, args, a++)) < 0)
+		if ((l[1] = get_text_segment(seg + 1, &fmt)) < 0)
 			free(seg[0]);
-		if (length[1] < 0)
+		if (l[1] < 0)
 			break ;
-		if ((seg[0] = ft_strdjoin(seg[0], seg[1])) == NULL)
+		if ((seg[0] = ft_asprintf_segdjoin(seg[0], seg[1], l[0], l[1])) == NULL)
 			break ;
-		seg[1] = ft_strjoin(*string, seg[0]);
+		seg[1] = ft_asprintf_segjoin(*string, seg[0], l[2], l[0] + l[1]);
 		free(seg[0]);
 		if (seg[1] == NULL)
 			break ;
 		*string = seg[1];
-		length[2] += length[0] + length[1];
+		l[2] += l[0] + l[1];
 	}
-	return (length[2]);
+	return (l[2]);
 }

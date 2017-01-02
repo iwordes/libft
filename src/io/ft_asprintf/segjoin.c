@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_char.c                                        :+:      :+:    :+:   */
+/*   segjoin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 18:28:13 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/31 20:37:13 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/31 19:37:43 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/31 19:54:49 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-ssize_t		ft_asprintf_conv_char(char **string, va_list arg, t_printer *p)
+/*
+** An asprintf-custom function for accurately joining two asprintf segments.
+*/
+
+char	*ft_asprintf_segjoin(char *text, char *conv, ssize_t tl, ssize_t cl)
 {
-	if ((p->length & 4) != 0)
-		return (ft_asprintf_conv_char_long(string, arg, p));
-	if ((*string = ft_strnew(1)) == NULL)
-		return (-1);
-	(*string)[0] = (char)va_arg(arg, int);
-	return (1);
+	char	*string;
+
+	NULL_GUARD(string = ft_strnew(tl + cl));
+	ft_memcpy(string, text, tl);
+	ft_memcpy(string + tl, conv, cl);
+	return (string);
 }

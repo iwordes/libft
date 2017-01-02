@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/31 08:43:23 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/31 08:52:39 by iwordes          ###   ########.fr       */
+/*   Created: 2016/12/31 19:39:49 by iwordes           #+#    #+#             */
+/*   Updated: 2016/12/31 19:53:09 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
 /*
-** Duplicate up to N characters of a string and return the copy.
+** Join together up to x + y characters of two strings.
 */
 
-char	*ft_strndup(const char *string, size_t limit)
+char	*ft_strnjoin(const char *str1, const char *str2, size_t x, size_t y)
 {
-	char	*copy;
-	size_t	i;
+	char	*string;
+	size_t	l1;
+	size_t	l2;
 
-	i = 0;
-	copy = ft_strnew(MIN(ft_strlen(string), limit));
-	if (copy != NULL)
-		while (string[i] != 0 && i < limit)
-		{
-			copy[i] = string[i];
-			i += 1;
-		}
-	return (copy);
+	NULL_GUARD(str1);
+	NULL_GUARD(str2);
+	l1 = ft_strlen(str1);
+	l2 = ft_strlen(str2);
+	NULL_GUARD(string = ft_strnew(MIN(x + y, l1 + l2)));
+	ft_strncat(string, str1, MIN(x, l1));
+	ft_strncat(string, str2, MIN(y, l2));
+	return (string);
 }
