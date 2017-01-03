@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 15:37:08 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/01 20:50:01 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 09:17:09 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,47 @@
 ** one another mid-parse.
 */
 
-static void	parsenum(const char **fmt, ssize_t *prec)
+static int	parse_num(const char **fmt, char was_dot, t_printer *printer)
 {
-	while (**fmt >= '0' && **fmt <= '9')
+	ssize_t	num;
+
+	num = 0;
+	if ((**fmt >= ((was_dot) ? '0' : '1')) && **fmt <= '9')
 	{
-		*prec = (*prec * 10) + (**fmt - '0');
-		*fmt += 1;
+		while (**fmt >= '0' && **fmt <= '9')
+		{
+			num = (num * 10) + (**fmt - '0');
+			*fmt += 1;
+		}
+		if (**fmt == '$')
+			printer->arg = num;
+		else if (was_dot)
+			printer->prec = num;
+		else
+			printer->width = num;
+		return (TRUE);
 	}
+	return (FALSE);
 }
 
-char		ft_asprintf_parse_wargp(const char **fmt, t_printer *printer)
+static int	parse_star(const char **fmt, va_list arg, char dot, t_printer *p)
+{
+	int		star_num;
+
+	if (**fmt != '*')
+		return (FALSE);
+	star_num = va_arg(arg, int);
+	p->stars += 1;
+	*fmt += 1;
+	if (dot)
+		p->prec = star_num;
+	else
+		p->width = star_num;
+	return (TRUE);
+}
+
+char		ft_asprintf_parse_wargp(const char **fmt, va_list arg,
+															t_printer *printer)
 {
 	ssize_t		prec;
 	char		was_dot;
@@ -39,16 +70,9 @@ char		ft_asprintf_parse_wargp(const char **fmt, t_printer *printer)
 		was_dot = TRUE;
 		printer->prec = (printer->prec >= 0) ? printer->prec : 0;
 	}
-	if ((**fmt >= ((was_dot) ? '0' : '1')) && **fmt <= '9')
-	{
-		parsenum(fmt, &prec);
-		if (**fmt == '$')
-			printer->arg = prec;
-		else if (was_dot)
-			printer->prec = prec;
-		else
-			printer->width = prec;
+	if (parse_num(fmt, was_dot, printer))
 		return (TRUE);
-	}
-	return (FALSE);
+	else if (parse_star(fmt, arg, was_dot, printer))
+		return (TRUE);
+	return (was_dot);
 }

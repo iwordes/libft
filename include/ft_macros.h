@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/31 19:00:25 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 15:23:28 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 #  define NULL (void*)0
 # endif
 
+# define BREAKIF(COND) if (COND) break
 # define FREE_RET(FREE, RET) free(FREE); return (RET)
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 # define PASS (void)0

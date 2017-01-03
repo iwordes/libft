@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 10:50:09 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/01 21:23:26 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 09:09:39 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ typedef struct	s_printer
 	char		pad;
 	char		length;
 	char		neg;
+	char		argsel;
 
+	size_t		stars;
 	size_t		arg;
-	size_t		width;
+	ssize_t		width;
 	ssize_t		prec;
 }				t_printer;
 
@@ -56,10 +58,11 @@ ssize_t			ft_asprintf_dispatch(char **s, va_list ag, size_t *a,
 																t_printer *p);
 ssize_t			ft_asprintf_format(char **s, char *r, ssize_t l, t_printer *p);
 char			*ft_asprintf_ljust(char *s, char p, size_t tgt, size_t len);
-void			ft_asprintf_parse(const char **fmt, t_printer *p);
+void			ft_asprintf_parse(const char **fmt, va_list arg, t_printer *p);
 char			ft_asprintf_parse_flags(const char **fmt, t_printer *p);
 char			ft_asprintf_parse_length(const char **fmt, t_printer *p);
-char			ft_asprintf_parse_wargp(const char **fmt, t_printer *p);
+char			ft_asprintf_parse_wargp(const char **fmt, va_list arg,
+																t_printer *p);
 char			*ft_asprintf_rjust(char *s, char p, size_t tgt, size_t len);
 char			*ft_asprintf_segdjoin(char *t, char *c, ssize_t lt, ssize_t lc);
 char			*ft_asprintf_segjoin(char *t, char *c, ssize_t lt, ssize_t lc);

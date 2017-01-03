@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:18:01 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/01 21:12:12 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 09:12:00 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,27 @@ static ssize_t	get_text_segment(char **string, const char **fmt)
 **    NOTE: This implementation is at risk of deviating from standard printf
 **    behavior and may skip arguments when an argsel has been specified.
 **        while (TRUE) { get_arg(); a++ }
-**    NOTE: This may not work as intended due to the unknown internal
-**    implementation of va_list.
 ** 5. Run the proper convspec function as defined in the t_printer.
 **    Its return value is passed to our caller.
+*/
+
+/*
+** Return the output of the next conversion specifier in the format string.
+**
+** 1. Determine if there is a conversion spec available.
+**    If not, terminate early with an empty string.
+** 2. Zero out and initialize a t_printer struct.
+** 3. Create a copy of our arguments head. This must be done before parsing to
+**    account for calls to va_arg made when parsing '*' for width or precision.
+** 4. Parse the conversion spec, storing its data in the t_printer.
+** 5. If any '*' were encountered during parsing, add the number encountered
+**    to our argument index so we don't reuse those arguments.
+** 6. If there literally was no conversion (EOL was hit), return error.
+** 7. Get the proper argument.
+**    NOTE: According to my mental model, this ordering really *should not*
+**    work. If the va_list copy is made from the head, then calls to va_arg
+**    Somehow, this passes every moulitest '*' flag test.
+** 8. Call the proper conversion function, storing its length
 */
 
 static ssize_t	get_conv_segment(char **string, const char **fmt,
@@ -60,7 +77,6 @@ static ssize_t	get_conv_segment(char **string, const char **fmt,
 	t_printer	printer;
 	ssize_t		length;
 	va_list		arg;
-	size_t		i;
 
 	if (**fmt != '%')
 	{
@@ -70,21 +86,22 @@ static ssize_t	get_conv_segment(char **string, const char **fmt,
 	ft_bzero(&printer, sizeof(t_printer));
 	printer.arg = *a;
 	printer.prec = -1;
-	ft_asprintf_parse(fmt, &printer);
-	if (printer.conv == 0)
-		return (-1);
 	va_copy(arg, args);
-	i = 0;
-	while (i++ < printer.arg)
+	while (printer.arg-- != 0)
+		va_arg(arg, int);
+	ft_asprintf_parse(fmt, arg, &printer);
+	*a += printer.stars;
+	if (printer.conv == 0)
+	{
+		va_end(arg);
+		return (-1);
+	}
+	while (printer.arg-- != 0)
 		va_arg(arg, int);
 	length = ft_asprintf_dispatch(string, arg, a, &printer);
 	va_end(arg);
 	return (length);
 }
-
-/*
-** * could be accounted for by double calling va_arg()
-*/
 
 int				ft_vasprintf(char **string, const char *fmt, va_list args)
 {
