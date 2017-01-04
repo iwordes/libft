@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/31 08:50:56 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/03 20:15:30 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ char	*ft_strrevdup(const char *string);
 
 char	*ft_leftpad(const char *string, char pad, size_t size);
 char	*ft_rightpad(const char *string, char pad, size_t size);
+
+/*
+** Variadic
+*/
+char	*ft_vstrjoin(const char *str1, ...);
+char	*ft_vstrjoin_(const char *str1, va_list args);
+size_t	ft_vstrlen(const char *str1, ...);
+size_t	ft_vstrlen_(const char *str1, va_list args);
 
 /*
 ** Conversion

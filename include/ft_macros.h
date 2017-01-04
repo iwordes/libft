@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/02 15:23:28 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/03 19:10:43 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@
 # define ABS(NUM) ((NUM < 0) ? -NUM : NUM)
 # define MAX(LHS, RHS) ft_greater(LHS, RHS)
 # define MIN(LHS, RHS) ft_lesser(LHS, RHS)
+
+# define FT_VSTRJOIN(ARGS...) ft_vstrjoin(ARGS, NULL)
 
 #endif
