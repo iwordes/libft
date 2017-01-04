@@ -4,7 +4,7 @@ AUTHOR  := iwordes
 
 INCDIR  := ./include
 OBJDIR  := ./build
-OUTDIR  := ./lib
+OUTDIR  := .
 SRCDIR  := ./src
 
 CC      := gcc
@@ -33,7 +33,8 @@ all: $(NAME)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJ)
+	@[ "$(OBJDIR)" != '.' ] && rm -rf "$(OBJDIR)" || rm -f $(OBJ)
+	@echo Cleaned!
 
 .PHONY: fclean
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 09:07:38 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 20:08:03 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 20:04:54 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 ** following order:
 ** [ Argument selector (N$) ] [ Flags ] [ Width (N) ] [ Precision (.N) ] ...
 ** [ Length modifier (e.g. l, ll, etc) ] { Conversion (e.g. `d`, `f`) }
+**
+** Additionally:
+** The -1 return for a partially-failed conversion can be bypassed by using
+** the greater of (ret, ft_strlen(outcome)).
 */
 
 int				ft_printf(const char *fmt, ...)

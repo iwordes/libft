@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 10:50:09 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/02 09:09:39 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 09:34:54 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct	s_printer
 	char		pad;
 	char		length;
 	char		neg;
-	char		argsel;
 
 	size_t		stars;
 	size_t		arg;

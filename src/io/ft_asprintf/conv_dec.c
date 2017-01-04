@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 10:32:42 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/01 19:27:09 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 18:44:40 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ ssize_t		ft_asprintf_conv_dec(char **string, va_list arg, t_printer *p)
 	*string = ft_asprintf_uitoa_base(ABS(integer), 10, p);
 	if (*string == NULL)
 		return (-1);
-	if (integer < 0 && (!p->zero_pad || p->width == 0))
-		**string = '-';
-	else if ((p->pad || p->sign) && (!p->zero_pad || p->width == 0))
-		**string = (p->sign) ? '+' : ' ';
+	if (!p->zero_pad || p->width == 0)
+	{
+		if (integer < 0)
+			**string = '-';
+		else if (p->pad || p->sign)
+			**string = (p->sign) ? '+' : ' ';
+	}
 	return (ft_strlen(*string));
 }

@@ -6,32 +6,13 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 19:29:32 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/02 09:17:22 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/02 10:57:37 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static char		g_conv_c[] =
-{
-	'C',
-	'D',
-	'O',
-	'S',
-	'U',
-	'X',
-
-	'c',
-	'd',
-	'i',
-	'o',
-	'p',
-	's',
-	'u',
-	'x',
-
-	0
-};
+static char		*g_conv_c = "CDOSUXcdiopsux";
 
 static ssize_t	(*g_conv_f[])(char**, va_list, t_printer*) =
 {
@@ -56,6 +37,13 @@ static ssize_t	(*g_conv_f[])(char**, va_list, t_printer*) =
 
 /*
 ** Launch the proper conversion delegate and enforce minimum field width.
+**
+** 1. While we do not have the proper conversion function, advance.
+**    If we have reached the end of our available valid conversions, stop.
+** 2. If we are on a valid conversion function, increment the argument index.
+** 3. Execute the proper conversion function and store its output.
+**    If its output is less than zero, return it.
+** 4. Format the raw string and return the formatter's output.
 */
 
 ssize_t			ft_asprintf_dispatch(char **str, va_list arg, size_t *a,

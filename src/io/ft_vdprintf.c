@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 09:07:23 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/02 13:34:18 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/03 10:27:23 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		ft_vdprintf(int fd, const char *fmt, va_list args)
 	ssize_t	ret;
 
 	ret = ft_vasprintf(&string, fmt, args);
-	if (string != NULL && ret >= 0)
-		write(fd, string, ret);
+	if (string != NULL && ret != 0)
+		write(fd, string, ABS(ret));
 	free(string);
-	return (ret);
+	return (ret >= 0 ? ret : -1);
 }
