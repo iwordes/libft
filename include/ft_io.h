@@ -6,13 +6,14 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:42 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/30 13:11:15 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/04 16:50:01 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_IO_H
 # define FT_IO_H
 
+# include <stdarg.h>
 # include "ft_string.h"
 
 /*
