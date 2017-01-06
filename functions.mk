@@ -71,6 +71,9 @@ ft_strssplit\
 \
 ft_tolower\
 ft_toupper\
+\
+ft_vstrjoin \
+ft_vstrlen
 
 FN_NUMBER    := ft_absolute ft_greater ft_intlen ft_intlen_base ft_lesser ft_power\
 				ft_square ft_swap ft_uintlen ft_uintlen_base
