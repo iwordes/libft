@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/07 16:09:36 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/09 16:45:06 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # ifndef MAX_PTR
 #  define MAX_PTR (void*)(~0LL)
 # endif
-
 
 # define BREAKIF(COND) if (COND) break
 # define FREE_RET(FREE, RET) free(FREE); return (RET)

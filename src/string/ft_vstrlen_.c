@@ -6,15 +6,11 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 19:44:09 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/03 19:47:37 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/09 16:45:22 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-/*
-**
-*/
 
 size_t	ft_vstrlen_(const char *str, va_list args)
 {
