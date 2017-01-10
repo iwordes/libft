@@ -78,13 +78,19 @@ ft_vstrlen
 FN_NUMBER    := ft_absolute ft_greater ft_intlen ft_intlen_base ft_lesser ft_power\
 				ft_square ft_swap ft_uintlen ft_uintlen_base
 
-FN_IO        := ft_printf ft_vprintf\
-				ft_asprintf ft_vasprintf\
-				ft_dprintf ft_vdprintf
-FN_IO        += ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_puterr\
-				ft_putint ft_putint_fd ft_putint_base ft_putint_base_fd ft_putstr\
-				ft_putstr_fd ft_putuint ft_putuint_fd ft_putuint_base\
-				ft_putuint_base_fd ft_putnbr ft_putnbr_fd
+FN_IO        := ft_printf       ft_vprintf   \
+				ft_asprintf     ft_vasprintf \
+				ft_dprintf      ft_vdprintf  \
+				ft_eprintf
+FN_IO        += ft_putchar      ft_putchar_fd \
+				ft_putendl      ft_putendl_fd \
+				ft_puterr \
+				ft_putint       ft_putint_fd \
+				ft_putint_base  ft_putint_base_fd \
+				ft_putstr       ft_putstr_fd \
+				ft_putuint      ft_putuint_fd \
+				ft_putuint_base ft_putuint_base_fd \
+				ft_putnbr       ft_putnbr_fd
 FN_IO        += ft_getline
 
 FN_PRINTF    := cast_signed cast_unsigned

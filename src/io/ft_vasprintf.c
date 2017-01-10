@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:18:01 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/05 20:11:39 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/09 16:27:15 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,15 @@ int				ft_vasprintf(char **string, const char *fmt, va_list args)
 	*string = NULL;
 	while (*fmt != 0)
 	{
-		if ((l[0] = get_conv_segment(seg + 0, &fmt, args, &a)) < 0)
-			break ;
-		if ((l[1] = get_text_segment(seg + 1, &fmt)) < 0)
+		PF_FAILIF((l[0] = get_text_segment(seg + 0, &fmt)) < 0);
+		if ((l[1] = get_conv_segment(seg + 1, &fmt, args, &a)) < 0)
 			free(seg[0]);
-		BREAKIF(l[1] < 0);
+		PF_FAILIF(l[1] < 0);
 		if ((seg[0] = ft_asprintf_segdjoin(seg[0], seg[1], l[0], l[1])) == NULL)
-			break ;
+			return (-l[2]);
 		seg[1] = ft_asprintf_segjoin(*string, seg[0], l[2], l[0] + l[1]);
 		free(seg[0]);
-		BREAKIF(seg[1] == NULL);
+		PF_FAILIF(seg[1] == NULL);
 		free(*string);
 		*string = seg[1];
 		l[2] += l[0] + l[1];
