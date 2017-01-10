@@ -6,13 +6,13 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 19:29:32 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/02 10:57:37 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/10 14:57:49 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static char		*g_conv_c = "CDOSUXcdiopsux";
+static char		*g_conv_c = "CDOSUXbcdiopsux";
 
 static ssize_t	(*g_conv_f[])(char**, va_list, t_printer*) =
 {
@@ -23,6 +23,7 @@ static ssize_t	(*g_conv_f[])(char**, va_list, t_printer*) =
 	ft_asprintf_conv_unsigned_long,
 	ft_asprintf_conv_hex_caps,
 
+	ft_asprintf_conv_binary,
 	ft_asprintf_conv_char,
 	ft_asprintf_conv_dec,
 	ft_asprintf_conv_dec,

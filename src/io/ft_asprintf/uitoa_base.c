@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 18:53:00 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/01 18:14:58 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/10 14:59:14 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char			*ft_asprintf_uitoa_base(uintmax_t integer, uint8_t base,
 	base_string = (p->conv >= 'A' && p->conv <= 'Z') ? BASE64 : BASE64L;
 	while (i < l)
 	{
-		if (base == 10 && p->group && i % 4 == 3)
+		if (p->group && base == 10 && i != l - 1 && i % 4 == 3)
 			*(string + (l - 1) - i) = ',';
 		else
 		{
