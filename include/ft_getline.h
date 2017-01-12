@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 13:10:02 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/30 13:10:45 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/11 12:39:37 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef struct		s_getln
 }					t_getln;
 
 ssize_t				ft_getline(const int fd, char **const line);
+char				*ft_getinput(const char *prompt);
 
 #endif
