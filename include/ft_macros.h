@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/09 16:45:06 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/18 12:44:26 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 
 # define BREAKIF(COND) if (COND) break
 # define FREE_RET(FREE, RET) free(FREE); return (RET)
+# define ITER(COND, I) while (COND) I += 1;
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 # define PASS (void)0
 
