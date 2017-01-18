@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 10:54:14 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:26:02 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/18 13:46:29 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void		*ft_realloc(void *original, size_t target, size_t orig_size)
 {
 	void	*copy;
 
+	if (target == orig_size)
+		return (original);
 	NULL_GUARD(copy = (t_byte*)malloc(target));
 	if (original != NULL && copy != NULL)
 	{
