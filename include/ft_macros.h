@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/18 12:54:44 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/18 18:15:24 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # endif
 
 # define BREAKIF(COND) if (COND) break
+# define CONTIF(COND) if (COND) continue
 # define FREE_RET(FREE, RET) free(FREE); return (RET)
 # define ITER(I, COND) while (COND) I += 1
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
