@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/18 18:15:24 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/20 11:31:56 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 # define PASS (void)0
 # define UNTIL(COND) while (!(COND))
+
+# define IS_ODD(N) (N & 1)
+# define IS_EVEN(N) (!IS_ODD(N))
 
 # ifdef FUN_FRIENDLY_MACROS
 
