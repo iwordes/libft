@@ -31,6 +31,7 @@ FN_STRING := ft_atoi     ft_charcnt   ft_charrcnt\
 			 ft_strrchr  ft_strstr    ft_strsub\
 			\
 			 ft_strdel   ft_strdjoin  ft_strequ\
+			 ft_stricmp \
 			 ft_striter  ft_striteri  ft_strjoin\
 			 ft_strmap   ft_strmapi   ft_strncat\
 			 ft_strnequ  ft_strnew    ft_strsplit\
