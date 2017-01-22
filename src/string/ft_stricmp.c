@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 19:09:04 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/21 19:21:57 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/21 20:05:32 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int		ft_stricmp(const char *str1, const char *str2)
 		str1 += 1;
 		str2 += 1;
 	}
-	return ((uint8_t)*str1 - (uint8_t)*str2);
+	return ((uint8_t)(*str1) - (uint8_t)(*str2));
 }
