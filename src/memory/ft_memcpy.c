@@ -6,25 +6,26 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:32 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:13:38 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/27 14:01:02 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		*ft_memcpy(void *mdest, const void *msrc, size_t n)
+void		*ft_memcpy(void *dest, const void *src, size_t l)
 {
-	t_byte	*dest;
-	t_byte	*src;
 	size_t	i;
 
-	dest = (t_byte*)mdest;
-	src = (t_byte*)msrc;
 	i = 0;
-	while (i < n)
+	while (l - i >= 8)
 	{
-		dest[i] = src[i];
-		i++;
+		*(uint64_t*)((char*)dest + i) = *(uint64_t*)((char*)src + i);
+		i += 8;
 	}
-	return (mdest);
+	while (i < l)
+	{
+		((char*)dest)[i] = ((char*)src)[i];
+		i += 1;
+	}
+	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:43:36 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:13:42 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/01/27 14:01:35 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,26 @@
 ** Performs a non-destructive copy of n bytes from memory_src to memory_dest.
 */
 
-void				*ft_memmove(void *mdest, const void *msrc, size_t n)
+void				*ft_memmove(void *dest, const void *src, size_t l)
 {
-	t_byte			*dest;
-	const t_byte	*src;
+	size_t	i;
 
-	if (msrc == mdest || n == 0)
-		return (mdest);
-	else if (mdest < msrc)
-		return (ft_memcpy(mdest, msrc, n));
+	if (dest < src)
+		return (ft_memcpy(dest, src, l));
 	else
 	{
-		src = (const t_byte*)msrc;
-		dest = (t_byte*)mdest;
-		while (--n)
-			dest[n] = src[n];
-		dest[0] = src[0];
-		return (mdest);
+		i = 0;
+		while (l - i >= 8)
+		{
+			i += 8;
+			*(uint64_t*)((char*)dest - i) = *(uint64_t*)((char*)src - i);
+		}
+		while (i < l)
+		{
+			i += 1;
+			*((char*)dest - i) = *((char*)src - i);
+		}
+		*((char*)dest) = *((char*)src);
+		return (dest);
 	}
 }
