@@ -25,7 +25,7 @@ FN_STRING := ft_atoi     ft_charcnt   ft_charrcnt\
 			\
 			 ft_strdup   ft_strlcat   ft_strlen\
 			\
-			 ft_strins \
+			 ft_strcut   ft_strins \
 			 ft_strncmp  ft_strncpy   ft_strndup\
 			 ft_strnstr\
 			\
