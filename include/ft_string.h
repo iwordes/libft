@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/02 11:51:40 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/03 09:12:14 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ size_t	ft_charrcnt(const char *string, char to_count_runs);
 size_t	ft_wordcnt(const char *string);
 
 char	*ft_strins(char *str, const char *substr, size_t st);
+char	*ft_strcut(char *str, size_t st, size_t n);
+
 size_t	ft_struntil(const char *string, char c);
 size_t	ft_struntils(const char *string, const char *substring);
 size_t	ft_strluntil(const char *string, char c, size_t limit);
