@@ -58,7 +58,7 @@ FN_IO        := ft_printf       ft_vprintf   \
 				ft_eprintf
 FN_IO        += ft_putchar      ft_putchar_fd \
 				ft_putendl      ft_putendl_fd \
-				ft_puterr \
+				ft_puterr       ft_putvis \
 				ft_putint       ft_putint_fd \
 				ft_putint_base  ft_putint_base_fd \
 				ft_putstr       ft_putstr_fd \

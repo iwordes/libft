@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:42 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/16 17:45:49 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/03 13:14:53 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_putstr(const char *string);
 void	ft_putuint(uintmax_t integer);
 void	ft_putuint_base(uintmax_t integer, char base);
 
+void	ft_putvis(const char *str);
 void	ft_puterr(const char *error);
 
 void	ft_putchar_fd(char c, int fd);
