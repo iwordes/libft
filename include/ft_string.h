@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:51 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/03 09:12:14 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/03 13:02:09 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char	*ft_itoa_base(intmax_t integer, char base);
 /*
 ** Character Checks
 */
+int		ft_iscntrl(int c);
 int		ft_isupper(int character);
 int		ft_islower(int character);
 int		ft_isalpha(int character);

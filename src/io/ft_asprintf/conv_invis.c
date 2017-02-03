@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 11:30:19 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/03 12:52:39 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/03 13:00:52 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static void	invis_cpy(char *dest, const char *src)
 	i = 0;
 	while (*src != 0)
 	{
-		if (ft_iscntrl(*str))
+		if (ft_iscntrl(*src))
 		{
 			dest[i++] = '^';
-			dest[i++] = (*str + 64) & 127;
+			dest[i++] = (*src + 64) & 127;
 		}
 		else
 			dest[i++] = *src;

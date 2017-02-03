@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 10:50:09 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/15 12:30:07 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/03 12:58:33 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ ssize_t			ft_asprintf_conv_binary(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_char(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_dec(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_hex(char **s, va_list a, t_printer *p);
+ssize_t			ft_asprintf_conv_invis(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_octal(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_ptr(char **s, va_list a, t_printer *p);
 ssize_t			ft_asprintf_conv_str(char **s, va_list a, t_printer *p);

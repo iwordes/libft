@@ -80,6 +80,7 @@ FN_ASPRINTF  += conv_binary \
 				conv_char conv_char_long\
 				conv_dec conv_dec_long\
 				conv_hex conv_hex_caps\
+				conv_invis\
 				conv_literal\
 				conv_octal conv_octal_long\
 				conv_ptr\
