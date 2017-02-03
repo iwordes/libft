@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 11:37:43 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/02 13:24:54 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/02 19:40:03 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ char	*ft_strins(char *str, const char *substr, size_t st)
 	sl = ft_strlen(substr);
 	if (sl == 0)
 		return (str);
-	str[i-- + sl] = 0;
+	if (i > 0)
+		str[i-- + sl] = 0;
 	while (i > st)
 	{
 		str[i + sl] = str[i];
 		i -= 1;
 	}
-	ft_strncpy(str + i, substr, sl);
+	ft_memcpy(str + st, substr, sl);
 	return (str);
 }
