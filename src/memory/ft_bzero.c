@@ -6,13 +6,22 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:42:03 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:13:23 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/04 10:34:36 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_bzero(void *input, size_t num_zeroes)
+void		ft_bzero(void *mem, size_t l)
 {
-	ft_memset(input, 0, num_zeroes);
+	size_t	i;
+
+	i = 0;
+	while (l - i >= 8)
+	{
+		*(uint64_t*)(mem + i) = 0;
+		i += 8;
+	}
+	while (i < l)
+		*(char*)(mem + i++) = 0;
 }
