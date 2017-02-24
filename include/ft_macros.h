@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/01/20 11:31:56 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/23 20:54:30 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 # define PASS (void)0
 # define UNTIL(COND) while (!(COND))
+
+# define MALT(T, N) (T*)malloc(sizeof(T) * (N))
 
 # define IS_ODD(N) (N & 1)
 # define IS_EVEN(N) (!IS_ODD(N))
