@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:46 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/23 21:08:21 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/23 21:32:35 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 
 # define MALT(T, N) (T*)malloc(sizeof(T) * (N))
 # define RALT(M, T, N, L) (T*)ft_realloc(M, sizeof(T) * (N), sizeof(T) * (L))
+# define ZALT(T, N) (T*)ft_memalloc(sizeof(T) * (N))
 
 # define IS_ODD(N) (N & 1)
 # define IS_EVEN(N) (!IS_ODD(N))
