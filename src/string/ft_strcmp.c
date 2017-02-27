@@ -6,22 +6,20 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 16:44:09 by iwordes           #+#    #+#             */
-/*   Updated: 2016/12/14 19:15:20 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/02/26 19:17:13 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_strcmp(const char *string1, const char *string2)
+int		ft_strcmp(const char *str1, const char *str2)
 {
-	if (string1 == string2)
+	size_t	i;
+
+	if (str1 == str2)
 		return (0);
-	while (*string1 == *string2)
-	{
-		if (*string1 == 0)
-			return (0);
-		string1++;
-		string2++;
-	}
-	return ((t_byte)(*string1) - (t_byte)(*string2));
+	i = 0;
+	while (str1[i] == str2[i] && str1[i] != 0)
+		i += 1;
+	return ((unsigned)(str1[i]) - (unsigned)(str2[i]));
 }
