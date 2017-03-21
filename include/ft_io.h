@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:38:42 by iwordes           #+#    #+#             */
-/*   Updated: 2017/02/03 13:14:53 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/03/21 15:01:55 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_putuint_base_fd(uintmax_t integer, char base, int fd);
 void	ft_putnbr(int integer);
 void	ft_putnbr_fd(int integer, int fd);
 
+char	*ft_read(int fd);
 int		ft_readln(int fd, char **const line);
 
 #endif
