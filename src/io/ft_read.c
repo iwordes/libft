@@ -6,7 +6,7 @@
 /*   By: iwordes <iwordes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 14:38:45 by iwordes           #+#    #+#             */
-/*   Updated: 2017/03/21 14:57:54 by iwordes          ###   ########.fr       */
+/*   Updated: 2017/03/21 14:59:10 by iwordes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	grow_(char **file, size_t *m)
 {
 	char	*tmp;
 
-	if ((tmp = MALT(char, m * 2 + 1)) == NULL)
+	if ((tmp = MALT(char, *m * 2 + 1)) == NULL)
 		return (false);
 	ft_memcpy(tmp, *file, *m);
 	free(*file);

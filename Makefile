@@ -65,7 +65,7 @@ FN_IO        += ft_putchar      ft_putchar_fd \
 				ft_putuint      ft_putuint_fd \
 				ft_putuint_base ft_putuint_base_fd \
 				ft_putnbr       ft_putnbr_fd
-FN_IO        += ft_getinput ft_getline ft_readln
+FN_IO        += ft_getinput ft_getline ft_readln ft_read
 
 FN_PRINTF    := cast_signed cast_unsigned
 
