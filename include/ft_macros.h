@@ -48,6 +48,7 @@
 # define PASS (void)0
 # define UNTIL(COND) while (!(COND))
 
+# define DRALT(M, T, N, L) (T*)ft_drealloc(M, sizeof(T) * (N), sizeof(T) * (L))
 # define MALT(T, N) (T*)malloc(sizeof(T) * (N))
 # define RALT(M, T, N, L) (T*)ft_realloc(M, sizeof(T) * (N), sizeof(T) * (L))
 # define ZALT(T, N) (T*)ft_memalloc(sizeof(T) * (N))
