@@ -46,6 +46,7 @@
 # define ITER(I, COND) while (COND) I += 1
 # define NULL_GUARD(INPUT) if ((INPUT) == NULL) return (NULL)
 # define PASS (void)0
+# define UINT unsigned int
 # define UNTIL(COND) while (!(COND))
 
 # define DRALT(M, T, N, L) (T*)ft_drealloc(M, sizeof(T) * (N), sizeof(T) * (L))
