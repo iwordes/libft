@@ -121,11 +121,12 @@ all: $(NAME)
 .PHONY: clean
 clean:
 	@[ "$(OBJDIR)" != '.' ] && rm -rf "$(OBJDIR)" || rm -f $(OBJ)
-	@echo Cleaned!
+	@echo "[ \x1b[93mOK\x1b[0m ] rm $(OBJDIR)"
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(OUT)
+	@rm -f $(OUT)
+	@echo "[ \x1b[93mOK\x1b[0m ] rm $@"
 
 .PHONY: re
 re: fclean all
