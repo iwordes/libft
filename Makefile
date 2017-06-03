@@ -126,7 +126,7 @@ clean:
 .PHONY: fclean
 fclean: clean
 	@rm -f $(OUT)
-	@echo "[ \x1b[93mOK\x1b[0m ] rm $@"
+	@echo "[ \x1b[93mOK\x1b[0m ] rm "$(NAME).a
 
 .PHONY: re
 re: fclean all
